@@ -4312,4 +4312,9 @@ html.boxed #header .header-body {
 .forto h2{
 	color: #0a4ab5;
 }
-
+.jarak div{
+	padding-bottom: 10px;
+}
+.warnah span{
+	color: #000;
+}
