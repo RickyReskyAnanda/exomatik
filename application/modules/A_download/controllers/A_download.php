@@ -31,6 +31,9 @@ class A_download extends CI_Controller{
         public function select_data_download(){
             $this->M_download->select_data_download();
         }
+        public function select_jenis_download(){
+            $this->M_download->select_jenis_download();
+        }
 
         public function insert_data_download(){
             $this->M_download->insert_data_download();

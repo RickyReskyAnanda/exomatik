@@ -25,18 +25,14 @@
           </div>
           <div class="col-md-6">
             <ul class="list list-icons list-icons-style-2">
-              <li><i class="fa fa-download"></i>File Software
-                <li><a href="#"> Notepad++</a></li>
-                <li><a href="#"> Dev C++</a></li>
-                <li><a href="#"> Borland C++</a></li>
-                <li><a href="#"> Office 2013</a></li>
-                <li><a href="#"> Driver Pack</a></li>
-                <li><a href="#"> Openchart</a></li>
+            <?php for ($a=0; $a < count($jenis) ; $a++) { ?>
+              <li><i class="fa fa-download"></i><?=$jenis[$a]['jenis']?>
+              <?php for ($i=0; $i < count($data) ; $i++) { 
+                    if($jenis[$a]['jenis']==$data[$i]['jenis']){?>
+                      <li><a href="<?=$data[$i]['link']?>"> <?=$data[$i]['nama']?></a></li>
+              <?php }} ?>
               </li>
-              <li><i class="fa fa-file"></i>File formulir Pendaftaran
-              </li>
-              <li><i class="fa fa-youtube-play"></i>Drakor
-              </li>
+              <?php } ?>
             </ul>
           </div>
         </div>        

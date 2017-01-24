@@ -98,6 +98,7 @@
                                                 <th>No</th>
                                                 <th>Nama Download</th>
                                                 <th>link</th>
+                                                <th>Jenis</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -106,6 +107,7 @@
                                                 <td>{{$index+1}}</td>
                                                 <td>{{val.nama}}</td>
                                                 <td>{{val.link}}</td>
+                                                <td>{{val.jenis}}</td>
                                                 <td>
                                                     <button class="btn btn-info btn-rounded" ng-click="ubah(val)" data-toggle="modal" data-target="#myModal5">Edit</button>
                                                     <button class="btn btn-danger btn-rounded" ng-click="hapusdata(val.id,$index)">Hapus</button>
@@ -136,6 +138,15 @@
                                                                 <div class="form-group"><label class="col-sm-3 control-label">Link</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="text" class="form-control" ng-model="download.link">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-bottom: 10px;">
+                                                                <div class="form-group"><label class="col-sm-3 control-label">Jenis</label>
+                                                                    <div class="col-sm-9">
+                                                                        <select ng-model="download.jenis" class="form-control">
+                                                                            <option ng-repeat="data1 in jenisdownloadText" value="{{data1.jenis}}" >{{data1.jenis}}</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -173,6 +184,11 @@
                         $scope.downloadText = result;
                     });
 
+                      $http.post("<?= base_url('A_download/select_jenis_download');?>"   //jumlah berita
+                      ).success(function(result){
+                        $scope.jenisdownloadText = result;
+                    });
+
             /**
               |-----------------------------------------------------------------------------------------------
               |                               INSERT DATA
@@ -195,7 +211,8 @@
                         $scope.downloadText.push({
                             "id"            :data,
                             "nama"          :$scope.download.nama,
-                            "link"          :$scope.download.link
+                            "link"          :$scope.download.link,
+                            "jenis"         :$scope.download.jenis
                         });
                       }).error(function(){
                         alert("Gagal menyimpan data -_-");

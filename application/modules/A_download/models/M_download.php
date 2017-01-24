@@ -11,12 +11,18 @@ class M_download extends CI_Model {
     public function select_data_download(){
         echo json_encode($this->db->get('table_download')->result());
     }
+    public function select_jenis_download(){
+        $this->db->select('jenis');
+        $this->db->distinct();
+        echo json_encode($this->db->get('table_download')->result());
+    }
 
     public function insert_data_download(){
         $val = json_decode(file_get_contents('php://input'));
         $data = array(
             'nama'      => $val->data->nama,
-            'link'      => $val->data->link
+            'link'      => $val->data->link,
+            'jenis'      => $val->data->jenis,
         );
         $this->db->insert('table_download',$data);
 
