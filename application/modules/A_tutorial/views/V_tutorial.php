@@ -1,5 +1,4 @@
 
-        <span ng-app="exoapp" ng-controller="tutorialctrl">
            <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-9">
                     <h2>Data Tutorial</h2>
@@ -18,147 +17,245 @@
             </div>
             <div class="wrapper wrapper-content">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="widget style1 red-bg">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <i class="fa fa-newspaper-o fa-5x"></i>
+                    <div class="col-sm-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class="active" onclick="dataTutorial()"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Tutorial</a></li>
+                                <li class=""  onclick="dataKategori()"><a data-toggle="tab" href="#tab-2" aria-expanded="false">Kategori</a></li>
+                                <li class="" onclick="dataJenis()"><a data-toggle="tab" href="#tab-3" aria-expanded="false">Jenis</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+                                        <a href="<?=base_url('admin/tutorial/tambah')?>" >
+                                            <button class="btn btn-info btn-rounded" style="margin-bottom: 10px">
+                                                <i class="fa fa-plus"></i> Tambah Tutorial
+                                            </button>
+                                        </a>
+                                        <div class="col-sm-3 pull-right">
+                                            <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                                <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                        </div>
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Tanggal Rilis </th>
+                                                    <th>Jenis</th>
+                                                    <th>Kategori</th>
+                                                    <th>Judul tutorial</th>
+                                                    <th>Penulis</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tutorialLoop">
+                                                
+                                            </tbody>
+                                        </table>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-8 text-right">
-                                        <span> Konten </span>
-                                        <h2 class="font-bold">{{jumlahText.konten}}</h2>
+                                </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+                                        <a href="<?=base_url('admin/tutorial/kategori/tambah')?>" >
+                                            <button class="btn btn-info btn-rounded" style="margin-bottom: 10px">
+                                                <i class="fa fa-plus"></i> Tambah Kategori Tutorial
+                                            </button>
+                                        </a>
+                                        <div class="col-sm-3 pull-right">
+                                            <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                                <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                        </div>
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Gambar Icon</th>
+                                                    <th>Nama Kategori </th>
+                                                    <th>Waktu  </th>
+                                                    <th>Keterangan</th>
+                                                    <th>Jenis</th>
+                                                    <th>Nonaktif</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="kategoriLoop">
+                                            </tbody>
+                                        </table>
+                                        </div>
                                     </div>
                                 </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget style1 navy-bg">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <i class="fa fa-child fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span> Anggota </span>
-                                    <h2 class="font-bold">{{jumlahText.anggota}}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget style1 lazur-bg">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <i class="fa fa-file-pdf-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span> Program Kerja </span>
-                                    <h2 class="font-bold">{{jumlahText.proker}}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget style1 yellow-bg">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <i class="fa fa-send fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span> Portofolio </span>
-                                    <h2 class="font-bold">{{jumlahText.portofolio}}</h2>
+                                <div id="tab-3" class="tab-pane">
+                                    <div class="panel-body">
+                                        <a href="<?=base_url('admin/tutorial/jenis/tambah')?>" >
+                                            <button class="btn btn-info btn-rounded" style="margin-bottom: 10px">
+                                                <i class="fa fa-plus"></i> Tambah Jenis Tutorial
+                                            </button>
+                                        </a>
+                                        <div class="col-sm-3 pull-right">
+                                            <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                                <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                        </div>
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Jenis Tutorial </th>
+                                                    <th>Waktu</th>
+                                                    <th>Keterangan</th>
+                                                    <th>Nonaktif</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="jenisLoop">
+                                                
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Table tutorial</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <a href="<?=base_url('A_tutorial/tambah_data_tutorial')?>">
-                                    <button class="btn btn-info btn-rounded">
-                                        <i class="fa fa-plus"></i> Tambah Tutorial
-                                    </button>
-                                </a>
-                                <div class="col-sm-3 pull-right">
-                                    <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
-                                </div>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Rilis </th>
-                                            <th>Judul Utama</th>
-                                            <th>Judul tutorial</th>
-                                            <th>Penulis</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="val in tutorialText | filter:pencarian">
-                                            <td>{{$index+1}}</td>
-                                            <td>{{val.tgl_rilis}}</td>
-                                            <td>{{val.judul_utama}}</td>
-                                            <td>{{val.judul_tutorial}}</td>
-                                            <td>{{val.nama_user}}</td>
-                                            <td>
-                                                <a href="<?=base_url()?>A_tutorial/edit_data_tutorial/{{val.id_tutorial}}">
-                                                    <button class="btn btn-primary btn-rounded">Edit</button>
-                                                </a>
-                                                <button class="btn btn-danger btn-rounded" ng-click="hapusdata(val.id_tutorial,$index)">Hapus</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                     </div>
                 </div>
             </div>
-        </span>
 
         <script type="text/javascript">
-            var app=angular.module('exoapp',[]);
+            function dataTutorial(){
+                $('#tutorialLoop').html('');
+                 $.ajax({
+                    url: "<?=base_url('A_tutorial/select_data_tutorial')?>",
+                    //force to handle it as text
+                    dataType: "text",
+                    success: function(data) {
+                        var Jtutorial = $.parseJSON(data);
 
-            app.controller('tutorialctrl',function($scope,$http){
-
-                    $scope.jumlahText = {};
-                    $http.post("<?= base_url('A_dashboard/select_jumlah_widget');?>"   //jumlah berita
-                      ).success(function(data){
-                        $scope.jumlahText = data;
-                    });
-
-                    $scope.tutorialText=[];
-                    $http.post("<?= base_url('A_tutorial/select_data_tutorial');?>"   //jumlah berita
-                      ).success(function(result){
-                        $scope.tutorialText = result;
-                    });
-
-            /**
-              |-----------------------------------------------------------------------------------------------
-              |                               Hapus Data
-              |-----------------------------------------------------------------------------------------------
-              */
-                $scope.hapusdata = function(id,index){
-                    if (confirm("Apakah anda ingin menghapus ? ")){
-                        $http.post(
-                          "<?=base_url('A_tutorial/delete_data_tutorial')?>",
-                          {
-                            id:id
-                          }
-                        ).success(function(data){
-                            $scope.tutorialText.splice(index,1);
-                          alert(data);
-                        }).error(function(){
-                          alert("Gagal menghapus data");
-                        });
+                        for (var i=0;i<Jtutorial.length;++i){
+                            $('#tutorialLoop').append('<tr><td>'+(i+1)+'</td><td>'+Jtutorial[i].tgl_rilis+'</td><td>'+Jtutorial[i].nama_jenis_tutorial+'</td><td>'+Jtutorial[i].nama_kt+'</td><td>'+Jtutorial[i].judul_tutorial+'</td><td>'+Jtutorial[i].nama_lengkap+'</td><td><a href="<?=base_url()?>admin/tutorial/edit/'+Jtutorial[i].id_tutorial+'"><button class="btn btn-primary btn-rounded">Edit</button></a><button class="btn btn-danger btn-rounded" onclick="deleteData('+Jtutorial[i].id_tutorial+',1)">Hapus</button></td></tr>');
+                        }
                     }
-                };
-            });
+                });
+            }
+            dataTutorial();
 
+            function deleteData(id,url){
+                var urls="";
+
+                if(url==1){
+                    urls="delete";
+                }else if(url==2){
+                    urls="kategori/delete";
+                }else{
+                    urls="jenis/delete";
+                }
+
+                 swal({
+                        title: "Apakah anda ingin menghapus data ?",
+                        text: "Data tidak dapat dikembalikan setelah terhapus !",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        closeOnConfirm: false
+                    }, function () {
+                        $.ajax({
+                            type:"POST",
+                            url:"<?=base_url()?>admin/tutorial/"+urls,
+                            data:"id="+id,
+                            success:function(){
+                                dataTutorial();
+                                swal("Berhasil!", "Data telah dihapus !", "success");
+                            },error:function(){
+                                alert('Gagal Menghapus Data');
+                            }
+                        });
+                    });
+            }
+
+            // --------------- Kategori -------------------
+            function dataKategori(){
+                $('#kategoriLoop').html('');
+                 $.ajax({
+                    url: "<?=base_url('A_tutorial/select_data_kategori')?>",
+                    //force to handle it as text
+                    dataType: "text",
+                    success: function(data) {
+                        var Jkategori = $.parseJSON(data);
+
+                        for (var i=0;i<Jkategori.length;++i){
+                            $('#kategoriLoop').append('<tr><td>'+(i+1)+'</td><td><img src="<?=base_url()?>image/gambar_kt/'+Jkategori[i].gambar_kt+'" class="img-responsive img-circle"></td><td>'+Jkategori[i].nama_kt+'</td><td>'+Jkategori[i].waktu_kt+'</td><td>'+Jkategori[i].keterangan_kt+'</td><td>'+Jkategori[i].nama_jenis_tutorial+'</td><td>'+Jkategori[i].nonaktif_kt+'</td><td><a href="<?=base_url()?>admin/tutorial/kategori/edit/'+Jkategori[i].id_kt+'"><button class="btn btn-primary btn-rounded">Edit</button></a><button class="btn btn-danger btn-rounded" onclick="deleteKategori('+Jkategori[i].id_kt+',2)">Hapus</button></td></tr>');
+                        }
+                    }
+                });
+            }
+            function deleteKategori(id){
+                 swal({
+                        title: "Ingin menghapus kategori ?",
+                        text: "Data tidak dapat dikembalikan setelah terhapus !",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        closeOnConfirm: false
+                    }, function () {
+                        $.ajax({
+                            type:"POST",
+                            url:"<?=base_url('admin/tutorial/kategori/delete')?>",
+                            data:"id="+id,
+                            success:function(){
+                                dataKategori();
+                                swal("Berhasil!", "Data telah dihapus !", "success");
+                            },error:function(){
+                                swal("Gagal!", "Data gagal dihapus !", "danger");
+                            }
+                        });
+                    });
+            }
+
+
+
+            // --------------- Jenis -------------------
+            function dataJenis(){
+                $('#jenisLoop').html('');
+                 $.ajax({
+                    url: "<?=base_url('A_tutorial/select_data_jenis')?>",
+                    //force to handle it as text
+                    dataType: "text",
+                    success: function(data) {
+                        var Jjenis = $.parseJSON(data);
+
+                        for (var i=0;i<Jjenis.length;++i){
+                            $('#jenisLoop').append('<tr><td>'+(i+1)+'</td><td>'+Jjenis[i].nama_jenis_tutorial+'</td><td>'+Jjenis[i].waktu+'</td><td>'+Jjenis[i].keterangan+'</td><td>'+Jjenis[i].nonaktif+'</td><td><a href="<?=base_url()?>admin/tutorial/jenis/edit/'+Jjenis[i].id_jenis_tutorial+'"><button class="btn btn-primary btn-rounded">Edit</button></a><button class="btn btn-danger btn-rounded" onclick="deleteJenis('+Jjenis[i].id_jenis_tutorial+')">Hapus</button></td></tr>');
+                        }
+                    }
+                });
+            }
+            function deleteJenis(id){
+                 swal({
+                        title: "Ingin menghapus Jenis ?",
+                        text: "Data tidak dapat dikembalikan setelah terhapus !",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        closeOnConfirm: false
+                    }, function () {
+                        $.ajax({
+                            type:"POST",
+                            url:"<?=base_url('admin/tutorial/jenis/delete')?>",
+                            data:"id="+id,
+                            success:function(){
+                                dataJenis();
+                                swal("Berhasil!", "Data telah dihapus !", "success");
+                            },error:function(){
+                                swal("Gagal!", "Data gagal dihapus !", "danger");
+                            }
+                        });
+                    });
+            }
         </script>
 
                 

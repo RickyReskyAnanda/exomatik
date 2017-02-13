@@ -11,9 +11,7 @@ class H_download extends MY_Controller{
     }
     public function index(){
 		$data['navbar']='download'; 
-
 		$data['data'] = $this->M_download->select_data_download();   	
-		$data['jenis'] = $this->M_download->select_jenis_download();   	
         $this->load_view('V_download',$data);
     }  
 }

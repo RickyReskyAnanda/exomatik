@@ -6,11 +6,9 @@ class H_beranda extends MY_Controller{
     public function __construct()
     {
         parent::__construct();
-    
+        $this->load->model('M_beranda');
     }
     public function index(){
-        $this->load->model('M_beranda');
-
         $data = array();
         $data['navbar']='beranda';
         $data['konten']=$this->M_beranda->select_data_konten('id_konten',10);
@@ -22,4 +20,11 @@ class H_beranda extends MY_Controller{
         $data = array('navbar' => 'beranda');
         $this->load_view('V_developer',$data);
     }  
+    public function insert_komentar(){
+        $this->M_beranda->insert_komentar();
+    }
+    public function coba(){
+        $this->load->library('komentar');
+        $this->komentar->nama_saya();
+    }
 }?>

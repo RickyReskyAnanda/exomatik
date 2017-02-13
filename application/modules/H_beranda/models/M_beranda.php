@@ -25,6 +25,17 @@ class M_beranda extends CI_Model {
 
         return $data;
     }
+
+    public function insert_komentar(){
+        $data=array(
+            'nama'      => $this->input->post('nama'),
+            'email'     => $this->input->post('email'),
+            'komentar'  => $this->input->post('isi'),
+            'status'    =>  'menunggu',
+            'waktu'     => date('Y-m-d h:i:s'),
+            );
+        $this->db->insert('table_komentar',$data);
+    }
    
 }
 ?>

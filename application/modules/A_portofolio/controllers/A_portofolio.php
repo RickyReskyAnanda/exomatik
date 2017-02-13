@@ -39,6 +39,12 @@ class A_portofolio extends CI_Controller{
         $this->load->view('header');
         $this->load->view('V_edit_portofolio');
         $this->load->view('footer');
+    }
+
+    public function detail_data_portofolio(){
+        $this->load->view('header');
+        $this->load->view('V_detail_portofolio');
+        $this->load->view('footer');
 
     }
 

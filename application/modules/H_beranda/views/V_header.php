@@ -51,6 +51,7 @@
 
 		<!-- Head Libs -->
 		<script src="<?=base_url()?>sets/vendor/modernizr/modernizr.min.js"></script>
+		<script src="<?=base_url()?>sets/vendor/jquery/jquery.min.js"></script>
 
 	</head>
 	<body>
@@ -98,9 +99,9 @@
 											<i class="fa fa-bars"></i>
 										</button>
 										<ul class="header-social-icons social-icons hidden-xs">
-											<li class="social-icons-facebook"><a href="<?=base_url()?>sets/http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+											<li class="social-icons-facebook"><a href="http://www.facebook.com/exomatik.sc/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li class="social-icons-twitter"><a href="<?=base_url()?>sets/http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-											<li class="social-icons-linkedin"><a href="<?=base_url()?>sets/http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+											<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
 										</ul>
 										<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
 											<nav>

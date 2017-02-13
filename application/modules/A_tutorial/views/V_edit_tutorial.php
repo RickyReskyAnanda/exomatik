@@ -33,23 +33,30 @@
                             <div>
                                 <div class="ibox-content">
                                     
-                                    <form action="<?=base_url('A_tutorial/update_data_tutorial')?>" method="post" enctype="multipart/form-data" onsubmit="return postForm()">
+                                    <form action="<?=base_url('admin/tutorial/update')?>" method="post" enctype="multipart/form-data" onsubmit="return postForm()">
+                                        <input type="hidden" name="id_tutorial" value="<?=$data['id_tutorial']?>">
+                                        <input type="hidden" name="gambar_lama" value="<?=$data['gambar_tutorial']?>">
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Judul Utama Lama</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Jenis Tutorial</label>
                                                 <div class="col-sm-10" >
-                                                    <select name="judul_utama_lama" class="form-control">
-                                                    <option value="0">Tidak Memilih</option>
-                                                    <?php for($i=0;$i<count($data['judul']);$i++){?>
-                                                        <option value="<?=$data['judul'][$i]['judul_utama']?>" <?php if($data['judul_utama']==$data['judul'][$i]['judul_utama']){echo "selected";}?>><?=$data['judul'][$i]['judul_utama']?></option>
+                                                    <select name="jenis_t" class="form-control" id='jenis_t' onchange="dataKategori();" required>
+                                                        <option>Pilih Jenis Tutorial</option>
+                                                    <?php for($i=0;$i<count($jenis);$i++){?>
+                                                        <option value="<?=$jenis[$i]['id_jenis_tutorial']?>" <?php if($data['id_jt']==$jenis[$i]['id_jenis_tutorial'])echo "selected";?>><?=$jenis[$i]['nama_jenis_tutorial']?></option>
                                                     <?php } ?>
                                                     </select>
-                                                    * pilih "tidak memilih" jika ingin menginput judul utama baru
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Judul Utama Baru</label>
-                                                <div class="col-sm-10"><input type="text" name="judul_utama_baru" class="form-control" placeholder="Masukkan Judul tutorial" ></div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Kategori Tutorial</label>
+                                                <div class="col-sm-10" >
+                                                    <select name="kategori_t" id="kategori_t" class="form-control" required>
+                                                       <?php for ($i=0; $i < count($kategori); $i++) { ?>
+                                                       <option value="<?=$kategori[$i]['id_kt']?>" <?php if($data['id_kt']==$kategori[$i]['id_kt'])echo "selected";?>><?=$kategori[$i]['nama_kt']?></option>
+                                                       <?php } ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
@@ -58,17 +65,34 @@
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Deskripsi Singkat</label>
-                                                <div class="col-sm-10">
-                                                    <textarea class="form-control" name="deskripsi" required><?=$data['deskripsi']?></textarea>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Gambar DP tutorial</label>
+                                                <div class="col-sm-6"><input type="file" name="gambar_tutorial" class="form-control">
+                                                * input jika ingin mengganti gambar</div>
+                                                <div class="col-sm-4">
+                                                    <img src="">
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="id_tutorial" value="<?=$data['id_tutorial']?>">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Deskripsi Singkat</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="deskripsi" maxlength="250" required><?=$data['deskripsi_tutorial']?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Nonaktifkan</label>
+                                                <div class="col-sm-10" >
+                                                    <select name="nonaktif_tutorial" class="form-control" required>
+                                                       <option value="tidak" <?php if($data['nonaktif_tutorial']=='tidak')echo 'selected';?>>Tidak</option>
+                                                       <option value="ya" <?php if($data['nonaktif_tutorial']=='ya')echo 'selected';?>>Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="ibox-content no-padding">
-                                                <textarea id="summernote" name="content">
-                                                    <?=$data['isi_tutorial']?>
+                                                <textarea id="summernote" name="content"><?=$data['isi_tutorial']?>
                                                 </textarea>
                                             </div>
                                         </div>
@@ -85,3 +109,22 @@
                     </div>
                     <!-- batas form  -->
                 </div>
+                <script type="text/javascript">
+                    function dataKategori(){
+                        $('#kategori_t').html('');
+                         $.ajax({
+                            url: "<?=base_url('A_tutorial/select_data_kategori_tambah_tutorial')?>",
+                            type: "POST",
+                            data: {id: $("#jenis_t").val()},
+                            dataType: "text",
+                            success: function(hasil) {
+                                var Skategori = $.parseJSON(hasil);
+
+                                for (var i=0;i<Skategori.length;++i){
+                                    $('#kategori_t').append('<option value="'+Skategori[i].id_kt+'">'+Skategori[i].nama_kt+'</option>');
+                                }
+                            }
+                        });
+                    }
+                </script>
+ 

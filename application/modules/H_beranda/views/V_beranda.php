@@ -359,34 +359,48 @@
 						<div class="col-md-6">
 							<div class="recent-posts mb-xl">
 								<h2>Masukkan <strong>Komentar</strong> Anda</h2>
-								<form class="form-horizontal form-bordered" method="get">
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="inputDefault">Nama Lengkap</label>
-										<div class="col-md-6">
-											<input type="text" class="form-control" id="inputDefault" placeholder="Masukkan Nama Anda">
-										</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama Lengkap</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" id="namalengkap" placeholder="Masukkan Nama Anda">
 									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="inputDefault">E-Mail Anda</label>
-										<div class="col-md-6">
-											<input type="email" class="form-control" id="inputDefault" placeholder="Masukkan E-mail Anda">
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">E-Mail Anda</label>
+									<div class="col-md-6">
+										<input type="email" class="form-control" id="emailuser" placeholder="Masukkan E-mail Anda">
 									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="textareaDefault">Komentar</label>
-										<div class="col-md-6">
-											<textarea class="form-control" rows="3" id="textareaDefault"></textarea>
-										</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="textareaDefault">Komentar</label>
+									<div class="col-md-6">
+										<textarea class="form-control" rows="3" id="isikomentar"></textarea>
 									</div>
-									<div class="form-group">
-										<div class="col-md-9">
-											<button  type="submit" class="btn btn-primary pull-right"><i class="fa fa-send-o"></i> Kirim</button>													
-											<button style="margin-right: 10px" type="submit" class="btn btn-danger pull-right"><i class="fa fa-refresh"></i> Reset</button>
-										</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-9">
+										<button  type="submit" onclick="inputkomentar()" class="btn btn-primary pull-right"><i class="fa fa-send-o"></i> Kirim</button>	
 									</div>
-								</form>
+								</div>
 							</div>
 						</div>
+						<script type="text/javascript">
+						function inputkomentar(){
+							var namalengkap = $('#namalengkap').val();
+				            var emailuser   = $('#emailuser').val();
+				            var isikomentar = $('#isikomentar').val();
+							$.ajax({
+			                    type:"POST",
+			                    url:"<?=base_url('input/komentar')?>",
+			                    data:"nama="+namalengkap+"&email="+emailuser+"&isi="+isikomentar,
+			                    success:function(){
+			                    	alert('Berhasil Input Data');
+			                    },error:function(){
+			                        alert('Pengiriman Bermasalah');
+			                    }
+			                });
+		               	}
+						</script>
 						<div class="col-md-6">
 							<h2><strong>Komentar</strong></h2>
 							<div class="row">

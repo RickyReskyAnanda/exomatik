@@ -68,454 +68,460 @@
         </div>
         <div class="row">
           <h3>Dewan pertimbangan Ogranisasi</h3>
+          <?php for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='dpo'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p>Nurul Fuadi Alhusaini</p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
                   <p>Ketua DPO</p>
-                  <p>Angkatan VII</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php
+          }} for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='dpo'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p>Ahmad Syarfandi</p>
-                  <p>Sekertaris</p>
-                  <p>Angkatan VIII</p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Sekretaris DPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-bottom: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p>Ardiansyah</p>
-                  <p>Anggota</p>
-                  <p>Angkatan VII</p>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div class="col-md-4">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p>Muhammad Ikhsan</p>
-                  <p>Anggota</p>
-                  <p>Angkatan VII</p>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div class="col-md-4">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div class="col-md-4" style="margin-bottom: 30px;">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
-        <div class="divider divider-style-2 divider-icon-sm taller">
-          <i class="fa fa-chevron-down"></i>
-        </div>
-        <div class="row" >
-          <h3>Badan Pertimbangan Organisasi</h3>
-          <div class="col-md-4">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p>Muhammad Noviyanto</p>
-                  <p>Ketua</p>
-                  <p>Angkatan VIII </p>
-                </span>
-              </span>
-            </span>
-          </div>
-        </div>
+          <?php }}?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
-          <h3>SEKERTARIS & BENDAHARA</h3>
+        <?php for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='dpo'){
+          ?>
+          
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
                   <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+        <?php } }?>
+        </div>
+        <div class="divider divider-style-2 divider-icon-sm taller">
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="row" >
+          <h3>Badan Pertimbangan Organisasi</h3>
+          <?php for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='bpo'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Ketua BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php } }?>
+        </div>
+        <div class="divider divider-style-2 divider-icon-sm taller">
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="row">
+          <h3>SEKRETARIS & BENDAHARA</h3>
+          <?php for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='bpo'){
+          ?>
+          <div class="col-md-4">
+            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
+              <span class="thumb-info-side-image-wrapper">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
+              </span>
+              <span class="thumb-info-caption">
+                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Sekretaris BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
+                </span>
+              </span>
+            </span>
+          </div>
+          <?php }}
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'bendahara' && $data[$i]['departemen']=='bpo'){
+          ?>
+          <div class="col-md-4">
+            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
+              <span class="thumb-info-side-image-wrapper">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
+              </span>
+              <span class="thumb-info-caption">
+                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
+                </span>
+              </span>
+            </span>
+          </div>
+          <?php }} ?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
           <h3>Departement Kreatif & Inovatif</h3>
+          <?php for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='ki'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='ki'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} ?>
+        </div>
+        <div class="row">
+          <?php 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='ki'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-top: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
+          <?php }} ?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
           <h3>Departement Hubungan Masyarakat</h3>
+          <?php
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='humas'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }}
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='humas'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} ?>
+        </div>
+        <div class="row">
+          <?php
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='humas'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-top: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
+          <?php }} ?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
           <h3>Departement Pendidikan</h3>
+          <?php
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='pendidikan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='pendidikan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} ?>
+        </div>
+        <div class="divider divider-style-2 divider-icon-sm taller">
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="row">
+          <?php 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='pendidikan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-top: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
+          <?php }} ?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
           <h3>Departement Keuangan</h3>
+          <?php
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='keuangan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='keuangan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} ?>
+        </div>
+        <div class="divider divider-style-2 divider-icon-sm taller">
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="row">
+          <?php 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='keuangan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-top: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
+          <?php }} ?>
         </div>
         <div class="divider divider-style-2 divider-icon-sm taller">
           <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
           <h3>Departement Kesekretariatan</h3>
+          <?php
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'ketua' && $data[$i]['departemen']=='kesekretariatan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'sekretaris' && $data[$i]['departemen']=='kesekretariatan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
+          <?php }} ?>
+        </div>
+        <div class="divider divider-style-2 divider-icon-sm taller">
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="row">
+          <?php 
+          for ($i=0; $i < count($data); $i++) { 
+              if($data[$i]['jabatan'] == 'anggota' && $data[$i]['departemen']=='kesekretariatan'){
+          ?>
           <div class="col-md-4">
             <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
               <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
+                <img src="<?php if(isset($data[$i]['foto']))echo $data[$i]['foto']?>" class="img-responsive" alt="" style="width: 200px;">
               </span>
               <span class="thumb-info-caption">
                 <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
+                  <p><?php if(isset($data[$i]['nama']))echo $data[$i]['nama']?></p>
+                  <p>Bendahara BPO</p>
+                  <p>Angkatan <?php if(isset($data[$i]['angkatan']))echo $data[$i]['angkatan']?></p>
                 </span>
               </span>
             </span>
           </div>
-          <div class="col-md-4" style="margin-top: 15px">
-            <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
-              <span class="thumb-info-side-image-wrapper">
-                <img src="sets/img/projects/project-4.jpg" class="img-responsive" alt="" style="width: 200px;">
-              </span>
-              <span class="thumb-info-caption">
-                <span class="thumb-info-caption-text" style="font-size: 14px;text-align: center">
-                  <p></p>
-                  <p>Anggota</p>
-                  <p>Angkatan </p>
-                </span>
-              </span>
-            </span>
-          </div>
+          <?php }} ?>
         </div>
       </div>
       <!-- batas sejarah --> 

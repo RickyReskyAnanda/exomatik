@@ -25,13 +25,8 @@
           </div>
           <div class="col-md-6">
             <ul class="list list-icons list-icons-style-2">
-            <?php for ($a=0; $a < count($jenis) ; $a++) { ?>
-              <li><i class="fa fa-download"></i><?=$jenis[$a]['jenis']?>
-              <?php for ($i=0; $i < count($data) ; $i++) { 
-                    if($jenis[$a]['jenis']==$data[$i]['jenis']){?>
-                      <li><a href="<?=$data[$i]['link']?>"> <?=$data[$i]['nama']?></a></li>
-              <?php }} ?>
-              </li>
+            <?php for ($i=0; $i < count($data) ; $i++) { ?>
+              <li><a href="<?=$data[$i]['link']?>"><i class="fa fa-download"></i><?=ucfirst($data[$i]['nama'])?></a></li>
               <?php } ?>
             </ul>
           </div>

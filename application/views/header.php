@@ -15,10 +15,9 @@
     <link href="<?=base_url()?>assets/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="<?=base_url()?>assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
     <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-
-    <script type="text/javascript" src="<?=base_url('assets/angular/angular.js')?>"></script>
-    <!--<script type="text/javascript" src="<?=base_url('assets/angular/angular-route.js')?>"></script>-->
-
+    <link href="<?=base_url()?>assets/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="<?=base_url()?>assets/js/jquery-2.1.1.js"></script>
+    <script src="<?=base_url()?>assets/js/plugins/sweetalert/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -45,29 +44,33 @@
                         EXO
                     </div>
                 </li>
-                <li class="active">
+                <?php $aktif=$this->uri->segment(2);?>
+                <li class="">
                     <a href="<?=base_url('A_dashboard')?>"><i class="fa fa-th-large"></i> <span class="nav-label">Beranda</span></a>
                 </li>
                 <li>
                     <a href="<?=base_url('A_konten')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Konten</span></a>
                 </li>
-                <li>
-                    <a href="<?=base_url('A_tutorial')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tutorial</span></a>
+                <li class="<?php if($aktif=='tutorial')echo 'active';?>">
+                    <a href="<?=base_url('admin/tutorial')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tutorial</span></a>
                 </li>
                 <li>
                     <a href="<?=base_url('A_proker')?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Program Kerja</span></a>
                 </li>
                 <li>
-                    <a href="<?=base_url('A_portofolio')?>"><i class="fa fa-envelope"></i> <span class="nav-label">Portofolio </span></a>
+                    <a href="<?=base_url('admin/portofolio')?>"><i class="fa fa-envelope"></i> <span class="nav-label">Portofolio </span></a>
                 </li>
                 <li>
-                    <a href="<?=base_url('A_anggota')?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Anggota</span>  </a>
+                    <a href="<?=base_url('admin/anggota')?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Anggota</span>  </a>
                 </li>
                 <li>
-                    <a href="<?=base_url('A_struktur')?>"><i class="fa fa-flask"></i> <span class="nav-label">Struktur Organisasi</span></a>
+                    <a href="<?=base_url('admin/struktur')?>"><i class="fa fa-flask"></i> <span class="nav-label">Struktur Organisasi</span></a>
                 </li>
                 <li>
                     <a href="<?=base_url('A_download')?>"><i class="fa fa-flask"></i> <span class="nav-label">Download</span></a>
+                </li>
+                <li>
+                    <a href="<?=base_url('admin/donatur')?>"><i class="fa fa-flask"></i> <span class="nav-label">Donatur</span></a>
                 </li>
                 <?php if($this->session->userdata('role')=="admin"){?>
                 <li>
@@ -197,11 +200,6 @@
                 <li>
                     <a href="<?=base_url('A_login/keluar')?>">
                         <i class="fa fa-sign-out"></i> Log out
-                    </a>
-                </li>
-                <li>
-                    <a class="right-sidebar-toggle">
-                        <i class="fa fa-tasks"></i>
                     </a>
                 </li>
             </ul>

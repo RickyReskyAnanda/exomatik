@@ -1,4 +1,3 @@
-        <span ng-app="exoapp" ng-controller="portofolioctrl">
            <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-9">
                     <h2>Data Portofolio</h2>
@@ -18,9 +17,34 @@
             <div class="wrapper wrapper-content">
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col-md-12">
-                        <a href="<?=base_url('A_portofolio')?>">
-                            <button class="btn btn-info btn-rounded col-md-3" >Kembali </button>
+                        <a href="<?=base_url('admin/portofolio')?>">
+                            <button class="btn btn-info col-md-3" >Kembali </button>
                         </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('gambar_project/empty.png')?>" class="img-responsive img-thumbnail">
                     </div>
                 </div>
                 <div class="row">
@@ -58,13 +82,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Gambar Utama Project</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="gambar" class="form-control" >
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     <div class="row" style="margin-bottom: 10px;">
                                         <div class="form-group"><label class="col-sm-2 control-label">Gambar Tambahan Project</label>
                                             <div class="col-sm-10">
@@ -149,73 +166,5 @@
                     <!-- batas form  -->
                 </div>
             </div>
-        </span>
 
-        <script type="text/javascript">
-            var app=angular.module('exoapp',[]);
-
-            app.controller('portofolioctrl',function($scope,$http){
-
-                    // $http.post("<?= base_url('A_dashboard/select_jumlah_widget');?>"   //jumlah berita
-                    //   ).success(function(data){
-                    //     $scope.jumlahText = data;
-                    // });
-
-
-                    $http.post("<?= base_url('A_portofolio/select_data_edit_portofolio');?>",
-                            {
-                              id: $scope.id_portofolio
-                            }
-                      ).success(function(result){
-                        $scope.anggota = result;
-                    });
-
-                    // $scope.nama             = {};
-                    // $scope.nama.angkatan    = "0";
-                    // $scope.nama.jk          = "0";
-
-                    // $scope.carinama = function(){
-                    //     $http.post("<?=base_url('A_portofolio/select_data_nama_anggota');?>",
-                    //         {
-                    //           data: $scope.nama
-                    //         }
-                    //       ).success(function(result){
-                    //         $scope.hasilText = result;
-                    //     });
-                    // }
-
-                    // //------ tambah nama -----------
-                    // $scope.datatambah    = {};
-                    // $scope.clicktambah = function(val){
-                    //     $scope.datatambah.nama       = val.nama;
-                    //     $scope.datatambah.id_anggota = val.id_anggota;
-
-                    // }
-
-                    // $scope.namaText = [];
-                    // $scope.idText   = []; 
-                    // $scope.pushnama = function(){
-                    //     $scope.namaText.push({
-                    //         "nama"     :$scope.datatambah.nama
-                    //     });
-
-                    //     $scope.idText.push({
-                    //         "id_anggota"     :$scope.datatambah.id_anggota
-                    //     });
-                    // }
-
-                    // //------ hapus nama -----------
-
-                    // $scope.clickhapus = function(index){
-                    //     $scope.datakurang = index;
-                       
-                    // }
-                    // $scope.splicenama = function(){
-                    //     $scope.namaText.splice($scope.datakurang,1);
-                    //     $scope.idText.splice($scope.datakurang,1);
-                    // }
-            });
-
-        </script>
-
-                
+       
