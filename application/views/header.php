@@ -45,40 +45,35 @@
                     </div>
                 </li>
                 <?php $aktif=$this->uri->segment(2);?>
-                <li class="">
-                    <a href="<?=base_url('A_dashboard')?>"><i class="fa fa-th-large"></i> <span class="nav-label">Beranda</span></a>
+                <li class="<?php if($aktif=='dashboard')echo 'active';?>">
+                    <a href="<?=base_url('admin')?>"><i class="fa fa-th-large"></i> <span class="nav-label">Beranda</span></a>
                 </li>
-                <li>
-                    <a href="<?=base_url('A_konten')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Konten</span></a>
+                <li class="<?php if($aktif=='konten')echo 'active';?>">
+                    <a href="<?=base_url('admin/konten')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Konten</span></a>
                 </li>
                 <li class="<?php if($aktif=='tutorial')echo 'active';?>">
                     <a href="<?=base_url('admin/tutorial')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Tutorial</span></a>
                 </li>
-                <li>
-                    <a href="<?=base_url('A_proker')?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Program Kerja</span></a>
+                <li class="<?php if($aktif=='proker')echo 'active';?>">
+                    <a href="<?=base_url('admin/proker')?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Program Kerja</span></a>
                 </li>
-                <li>
+                <li class="<?php if($aktif=='portofolio')echo 'active';?>">
                     <a href="<?=base_url('admin/portofolio')?>"><i class="fa fa-envelope"></i> <span class="nav-label">Portofolio </span></a>
                 </li>
-                <li>
+                <li class="<?php if($aktif=='anggota')echo 'active';?>">
                     <a href="<?=base_url('admin/anggota')?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Anggota</span>  </a>
                 </li>
-                <li>
+                <li class="<?php if($aktif=='struktur')echo 'active';?>">
                     <a href="<?=base_url('admin/struktur')?>"><i class="fa fa-flask"></i> <span class="nav-label">Struktur Organisasi</span></a>
                 </li>
-                <li>
-                    <a href="<?=base_url('A_download')?>"><i class="fa fa-flask"></i> <span class="nav-label">Download</span></a>
+                <li class="<?php if($aktif=='download')echo 'active';?>">
+                    <a href="<?=base_url('admin/download')?>"><i class="fa fa-flask"></i> <span class="nav-label">Download</span></a>
                 </li>
-                <li>
+                <li class="<?php if($aktif=='donatur')echo 'active';?>">
                     <a href="<?=base_url('admin/donatur')?>"><i class="fa fa-flask"></i> <span class="nav-label">Donatur</span></a>
                 </li>
-                <?php if($this->session->userdata('role')=="admin"){?>
-                <li>
-                    <a href="<?=base_url('A_user')?>"><i class="fa fa-edit"></i> <span class="nav-label">Manajemen User</span><span class="fa arrow"></span></a>
-                </li>
-                <?php } ?>
-                <li>
-                    <a href="<?=base_url('A_setting')?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Setting Web</span>  </a>
+                <li class="<?php if($aktif=='setting')echo 'active';?>">
+                    <a href="<?=base_url('admin/setting')?>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Setting Web</span>  </a>
                 </li>
             </ul>
 

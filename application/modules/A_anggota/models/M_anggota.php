@@ -18,6 +18,15 @@ class M_anggota extends CI_Model {
         }
         echo json_encode($data);
     }
+    public function select_data_admin(){
+        $this->db->where('userlevel','admin');
+        $data = $this->db->get('table_anggota')->result_array();
+
+        for ($i=0; $i < count($data); $i++) { 
+            $data[$i]['foto'] = base_url()."image/gambar_anggota/".$data[$i]['foto'];
+        }
+        echo json_encode($data);
+    }
 
     public function status_data_anggota(){
         $data['status'] = $this->input->post('sts');
@@ -65,7 +74,10 @@ class M_anggota extends CI_Model {
     		'tgl_lahir' 	=> $this->input->post('tgl_lahir'),
     		'no_hp' 		=> $this->input->post('no_hp'),
     		'angkatan' 		=> $this->input->post('angkatan'),
-    		'status' 		=> $this->input->post('status'),
+            'status'        => $this->input->post('status'),
+            'email_anggota' => $this->input->post('email_user'),
+            'pass_anggota'  => md5('anggota'),
+    		'status' 		=> $this->input->post('userlevel'),
             'foto'          => $gambar,
     		'konfirmasi'    => '0',
     	);
@@ -107,6 +119,8 @@ class M_anggota extends CI_Model {
 	    		'no_hp' 		=> $this->input->post('no_hp'),
 	    		'angkatan' 		=> $this->input->post('angkatan'),
 	    		'status' 		=> $this->input->post('status'),
+                'email_anggota' => $this->input->post('email_user'),
+                'status'        => $this->input->post('userlevel'),
 	    		'foto' 			=> $gambar
 	    	);
         }else{
@@ -118,7 +132,9 @@ class M_anggota extends CI_Model {
 	    		'tgl_lahir' 	=> $this->input->post('tgl_lahir'),
 	    		'no_hp' 		=> $this->input->post('no_hp'),
 	    		'angkatan' 		=> $this->input->post('angkatan'),
-	    		'status' 		=> $this->input->post('status')
+	    		'status' 		=> $this->input->post('status'),
+                'email_anggota' => $this->input->post('email_user'),
+                'status'        => $this->input->post('userlevel'),
 	    	);
         }
 

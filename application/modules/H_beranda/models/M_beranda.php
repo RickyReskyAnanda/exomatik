@@ -9,17 +9,17 @@ class M_beranda extends CI_Model {
     }
 
     public function select_data_konten($order,$limit){//mengambil semua data dari table
-
-        $this->db->select('id_konten,judul_konten,deskripsi,gambar,tag,tgl_rilis,id_user,komentar');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_konten.id_anggota');
         $this->db->order_by($order, 'DESC');
         $this->db->limit($limit,0);
-        $this->db->where('status','rilis');
+        $this->db->where('table_konten.status','rilis');
         $data = $this->db->get('table_konten')->result_array();
 
         for ($i=0; $i < count($data); $i++){ 
-            $data[$i]['link'] = base_url().'konten/'.$data[$i]['id_konten'].'/'.str_replace(" ","-",preg_replace('/[^A-Z a-z0-9\-]/','', strtolower($data[$i]['judul_konten'])));
+            $data[$i]['link'] = base_url().'konten/'.str_replace(" ","-",preg_replace('/[^A-Z a-z0-9\-]/','', strtolower($data[$i]['judul_konten']))).'/'.$data[$i]['id_konten'];
 
             $data[$i]['tgl_rilis'] = date_format(date_create($data[$i]['tgl_rilis']), "d M Y, h:m ");
+            $data[$i]['gambar'] = base_url()."image/gambar_konten/thumb/".$data[$i]['gambar'];
 
         }
 
