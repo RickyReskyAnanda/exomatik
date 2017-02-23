@@ -7,17 +7,11 @@ class A_admin extends CI_Controller{
     {
         parent::__construct();
         $logged_in = $this->session->userdata('logged_in_y');
-        $role = $this->session->userdata('role');
-        if($role =="admin"){
             if($logged_in != "mskmi") {
                 redirect('A_login');
             }else{
                 $this->load->model('M_admin');
             }
-        }else{
-            redirect('A_login');
-        }
-
     }
     /**
      |------------------------------------------------------------------------------------------------------------------

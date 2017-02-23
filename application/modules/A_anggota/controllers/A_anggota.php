@@ -46,6 +46,9 @@ class A_anggota extends CI_Controller{
         public function select_data_anggota(){
             $this->M_anggota->select_data_anggota();
         }
+        public function select_data_admin(){
+            $this->M_anggota->select_data_admin();
+        }
         public function status_data_anggota(){
             $this->M_anggota->status_data_anggota();
         }

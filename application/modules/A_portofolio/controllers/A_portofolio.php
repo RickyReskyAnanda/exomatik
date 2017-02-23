@@ -21,42 +21,29 @@ class A_portofolio extends CI_Controller{
      |
      */
     public function index(){
+        $data['data']=$this->M_portofolio->select_data_portofolio();
         $this->load->view('header');
-        $this->load->view('V_portofolio');
+        $this->load->view('V_portofolio',$data);
         $this->load->view('footer');
     }    
 
     // --- view CRUD ---
     public function tambah_data_portofolio(){
-        $data['data']=$this->M_portofolio->select_max_angkatan();
-
         $this->load->view('header');
-        $this->load->view('V_tambah_portofolio',$data);
+        $this->load->view('V_tambah_portofolio');
         $this->load->view('footer');
     }
 
     public function edit_data_portofolio(){
+        $data['data'] = $this->M_portofolio->select_data_edit_portofolio();
         $this->load->view('header');
-        $this->load->view('V_edit_portofolio');
+        $this->load->view('V_edit_portofolio',$data);
         $this->load->view('footer');
-    }
-
-    public function detail_data_portofolio(){
-        $this->load->view('header');
-        $this->load->view('V_detail_portofolio');
-        $this->load->view('footer');
-
     }
 
     //----CRUD ---------
         public function select_data_portofolio(){
             $this->M_portofolio->select_data_portofolio();
-        }
-        public function select_data_nama_anggota(){
-            $this->M_portofolio->select_data_nama_anggota();
-        }
-        public function select_data_edit_anggota(){
-            $this->M_portofolio->select_data_edit_anggota();
         }
         public function insert_data_portofolio(){
             $this->M_portofolio->insert_data_portofolio();
