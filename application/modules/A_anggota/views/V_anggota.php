@@ -24,6 +24,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active" onclick="dataAnggota('anggota','#anggotaLoop')"><a data-toggle="tab" href="#tab-1"><i class="fa fa-users"></i> Anggota</a></li>
                     <li class="" onclick="dataAnggota('pengurus','#pengurusLoop')"><a data-toggle="tab" href="#tab-2"><i class="fa fa-user"></i> Pengurus</a></li>
+                    <li class="" onclick="dataAdmin()"><a data-toggle="tab" href="#tab-3"><i class="fa fa-user"></i> Admin</a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane active">
@@ -81,6 +82,27 @@
                             </div>
                         </div>
                     </div>
+                    <div id="tab-3" class="tab-pane">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Foto</th>
+                                            <th>NIK</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>User Level</th>
+                                            <th>Angkatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adminLoop">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,6 +129,22 @@
         });
     }
     dataAnggota('anggota','#anggotaLoop');
+    function dataAdmin(){
+        $('#adminLoop').html('');
+         $.ajax({
+            url: "<?=base_url('A_anggota/select_data_admin')?>",
+            success: function(hasil) {
+                var Janggota = $.parseJSON(hasil);
+
+                for (var i=0;i<Janggota.length;++i){
+                    $('#adminLoop').append('<tr><td>'+(i+1)+'</td><td><img width="150px" class="img-responsive" src="'+Janggota[i].foto+'"></td><td>'+Janggota[i].nik+'</td><td>'+Janggota[i].nama+'</td><td>'+Janggota[i].userlevel+'</td><td>'+Janggota[i].angkatan+'</td><td>'+Janggota[i].jk+'</td></tr>');
+                }
+                }
+            
+        });
+    }
+
+    
 
     function deleteData(id){
          swal({
@@ -154,4 +192,5 @@
                 });
             });
     }
+
 </script>

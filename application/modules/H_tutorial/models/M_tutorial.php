@@ -27,7 +27,7 @@ class M_tutorial extends CI_Model {
         return $jenis;
     }
     public function select_data_tutorial_terbaru(){
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         $this->db->order_by('id_tutorial','DESC');
         $this->db->limit(10);
         $data = $this->db->get('table_tutorial')->result_array();
@@ -45,7 +45,7 @@ class M_tutorial extends CI_Model {
     //--------- kategori --------------------
 
     public function select_data_tutorial_kategori(){
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         $this->db->where('id_kt',$this->uri->segment(4));
         $data = $this->db->get('table_tutorial')->result_array();
 
@@ -61,7 +61,7 @@ class M_tutorial extends CI_Model {
 
     //----detail tutorial-----
     public function select_data_detail_tutorial(){
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         $this->db->where('id_tutorial',$this->uri->segment(3));
         $data = $this->db->get('table_tutorial')->row_array();
 
@@ -69,7 +69,7 @@ class M_tutorial extends CI_Model {
         return $data;
     }
     public function select_data_tutorial_terpopuler(){
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         if($this->uri->segment(2)!='kategori'){
             $this->db->where('id_tutorial !=',$this->uri->segment(3));
         }
@@ -92,7 +92,7 @@ class M_tutorial extends CI_Model {
         $val = $this->db->get('table_tutorial')->row_array();
 
 
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         $this->db->order_by('id_tutorial','DESC');
         $this->db->where('id_kt',$val['id_kt']);
         $this->db->where('id_tutorial !=',$this->uri->segment(3));

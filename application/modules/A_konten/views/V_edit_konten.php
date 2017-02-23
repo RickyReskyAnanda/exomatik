@@ -57,6 +57,16 @@
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Status</label>
+                                                <div class="col-sm-10">
+                                                    <select name="status" class="form-control" required> 
+                                                        <option value="rilis" <?php if($data['status']=='rilis')echo'selected';?>>Rilis</option>
+                                                        <option value="draft" <?php if($data['status']=='draft')echo'selected';?>>Draft</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Tag</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" name="tag" class="form-control" value="<?=$data['tag']?>">

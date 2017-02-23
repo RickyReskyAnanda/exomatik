@@ -18,6 +18,7 @@ $route['anggota']					= "H_profil/view_anggota";
 
 //--------portofolio----------
 $route['portofolio']				= "H_portofolio";
+$route['portofolio/:any']				= "H_portofolio";
 
 //--------tutorial----------
 $route['tutorial']					= "H_tutorial";
@@ -60,7 +61,17 @@ $route['input/komentar']			= "H_beranda/insert_komentar";
 |				DASHBOARD
 |---------------------------------------------------------------------------------
 */
-$route['admin/struktur']				= "A_struktur";
+$route['akses/masuk']				= "A_login";
+$route['admin']						= "A_dashboard";
+
+//===konten===
+$route['admin/konten']				= "A_konten";
+$route['admin/konten/tambah']		= "A_konten/tambah_data_konten";
+$route['admin/konten/edit/:num']	= "A_konten/edit_data_konten";
+
+//===struktur organisasi===
+$route['admin/struktur']			= "A_struktur";
+
 //===anggota===
 $route['admin/anggota']				= "A_anggota";
 $route['admin/anggota/tambah']		= "A_anggota/tambah_data_anggota";
@@ -70,7 +81,7 @@ $route['admin/anggota/status']		= "A_anggota/status_data_anggota";
 //===portofolio===
 $route['admin/portofolio']			= "A_portofolio";
 $route['admin/portofolio/tambah']	= "A_portofolio/tambah_data_portofolio";
-$route['admin/portofolio/detail/:num']	= "A_portofolio/edit_data_portofolio";
+$route['admin/portofolio/edit/:num']= "A_portofolio/edit_data_portofolio";
 
 //===tutorial===
 $route['admin/tutorial']			= "A_tutorial";

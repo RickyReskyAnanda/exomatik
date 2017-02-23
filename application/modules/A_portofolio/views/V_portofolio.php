@@ -33,22 +33,21 @@
                         <div class="ibox">
                             <div class="ibox-content product-box">
 
-                                <div class="product-imitation">
-                                    [ INFO ]
-                                </div>
+                                    <img src="<?=$data[$i]['image']?>" class="img-responsive">
+                                
                                 <div class="product-desc">
                                     
-                                    <small class="text-muted">Category</small>
-                                    <a href="" class="product-name"> Product</a>
+                                    <small class="text-muted"><?=ucfirst($data[$i]['jenis_p'])?></small>
+                                    <a href="<?=$data[$i]['link']?>" class="product-name"> <?=ucfirst($data[$i]['nama_portofolio'])?></a>
 
 
 
                                     <div class="small m-t-xs">
-                                        Many desktop publishing packages and web page editors now.
+                                        <?=ucfirst($data[$i]['deskripsi_singkat_p'])?>
                                     </div>
                                     <div class="m-t text-righ">
 
-                                        <a href="#" class="btn btn-xs btn-primary">Detail <i class="fa fa-long-arrow-right"></i> </a>
+                                        <a href="<?=$data[$i]['link']?>" class="btn btn-xs btn-primary">Edit <i class="fa fa-long-arrow-right"></i> </a>
                                     </div>
                                 </div>
                             </div>

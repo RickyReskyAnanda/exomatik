@@ -23,16 +23,31 @@
                     </div>
                 </div>
                 <div class="row">
-                <?php for($i=0;$i<count($data['gambar']);$i++){ ?>
                     <div class="col-md-3">
-                        <img src="<?=$data['gambar'][$i]['nama_foto']?>" class="img-responsive img-thumbnail">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
                     </div>
-                <?php if(($i+1)%4==0){ ?>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                <?php } }?>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="<?=base_url('image/gambar_portofolio/default.png')?>" class="img-responsive img-thumbnail">
+                    </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 15px;">
 
                 <!-- awal form portofolio -->
                     <div class="col-md-12">
@@ -42,64 +57,44 @@
                             </div>
                             <div>
                                 <div class="ibox-content">
-                                <form action="<?=base_url('A_portofolio/insert_data_portofolio')?>" method="post" enctype="multipart/form-data">
                                     <div class="row" style="margin-bottom: 10px;">
                                         <div class="form-group"><label class="col-sm-2 control-label">Nama Project</label>
-                                            <div class="col-sm-10"><input type="text" name="nama_portofolio" class="form-control" placeholder="Nama Project" required></div>
+                                            <div class="col-sm-10">
+                                                <label class="control-label"><?=$data['']?></label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-bottom: 10px;">
                                         <div class="form-group"><label class="col-sm-2 control-label">Jenis Project</label>
                                             <div class="col-sm-10">
-                                                <select name="jenis" class="form-control">
+                                                <select name="jenis" ng-model="anggota.jenis" class="form-control">
                                                     <option value="Jaringan">Jaringan</option>
                                                     <option value="Program">Program</option>
                                                     <option value="Desain">Desain</option>
-                                                    <option value="Iot">Internet of Thing</option>
                                                     <option value="Lainnya">Lainnya</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Gambar DP</label>
-                                            <div class="col-sm-6">
-                                                <input type="file" name="gambar_dp" class="form-control" required>
-                                                * input jika ingin mengganti gambar dp
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <img src="<?=base_url().'image/gambar_portofolio/dp/'.$data['foto_dp_p']?>" class="img-thumbnail img-responsive">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Gambar Project</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">Gambar Tambahan Project</label>
                                             <div class="col-sm-10">
-                                                <input type="file" name="gambar[]" multiple class="form-control" required>
-                                                * input jika ingin mengganti gambar
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Keterangan Gambar</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" name="deskripsi" placeholder="Deskripsi Portofolio" rows="5" required></textarea>
+                                                <label class="control-label"></label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Tahun Pembuatan</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">Keterangan Project</label>
                                             <div class="col-sm-10">
-                                                <input type="year" name="tahun" class="form-control" placeholder="Tahun Pembuatan" value="<?=date('Y')?>" required>
+                                                <textarea class="form-control" name="keterangan" placeholder="Tujuan Kegiatan" rows="5" required>{{anggota.keterangan}}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-bottom: 10px;">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Penjelasan</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">Tanggal Pembuatan</label>
                                             <div class="col-sm-10">
-                                                <textarea id="summernote" name="content">
-                                                </textarea>
+                                                <input type="text" name="tgl_pembuatan" class="form-control" placeholder="Contoh : 16-9-2016 sampai 16-10-2017" value="{{anggota.tgl_pembuatan}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -109,9 +104,6 @@
                                             <button type="submit" class="btn btn-info btn-rounded"> Kirim </button>
                                         </div>
                                     </div>
-                                    </form>
-                                
-                                    
                                 </div>
                             </div>
                         </div>

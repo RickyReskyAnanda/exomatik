@@ -5,7 +5,72 @@
 					<div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"delay": 9000, "gridwidth": 1170, "gridheight": 500}'>
 						<ul>
 							<li data-transition="fade">
-								<img src="<?=base_url()?>sets/img/exo/Logo.png"  
+								<img src="<?=base_url('image/gambar_slider/home2.jpg')?>"  
+									alt=""
+									data-bgposition="center center" 
+									data-bgfit="cover" 
+									data-bgrepeat="no-repeat" 
+									class="rev-slidebg" data-no-retina>
+				
+				
+								<div class="rs-background-video-layer" 
+									data-forcerewind="on" 
+									data-volume="mute" 
+									data-videowidth="100%" 
+									data-videoheight="100%" 
+									data-videomp4="video/landing.mp4" 
+									data-videopreload="preload" 
+									data-videoloop="none" 
+									data-forceCover="1" 
+									data-aspectratio="16:9" 
+									data-autoplay="true" 
+									data-autoplayonlyfirsttime="false" 
+									data-nextslideatend="true" 
+								></div>
+
+								<div class="tp-caption"
+									data-x="center" data-hoffset="-160"
+									data-y="center" data-voffset="-95"
+									data-start="1000"
+									style="z-index: 5"
+									data-transform_in="x:[-300%];opacity:0;s:500;"><img src="<?=base_url()?>sets/img/slides/slide-title-border.png" alt=""></div>
+
+								<div class="tp-caption top-label"
+									data-x="center" data-hoffset="0"
+									data-y="center" data-voffset="-95"
+									data-start="500"
+									style="z-index: 5"
+									data-transform_in="y:[-300%];opacity:0;s:500;">Menjadi Penjelajah Ilmu</div>
+
+								<div class="tp-caption"
+									data-x="center" data-hoffset="160"
+									data-y="center" data-voffset="-95"
+									data-start="1000"
+									style="z-index: 5"
+									data-transform_in="x:[300%];opacity:0;s:500;"><img src="<?=base_url()?>sets/img/slides/slide-title-border.png" alt=""></div>
+
+								<div class="tp-caption main-label"
+									data-x="center" data-hoffset="0"
+									data-y="center" data-voffset="-45"
+									data-start="1500"
+									data-whitespace="nowrap"						 
+									data-transform_in="y:[100%];s:500;"
+									data-transform_out="opacity:0;s:500;"
+									style="z-index: 5"
+									data-mask_in="x:0px;y:0px;">EXOMATIK.COM</div>
+
+								<div class="tp-caption bottom-label"
+									data-x="center" data-hoffset="0"
+									data-y="center" data-voffset="5"
+									data-start="2000"
+									style="z-index: 5"
+									data-transform_in="y:[100%];opacity:0;s:500;">Always Read Before Ask</div>
+
+								<div class="tp-dottedoverlay tp-opacity-overlay"></div>
+				
+							</li> 
+							<li data-transition="fade">
+								<img src="<?=base_url('image/gambar_slider/1.jpg')?>"  
 									alt=""
 									data-bgposition="center center" 
 									data-bgfit="cover" 
@@ -30,47 +95,40 @@
 									data-y="270"
 									data-start="2000"
 									data-transform_in="y:[100%];opacity:0;s:500;"><button type="button" class="btn btn-primary mr-xs mb-sm"><i class="fa fa-book"></i><b> Baca Selengkapnya</b></button></div>
+
+								<div class="tp-caption bottom-label"
+									data-x="750"
+									data-y="70"
+									data-start="2000"
+									data-transform_in="y:[100%];opacity:0;s:500;">
+										<img src="<?=base_url('image/gambar_anggota/anggota_20170209010227.jpg')?>" width="300px" class="img-thumbnail img-responsive">
+									</div>
 								
 							</li>
 							<li data-transition="fade">
-								<img src="<?=base_url()?>sets/img/exo/logo.png"  
+								<img src="<?=base_url('image/gambar_slider/2.jpg')?>"  
 									alt=""
 									data-bgposition="center center" 
 									data-bgfit="cover" 
 									data-bgrepeat="no-repeat" 
 									class="rev-slidebg" data-no-retina>
-				 
-								<div class="tp-caption top-label"
-									data-x="155"
-									data-y="100"
-									data-start="500"
-									data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;"><img src="<?=base_url()?>sets/img/slides/slide-concept.png" alt=""></div>
-				
-								<div class="tp-caption blackboard-text"
-									data-x="285"
-									data-y="180"
-									data-start="1000"
-									style="font-size: 30px;"
-									data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;">easy to</div>
-				
-								<div class="tp-caption blackboard-text"
-									data-x="285"
-									data-y="220"
-									data-start="1200"
-									style="font-size: 40px;"
-									data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;">customize!</div>
-				
-								<div class="tp-caption main-label"
-									data-x="685"
-									data-y="190"
-									data-start="1800"
-									data-whitespace="nowrap"						 
-									data-transform_in="y:[100%];s:500;"
-									data-transform_out="opacity:0;s:500;"
-									data-mask_in="x:0px;y:0px;">DESIGN IT!</div>
 				
 								<div class="tp-caption bottom-label"
-									data-x="685"
+									data-x="100"
+									data-y="70"
+									data-start="2000"
+									data-transform_in="y:[100%];opacity:0;s:500;">
+										<img src="<?=base_url('image/gambar_slider/logo1.png')?>" style="width: 100px" class="img-thumbnail img-responsive">
+									</div>
+				
+								<div class="tp-caption top-label"
+									data-x="590"
+									data-y="150"
+									data-start="500"
+									data-transform_in="y:[-300%];opacity:0;s:500;"><h4 style="color: #fff" ><b>Goes To School</b></h4></div>
+				
+								<div class="tp-caption bottom-label"
+									data-x="590"
 									data-y="250"
 									data-start="2000"
 									data-transform_idle="o:1;"
@@ -177,7 +235,7 @@
 												<a href="<?=$populer[$i]['link']?>"><?=$populer[$i]['judul_konten']?></a>
 												<div class="post-meta">
 													<span><i class="fa fa-calendar"></i> <?=$populer[$i]['tgl_rilis']?></span>
-													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$populer[$i]['id_user']?></a> </span>
+													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$populer[$i]['nama']?></a> </span>
 												</div>
 											</div>
 										</li>
@@ -199,7 +257,7 @@
 												<a href="<?=$terkomentari[$i]['link']?>"><?=$terkomentari[$i]['judul_konten']?></a>
 												<div class="post-meta">
 													<span><i class="fa fa-calendar"></i> <?=$terkomentari[$i]['tgl_rilis']?> </span>
-													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$terkomentari[$i]['id_user']?></a> </span>
+													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$terkomentari[$i]['id_anggota']?></a> </span>
 												</div>
 											</div>
 										</li>
@@ -218,13 +276,13 @@
 									<div class="recent-posts">
 										<article class="post">
 											<div class="thumb-info-wrapper " style="padding-bottom: 15px; ">
-												<a href="<?=$konten[$i]['link']?>"><img src="<?=base_url()?>gambar_konten/<?=$konten[$i]['gambar']?>" class="img-responsive" alt="">
+												<a href="<?=$konten[$i]['link']?>"><img src="<?=$konten[$i]['gambar']?>" class="img-responsive" alt="">
 											</div>
 											<h4><a href="<?=$konten[$i]['link']?>"><?=$konten[$i]['judul_konten']?></a></h4>
 											<p><?=$konten[$i]['deskripsi']?>
 												<div class="post-meta">
 													<span><i class="fa fa-calendar"></i> <?=$konten[$i]['tgl_rilis']?> </span>
-													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$konten[$i]['id_user']?></a> </span>
+													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$konten[$i]['nama']?></a> </span>
 												</div>
 											</p>
 										</article>

@@ -38,7 +38,7 @@
                   <div class="post-content">
                     <h2><?=$konten['judul_konten']?></h2>
                     <div class="post-meta">
-                      <span><i class="fa fa-user"></i> By <a href="#"><?=$konten['id_user']?></a> </span>
+                      <span><i class="fa fa-user"></i> By <a href="#"><?=$konten['nama']?></a> </span>
                       <span><i class="fa fa-tag"></i> <?=$konten['tag']?></span>
                       <span><i class="fa fa-comments"></i> <a href="#"><?=$konten['komentar']?> Comments</a></span>
                     </div>

@@ -33,7 +33,7 @@
 											</div>
 											<div class="col-md-9" style="margin-left: -15px">
 												<a href="<?=$terbaru[$i]['link']?>"><h5 class="heading-primary mb-none"><?=$terbaru[$i]['judul_tutorial']?></h5></a>
-												<span>Oleh <a href="#" style="color: #000"><?=$terbaru[$i]['nama_lengkap']?></a> </span>
+												<span>Oleh <a href="#" style="color: #000"><?=$terbaru[$i]['nama']?></a> </span>
 											</div>
 										</div>
 										<?php } ?>
@@ -52,7 +52,7 @@
 											</div>
 											<div class="col-md-9" style="margin-left: -15px">
 												<a href="<?=$populer[$i]['link']?>"></a><h5 class="heading-primary mb-none"><?=$populer[$i]['judul_tutorial']?></h5>
-												<span>Oleh <a href="#" style="color: #000"><?=$populer[$i]['nama_lengkap']?></a> </span>
+												<span>Oleh <a href="#" style="color: #000"><?=$populer[$i]['nama']?></a> </span>
 											</div>
 										</div>
 										<?php } ?>
@@ -70,7 +70,7 @@
 							<div class="col-md-9">
 								<div class="post-meta" style="text-align: right;">
 									<span><i class="fa fa-calendar"></i> <?=$data[$i]['tgl_rilis']?></span>
-									<span><i class="fa fa-user"></i> Oleh <?=$data[$i]['nama_lengkap']?> </span>
+									<span><i class="fa fa-user"></i> Oleh <?=$data[$i]['nama']?> </span>
 								</div>
 								<div class="post-info">
 									<h4><a href="<?=$data[$i]['link']?>"><?=$data[$i]['judul_tutorial']?></a></h4>

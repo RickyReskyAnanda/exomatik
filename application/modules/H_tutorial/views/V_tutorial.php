@@ -1,22 +1,16 @@
-      <!-- Bagian isi tutorial -->
-      <section class="page-header">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Shortcodes</li>
-              </ul>
+    <!-- Bagian   -->
+        <section class="section" style="background: #20231E url('<?=base_url('image/gambar_page/tutorial.png')?>') center 0 no-repeat ; margin:0 0 50px 0; ">
+          <div class="container" style="padding-top: 50px;padding-bottom: 50px;">
+            <div class="row">
+              <div class="col-md-12" align="center" >
+                <h1 style="color: #fff">Mencari Ilmu</h1>
+                <h4 style="color: #fff;font-size: 20px;">Belajar pemrograman, jaringan dan desain</h4>
+                <h4 style="color: #fff;font-size: 24px;">"Ilmu yang baik adalah Ilmu yang bermanfaat"</h4>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h1>Tutorial</h1>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Batas tutoril -->
+        </section>
+      <!-- batas  -->  
       <!-- bagian slider -->
       <div class="container">
         <div class="row">

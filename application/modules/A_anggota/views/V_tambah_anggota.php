@@ -45,6 +45,25 @@
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" name="email_user" class="form-control" required>
+                                                    *pass = user
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Level</label>
+                                                <div class="col-sm-10">
+                                                    <select name="userlevel" class="form-control" required>
+                                                        <option value="blokir">Blokir</option>
+                                                        <option value="user">User</option>
+                                                        <option value="admin">Admin</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Jenis Kelamin</label>
                                                 <div class="col-sm-10">
                                                     <select name="jk" class="form-control">

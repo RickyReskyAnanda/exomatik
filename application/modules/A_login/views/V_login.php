@@ -37,6 +37,9 @@
                     <input type="password" name="pass" class="form-control" placeholder="Password" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <?php if($this->session->flashdata('a_pesan')<>''){ ?>
+                <p><?=$this->session->flashdata('a_pesan');?></p>
+                <?php } ?>
             </form>
             <p class="m-t"> <small>Exomatik &copy; 2016</small> </p>
         </div>

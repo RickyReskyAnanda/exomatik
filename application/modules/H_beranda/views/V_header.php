@@ -131,11 +131,19 @@
 															<li >
 																<a href="<?=base_url('keanggotaan')?>">Anggota</a>
 															</li>
+															<li>
+																<a href="<?=base_url('donatur')?>">Donatur</a>
+															</li>
 														</ul>
 													</li>
 													<li <?php if($navbar=='portofolio')echo "class='active'"?>>
 														<a  href="<?=base_url('portofolio')?>">
 															Portofolio
+														</a>
+													</li>
+													<li <?php if($navbar=='konten')echo "class='active'"?>>
+														<a  href="<?=base_url('konten')?>">
+															Konten
 														</a>
 													</li>
 													<li <?php if($navbar=='tutorial')echo "class='active'"?>>
@@ -148,11 +156,7 @@
 															Download
 														</a>
 													</li>
-													<li <?php if($navbar=='donatur')echo "class='active'"?>>
-														<a  href="<?=base_url('donatur')?>">
-															Donatur
-														</a>
-													</li>
+													
 												</ul>
 											</nav>
 										</div>

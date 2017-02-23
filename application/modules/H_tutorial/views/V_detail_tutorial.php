@@ -28,7 +28,7 @@
 								<div class="post-content">
 									<h2><a href=""><?=$data['judul_tutorial']?></a></h2>
 										<div class="post-meta">
-											<span><i class="fa fa-user"></i> By <a href="#"><?=$data['nama_lengkap']?></a> </span>
+											<span><i class="fa fa-user"></i> By <a href="#"><?=$data['nama']?></a> </span>
 											<span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
 											<span><i class="fa fa-eye"></i> <a href="#"><?=$data['viewers_tutorial']?></a> </span>
 											<span><i class="fa fa-thumbs-up"></i> <a href="#"><?=$data['likers_tutorial']?> </a></span>
@@ -59,7 +59,7 @@
 									<h6><a href="<?=$populer[$p]['link']?>"><?=$populer[$p]['judul_tutorial']?></a></h6>
 									<div class="post-meta">
 										<small>
-											<span><i class="fa fa-user"></i> Oleh <?=$populer[$p]['nama_lengkap']?> </span>
+											<span><i class="fa fa-user"></i> Oleh <?=$populer[$p]['nama']?> </span>
 										</small>
 									</div>
 								</div>
@@ -96,7 +96,7 @@
 											</div>
 											<div class="col-md-9">
 												<h5 class="heading-primary mb-none"><?=$terkait[$i]['judul_tutorial']?></h5>
-												<span>Oleh <?=$terkait[$i]['nama_lengkap']?> </span>
+												<span>Oleh <?=$terkait[$i]['nama']?> </span>
 											</div>
 										</div>
 										<?php } ?>
