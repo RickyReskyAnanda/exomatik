@@ -16,7 +16,10 @@ class H_portofolio extends MY_Controller{
     } 
     public function view_portofolio(){
         $data['navbar']='portofolio';
-        $this->load_view('V_portofolio-desain');
+        $data['data'] = $this->M_portofolio->select_data_detail_portofolio();
+        $data['terkait'] = $this->M_portofolio->select_data_portofolio_terkait($data['data']['jenis_p']);
+        $data['terbaru'] = $this->M_portofolio->select_data_portofolio_terbaru();
+        $this->load_view('V_portofolio-desain',$data);
     }  
         public function load_data(){
             $data['data'] = $this->M_portofolio->select_data_load_portofolio();

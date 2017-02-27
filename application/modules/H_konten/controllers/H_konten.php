@@ -15,6 +15,8 @@ class H_konten extends MY_Controller{
     } 
     public function view_detail_konten(){
         $data['navbar']  = 'konten';
+        $data['terbaru'] = $this->M_konten->select_data_konten('id_konten',7);
+        $data['populer'] = $this->M_konten->select_data_konten('viewers',7);
         $data['konten'] = $this->M_konten->select_data_detail_konten();
         $this->load_view('V_detail_konten',$data);
     }   

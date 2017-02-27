@@ -47,13 +47,13 @@
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" name="email_user" class="form-control" required>
-                                                    *pass = user
+                                                    <input type="email" name="email_user" placeholder="Email" class="form-control" required>
+                                                    *pass = anggota
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Level</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label"> UserLevel</label>
                                                 <div class="col-sm-10">
                                                     <select name="userlevel" class="form-control" required>
                                                         <option value="blokir">Blokir</option>
@@ -66,7 +66,7 @@
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Jenis Kelamin</label>
                                                 <div class="col-sm-10">
-                                                    <select name="jk" class="form-control">
+                                                    <select name="jk" class="form-control" required>
                                                         <option value="laki-laki">Laki-Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
@@ -91,24 +91,25 @@
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Angkatan</label>
                                                 <div class="col-sm-10">
-                                                    <input type="number" name="angkatan" class="form-control" required>
+                                                    <input type="number" name="angkatan" class="form-control" value="1" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Status Keanggotaan</label>
                                                 <div class="col-sm-10">
-                                                    <select name="status" class="form-control">
+                                                    <select name="status" class="form-control" required>
                                                         <option value="anggota">Anggota</option>
                                                         <option value="pengurus">Pengurus</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+                                       
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Foto Resmi</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" name="foto" class="form-control">
+                                                    <input type="file" name="foto" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>

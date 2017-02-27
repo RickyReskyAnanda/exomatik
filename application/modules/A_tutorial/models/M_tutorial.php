@@ -9,9 +9,10 @@ class M_tutorial extends CI_Model {
     }
 
     public function select_data_tutorial(){
+        // $this->db->select('tgl_rilis,table_tutorial.id_kt,table_tutorial.id_jt,id_tutorial,judul_tutorial,table_tutorial.id_anggota');
         $this->db->join('table_kategori_tutorial', 'table_kategori_tutorial.id_kt = table_tutorial.id_kt');
         $this->db->join('table_jenis_tutorial', 'table_jenis_tutorial.id_jenis_tutorial = table_tutorial.id_jt');
-        $this->db->join('table_user', 'table_user.id_user = table_tutorial.id_user');
+        $this->db->join('table_anggota', 'table_anggota.id_anggota = table_tutorial.id_anggota');
         $this->db->where('nonaktif_tutorial','tidak');
         $this->db->order_by('id_tutorial', 'DESC');
         $data = $this->db->get('table_tutorial')->result();
@@ -79,7 +80,7 @@ class M_tutorial extends CI_Model {
             'deskripsi_tutorial'=> $this->input->post('deskripsi'),
             'isi_tutorial'      => $this->input->post('content'),
             'tgl_rilis'         => date('Y-m-d h:i:s'),
-            'id_user'           => $this->session->userdata('identitas'),
+            'id_anggota'           => $this->session->userdata('identitas'),
             'id_kt'             => $this->input->post('kategori_t'),
             'id_jt'             => $this->input->post('jenis_t'),
             'nonaktif_tutorial' => $this->input->post('nonaktif_tutorial'),

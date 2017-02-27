@@ -122,14 +122,14 @@
 									</div>
 				
 								<div class="tp-caption top-label"
-									data-x="590"
-									data-y="150"
+									data-x="550"
+									data-y="250"
 									data-start="500"
 									data-transform_in="y:[-300%];opacity:0;s:500;"><h4 style="color: #fff" ><b>Goes To School</b></h4></div>
 				
 								<div class="tp-caption bottom-label"
-									data-x="590"
-									data-y="250"
+									data-x="550"
+									data-y="290"
 									data-start="2000"
 									data-transform_idle="o:1;"
 									data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:600;e:Power4.easeInOut;"
@@ -227,7 +227,7 @@
 											<div class="post-image">
 												<div class="img-thumbnail">
 													<a href="<?=$populer[$i]['link']?>">
-														<img src="<?=base_url()?>gambar_konten/a/<?=$populer[$i]['gambar']?>" alt="">
+														<img src="<?=$populer[$i]['gambar']?>" class="img-responsive" style="width: 50px;" alt="">
 													</a>
 												</div>
 											</div>
@@ -249,7 +249,7 @@
 											<div class="post-image">
 												<div class="img-thumbnail">
 													<a href="blog-post.html">
-														<img src="<?=base_url()?>gambar_konten/a/<?=$terkomentari[$i]['gambar']?>" alt="">
+														<img src="<?=$terkomentari[$i]['gambar']?>" style="width: 50px;" class="img-responsive" alt="">
 													</a>
 												</div>
 											</div>
@@ -257,7 +257,7 @@
 												<a href="<?=$terkomentari[$i]['link']?>"><?=$terkomentari[$i]['judul_konten']?></a>
 												<div class="post-meta">
 													<span><i class="fa fa-calendar"></i> <?=$terkomentari[$i]['tgl_rilis']?> </span>
-													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$terkomentari[$i]['id_anggota']?></a> </span>
+													<span><i class="fa fa-user"></i> Oleh <a href="#"><?=$terkomentari[$i]['nama']?></a> </span>
 												</div>
 											</div>
 										</li>
@@ -332,15 +332,16 @@
 					<div class="row">
 						<h2> <a href="#"><strong>Portofolio</strong></h2>
 							<div class="row">
+								<?php for($i=0;$i<count($portofolio);$i++){?>
 								<div class="col-md-3">
 									<div class="portfolio-item">
-										<a href="portfolio-single-small-slider.html">
+										<a href="<?=$portofolio[$i]['link']?>">
 											<span class="thumb-info thumb-info-lighten">
 												<span class="thumb-info-wrapper">
-													<img src="<?=base_url()?>sets/img/projects/project.jpg" class="img-responsive" alt="">
+													<img src="<?=$portofolio[$i]['foto_dp_p']?>" class="img-responsive" alt="">
 													<span class="thumb-info-title">
-														<span class="thumb-info-inner">Presentation</span>
-														<span class="thumb-info-type">Brand</span>
+														<span class="thumb-info-inner"><?=ucfirst($portofolio[$i]['nama_portofolio'])?></span>
+														<span class="thumb-info-type"><?=ucfirst($portofolio[$i]['jenis_p'])?></span>
 													</span>
 													<span class="thumb-info-action">
 														<span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
@@ -350,64 +351,55 @@
 										</a>
 									</div>
 								</div>
-								<div class="col-md-3">
-									<div class="portfolio-item">
-										<a href="portfolio-single-small-slider.html">
-											<span class="thumb-info thumb-info-lighten">
-												<span class="thumb-info-wrapper">
-													<img src="<?=base_url()?>sets/img/projects/project.jpg" class="img-responsive" alt="">
-													<span class="thumb-info-title">
-														<span class="thumb-info-inner">Presentation</span>
-														<span class="thumb-info-type">Brand</span>
-													</span>
-													<span class="thumb-info-action">
-														<span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="portfolio-item">
-										<a href="portfolio-single-small-slider.html">
-											<span class="thumb-info thumb-info-lighten">
-												<span class="thumb-info-wrapper">
-													<img src="<?=base_url()?>sets/img/projects/project.jpg" class="img-responsive" alt="">
-													<span class="thumb-info-title">
-														<span class="thumb-info-inner">Presentation</span>
-														<span class="thumb-info-type">Brand</span>
-													</span>
-													<span class="thumb-info-action">
-														<span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="portfolio-item">
-										<a href="portfolio-single-small-slider.html">
-											<span class="thumb-info thumb-info-lighten">
-												<span class="thumb-info-wrapper">
-													<img src="<?=base_url()?>sets/img/projects/project.jpg" class="img-responsive" alt="">
-													<span class="thumb-info-title">
-														<span class="thumb-info-inner">Presentation</span>
-														<span class="thumb-info-type">Brand</span>
-													</span>
-													<span class="thumb-info-action">
-														<span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
+								<?php } ?>
 							</div>
 							
 						</div>
 					</div>
+					<!-- <div class="row center">
+						<div class="owl-carousel owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-options="{&quot;items&quot;: 6, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 3000}">
+							<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1950px, 0px, 0px); transition: 0.25s; width: 3900px;"><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
+							</div></div><div class="owl-item" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-1.png" alt="">
+							</div></div><div class="owl-item" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
+							</div></div><div class="owl-item" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
+							</div></div><div class="owl-item" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
+							</div></div><div class="owl-item active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
+							</div></div><div class="owl-item active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
+							</div></div><div class="owl-item active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
+							</div></div><div class="owl-item active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
+							</div></div><div class="owl-item cloned active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-1.png" alt="">
+							</div></div><div class="owl-item cloned active" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
+							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
+								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
+							</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"></div><div class="owl-next"></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+					</div> -->
 				<!-- batas portofolio -->
 				<section class="section section-default section-with-divider">
 					<div class="divider divider-solid divider-style-4">
@@ -432,7 +424,7 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="textareaDefault">Komentar</label>
 									<div class="col-md-6">
-										<textarea class="form-control" rows="3" id="isikomentar"></textarea>
+										<textarea class="form-control" rows="3" id="isikomentar" placeholder="Isi Komentar"></textarea>
 									</div>
 								</div>
 								<div class="form-group">
@@ -463,32 +455,21 @@
 							<h2><strong>Komentar</strong></h2>
 							<div class="row">
 								<div class="owl-carousel owl-theme mb-none" data-plugin-options='{"items": 1}'>
+								<?php for ($i=0; $i < count($komentar); $i++) { ?>
 									<div>
 										<div class="col-md-12">
 											<div class="testimonial testimonial-primary">
 												<blockquote>
-													<p>Exomatik adalah tempat Belajat untuk para mahasiswa Teknik informatika dan sistem informasi</p>
+													<p><?=$komentar[$i]['isi']?></p>
 												</blockquote>
 												<div class="testimonial-arrow-down"></div>
 												<div class="testimonial-author">
-													<p><strong>Nurlisah</strong><span>CEO & Founder - Okler</span></p>
+													<p><strong><?=$komentar[$i]['nama']?></strong><span><?=$komentar[$i]['email']?></span></p>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div>
-										<div class="col-md-12">
-											<div class="testimonial testimonial-primary">
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.</p>
-												</blockquote>
-												<div class="testimonial-arrow-down"></div>
-												<div class="testimonial-author">
-													<p><strong>Nurlisah</strong><span>CEO & Founder - Okler</span></p>
-												</div>
-											</div>
-										</div>
-									</div>
+								<?php } ?>
 								</div>
 							</div>
 						</div>

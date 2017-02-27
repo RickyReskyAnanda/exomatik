@@ -82,10 +82,13 @@
 									<nav class="header-nav-top">
 										<ul class="nav nav-pills">
 											<li class="hidden-xs">
-												<a href="<?=base_url('about-us')?>"><i class="fa fa-angle-right"></i> About Us</a>
+												<a href="<?=base_url()?>"> <b>EXOMATIK</b></a>
 											</li>
 											<li class="hidden-xs">
-												<a href="<?=base_url('contact-us')?>"><i class="fa fa-angle-right"></i> Contact Us</a>
+												<a href="<?=base_url('tentang-kami')?>"><i class="fa fa-angle-right"></i> Tentang Kami</a>
+											</li>
+											<li class="hidden-xs">
+												<a href="#"><i class="fa fa-angle-right"></i> Kontak </a>
 											</li>
 											<li>
 												<span class="ws-nowrap"><i class="fa fa-phone"></i> (123) 456-789</span>
@@ -101,7 +104,7 @@
 										<ul class="header-social-icons social-icons hidden-xs">
 											<li class="social-icons-facebook"><a href="http://www.facebook.com/exomatik.sc/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li class="social-icons-twitter"><a href="<?=base_url()?>sets/http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-											<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+											<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-instagram"></i></a></li>
 										</ul>
 										<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
 											<nav>
@@ -117,7 +120,7 @@
 														</a>
 															<ul class="dropdown-menu">
 															<li>
-																<a href="<?=base_url('sejarah')?>">Sejarah</a>
+																<a href="<?=base_url('tentang-kami')?>">Tentang Kami</a>
 															</li>
 															<li >
 																<a href="<?=base_url('visi-misi')?>">Visi - Misi</a>

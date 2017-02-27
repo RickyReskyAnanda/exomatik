@@ -3,9 +3,9 @@
           <div class="container" style="padding-top: 50px;padding-bottom: 50px;">
             <div class="row">
               <div class="col-md-12" align="center" >
-                <h1 style="color: #fff">Mencari Ilmu</h1>
-                <h4 style="color: #fff;font-size: 20px;">Belajar pemrograman, jaringan dan desain</h4>
-                <h4 style="color: #fff;font-size: 24px;">"Ilmu yang baik adalah Ilmu yang bermanfaat"</h4>
+                <h1 style="color: #fff">Bekerja dan Berkarya</h1>
+                <h4 style="color: #fff;font-size: 20px;">Hasil karya Exomatik Study Club</h4>
+                <h4 style="color: #fff;font-size: 24px;">"Jangan pernah puas sebelum mencapai yang tertinggi"</h4>
               </div>
             </div>
           </div>
@@ -77,13 +77,15 @@
 			</div>
 			<!-- batas sejarah -->	
 			<?php $jenis=$this->uri->segment(2);
-			if($jenis !=''){
-				$jenis='semua';
-				}?>
+			if($jenis =='jaringan' || $jenis =='program' || $jenis =='desain' || $jenis =='lainnya' ){
+				$jenis=$this->uri->segment(2);
+				}else{
+					$jenis='semua';
+					}?>
 			<script type="text/javascript">
 
+				var nomor=<?=$i?>;
 				function ambildata() {
-					var nomor=<?=$i?>;
 
 				$('#portfolioLoadMore').hide();
 				$('#portfolioLoadMoreLoader').show();
@@ -95,6 +97,7 @@
 							$('#portfolioLoadMore').show();
 							$('#portfolioLoadMoreLoader').hide();
 							$('#hasildataload').append(hasil);
+							nomor+=4;
 						}
 					});
 

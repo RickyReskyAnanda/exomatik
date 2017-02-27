@@ -23,5 +23,35 @@ class M_dashboard extends CI_Model {
 
         echo json_encode($val);
     }
+
+
+    public function select_data_saran(){
+        $this->db->order_by('id_saran', 'desc');
+        $this->db->limit(5,0);
+        $this->db->where('status',$this->input->post('status'));
+        $data=$this->db->get('table_saran')->result_array();
+        
+        for ($i=0; $i < count($data); $i++) { 
+            $data[$i]['nama'] = ucfirst($data[$i]['nama']);
+            $data[$i]['waktu'] = date_format(date_create($data[$i]['waktu']), "h:m - d M Y");
+        }
+        echo json_encode($data);
+    }
+    public function update_data_saran(){
+        $status = $this->input->post('status');
+        if($status=='rilis'){
+            $status='draft';
+        }elseif($status=='draft'){
+            $status='rilis';
+        }
+
+        $data['status'] = $status;
+        $this->db->where('id_saran',$this->input->post('idsaran'));
+        $this->db->update('table_saran',$data);
+    }
+    public function delete_data_saran(){
+        $this->db->where('id_saran',$this->input->post('idsaran'));
+        $this->db->delete('table_saran');
+    }
 }
 ?>

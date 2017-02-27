@@ -9,163 +9,283 @@ class M_proker extends CI_Model {
     }
 
     public function select_data_proker(){//mengambil semua data dari table
-        echo json_encode($this->db->get('table_proker')->result());
-    }
+        $divisi = $this->input->post('dpt');
+        $this->db->where('divisi_kegiatan',$divisi);
+        $data = $this->db->get('table_proker')->result_array();
 
-    public function select_data_proker_divisi(){//mengambil data berdasarkan divisi
+        for ($i=0; $i < count($data); $i++) { 
+            $data[$i]['foto_dp_k'] = base_url().'image/gambar_proker/dp/'.$data[$i]['foto_dp_k']; 
+            $data[$i]['edit'] = base_url().'admin/proker/edit/'.$data[$i]['id_proker']; 
+        }
 
-        $val = json_decode(file_get_contents('php://input'));
-        $this->db->where('divisi',$val->divisi);
-        echo json_encode($this->db->get('table_proker')->result());
+        echo json_encode($data);
     }
 
     public function select_data_edit_proker(){
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $this->db->where('id_proker',$id);
-        return $this->db->get('table_proker')->row_array();
+        $data = $this->db->get('table_proker')->row_array();
+
+        $data['foto_dp'] = base_url().'image/gambar_proker/dp/'.$data['foto_dp_k'];
+
+        $this->db->where('id_back',$id);
+        $this->db->where('jenis','proker');
+        $data['gambar']=$this->db->get('table_foto')->result_array();
+
+        for ($i=0; $i < count($data['gambar']); $i++) { 
+            $data['gambar'][$i]['nama_foto'] = base_url().'image/gambar_proker/'.$data['gambar'][$i]['nama_foto'];
+        }
+
+        return $data;
     }
 
     public function insert_data_proker(){
-        $count = count($_FILES['userfile']['size']);
-        if($_FILES['userfile']['size'][0] > 0){
-            //---- proses mengupload foto----
-            $name_array = array();
+        // print_r($_FILES);die;
+        $data = array();
+        $val = array();
+        $gambar = null;
+        if($_FILES['foto_dp']['name']){
+            $this->load->library('image_lib');
             
+            $nmfile = "proker_".date("Ymdhis"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $config['file_name']        = $nmfile; //nama yang terupload nantinya
+            $config['upload_path']      = 'image/gambar_proker/dp'; //path folder
+            $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+            $config['max_size']         = '10000'; //maksimum besar file 2M
+            $config['max_width']        = '5000'; //lebar maksimum 1288 px
+            $config['max_height']       = '3000'; //tinggi maksimu 768 px
+           
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('foto_dp');
+            $val   = $this->upload->data();
+            $gambar = $val['file_name'];
+
+            $config['create_thumb']     = false;
+            $config['image_library']    = 'gd2';
+            $config['source_image']     = $this->upload->upload_path.$this->upload->file_name;
+            $config['maintain_ratio']   = true;
+            $config['width']            = '450';
+            $config['height']           = '450';
+            $config['quality']          = '95';
+            $this->image_lib->initialize($config);
+            $this->image_lib->resize();
+
+        }
+        //---- proses upload foto lokasi ---
+        $datafile['gambar']=$_FILES['foto_k'];
+        $name_array = array();
+        if($_FILES['foto_k']['size'][0] > 0){
+            //---- proses mengupload foto----
+            $count = count($_FILES['foto_k']['size']);
             $batasloop=0;
-            foreach($_FILES as $key=>$value){ // proses meng-upload foto
-                for($s=0; $s<=$count-1; $s++) {
+            $this->load->library('image_lib');
+
+            foreach($datafile as $key=>$value){ // proses meng-upload foto
+                for($s=0; $s<$count; $s++) {
                     if($batasloop<$count){
-                        $_FILES['userfile']['name']     = $value['name'][$s];
-                        $_FILES['userfile']['type']     = $value['type'][$s];
-                        $_FILES['userfile']['tmp_name'] = $value['tmp_name'][$s];
-                        $_FILES['userfile']['error']    = $value['error'][$s];
-                        $_FILES['userfile']['size']     = $value['size'][$s];
-                        $config['file_name']            = 'proker_'.date('Ymdhms');
-                        $config['upload_path']          = 'gambar_proker';
-                        $config['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
-                        $config['max_size']             = '10000';
-                        $config['max_width']            = '5000';
-                        $config['max_height']           = '3000';
-                        $this->load->library('upload', $config);
-                        $this->upload->do_upload('userfile');
-                        $data1 = $this->upload->data();
-                        $name_array[] = $data1['file_name'];
+                        $_FILES['foto_k']['name']     = $value['name'][$s];
+                        $_FILES['foto_k']['type']     = $value['type'][$s];
+                        $_FILES['foto_k']['tmp_name'] = $value['tmp_name'][$s];
+                        $_FILES['foto_k']['error']    = $value['error'][$s];
+                        $_FILES['foto_k']['size']     = $value['size'][$s];
+                        $config1['file_name']            = 'portofolio_'.date('Ymdhis');
+                        $config1['upload_path']          = 'image/gambar_proker';
+                        $config1['allowed_types']        = 'gif|jpg|png';
+                        $config1['max_size']             = '10000';
+                        $config1['max_width']            = '7000';
+                        $config1['max_height']           = '7000';
+                        $this->load->library('upload', $config1);
+                        $this->upload->initialize($config1);
+                        $this->upload->do_upload('foto_k');
+                        $hasil = $this->upload->data();
+                        $name_array[]=$hasil['file_name'];
+
                         $batasloop++;
+
+                        $config1['create_thumb']     = false;
+                        $config1['image_library']    = 'gd2';
+                        $config1['source_image']     = $this->upload->upload_path.$this->upload->file_name;
+                        $config1['maintain_ratio']   = true;
+                        $config1['width']            = '550';
+                        $config1['height']           = '550';
+                        $config1['quality']          = '100';
+                        $this->image_lib->initialize($config1);
+                        $this->image_lib->resize();
                     }
                 }
-            }//---./Batas proses mengupload foto ----
-            $userfile= implode(',', $name_array);
+            }
         }
+        
 
-        $data = array(
-            'nama_kegiatan'     => $this->input->post('nama_kegiatan'), 
-            'divisi'            => $this->input->post('divisi'),
-            'status'            => $this->input->post('status'),
-            'tujuan_kegiatan'   => $this->input->post('tujuan_kegiatan'),
-            'sasaran_kegiatan'  => $this->input->post('sasaran_kegiatan'),
-            'waktu'             => $this->input->post('waktu'),
-            'sumber_dana'       => $this->input->post('sumber_dana'),
-            'tgl_update'        => date('Y-m-d h:m:s'),
-            'foto'              => $userfile
-            );
+        $data['foto_dp_k']        = $gambar;
+        $data['nama_kegiatan']    = $this->input->post('nama_kegiatan'); 
+        $data['tujuan_kegiatan']  = $this->input->post('tujuan_kegiatan');
+        $data['sasaran_kegiatan'] = $this->input->post('sasaran_kegiatan');
+        $data['waktu_kegiatan']   = $this->input->post('waktu_kegiatan');
+        $data['sumber_dana']      = $this->input->post('sumber_dana');
+        $data['status_kegiatan']  = $this->input->post('status');
+        $data['divisi_kegiatan']  = $this->input->post('divisi');
+        $data['tgl_update']       = date('Y-m-d h:i:s');
+
         $this->db->insert('table_proker',$data);
-        redirect('A_proker');
+
+        $this->db->where('tgl_update',$data['tgl_update']);
+        $this->db->limit(1);
+        $this->db->order_by('id_proker','DESC');
+        $hasil = $this->db->get('table_proker')->row_array();
+
+        for ($i=0; $i < count($name_array); $i++) { 
+            $data_gambar['nama_foto']   = $name_array[$i];
+            $data_gambar['jenis']       = 'proker';
+            $data_gambar['id_back']     = $hasil['id_proker'];
+
+            $this->db->insert('table_foto',$data_gambar);
+        }
+        $this->session->set_flashdata('pesan_sukses', 'Berhasil menginput data !');
+
+        redirect('admin/proker');
     }
 
     public function update_data_proker(){
-        $count = count($_FILES['userfile']['size']);
-        if($_FILES['userfile']['size'][0] > 0){
-            //---- proses mengupload foto----
-            $name_array = array();
+        $id_proker = $this->input->post('id_proker');
+        $data = array();
+        $val = array();
+        if($_FILES['foto_dp']['name']){
+            $this->load->library('image_lib');
             
+            $nmfile = "proker_".date("Ymdhis"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $config['file_name']        = $nmfile; //nama yang terupload nantinya
+            $config['upload_path']      = 'image/gambar_proker/dp'; //path folder
+            $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+            $config['max_size']         = '10000'; //maksimum besar file 2M
+            $config['max_width']        = '5000'; //lebar maksimum 1288 px
+            $config['max_height']       = '3000'; //tinggi maksimu 768 px
+           
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('foto_dp');
+            $val   = $this->upload->data();
+            $data['foto_dp_k'] = $val['file_name'];
+
+            $config['create_thumb']     = false;
+            $config['image_library']    = 'gd2';
+            $config['source_image']     = $this->upload->upload_path.$this->upload->file_name;
+            $config['maintain_ratio']   = true;
+            $config['width']            = '450';
+            $config['height']           = '450';
+            $config['quality']          = '95';
+            $this->image_lib->initialize($config);
+            $this->image_lib->resize();
+
+            unlink('image/gambar_proker/dp/'.$this->input->post('foto_dp_lama'));
+        }
+
+        //---- proses upload foto lokasi ---
+        $name_array = array();
+        if($_FILES['foto_k']['size'][0] > 0){
+            $datafile['gambar']=$_FILES['foto_k'];
+            //---- proses mengupload foto----
+            $count = count($_FILES['foto_k']['size']);
             $batasloop=0;
-            foreach($_FILES as $key=>$value){ // proses meng-upload foto
-                for($s=0; $s<=$count-1; $s++) {
+            $this->load->library('image_lib');
+
+            foreach($datafile as $key=>$value){ // proses meng-upload foto
+                for($s=0; $s<$count; $s++) {
                     if($batasloop<$count){
-                        $_FILES['userfile']['name']     = $value['name'][$s];
-                        $_FILES['userfile']['type']     = $value['type'][$s];
-                        $_FILES['userfile']['tmp_name'] = $value['tmp_name'][$s];
-                        $_FILES['userfile']['error']    = $value['error'][$s];
-                        $_FILES['userfile']['size']     = $value['size'][$s];
-                        $config['file_name']            = 'proker_'.date('Ymdhms');
-                        $config['upload_path']          = 'gambar_proker';
-                        $config['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
-                        $config['max_size']             = '10000';
-                        $config['max_width']            = '5000';
-                        $config['max_height']           = '3000';
-                        $this->load->library('upload', $config);
-                        $this->upload->do_upload('userfile');
-                        $data1 = $this->upload->data();
-                        $name_array[] = $data1['file_name'];
+                        $_FILES['foto_k']['name']     = $value['name'][$s];
+                        $_FILES['foto_k']['type']     = $value['type'][$s];
+                        $_FILES['foto_k']['tmp_name'] = $value['tmp_name'][$s];
+                        $_FILES['foto_k']['error']    = $value['error'][$s];
+                        $_FILES['foto_k']['size']     = $value['size'][$s];
+                        $config1['file_name']            = 'portofolio_'.date('Ymdhis');
+                        $config1['upload_path']          = 'image/gambar_proker';
+                        $config1['allowed_types']        = 'gif|jpg|png';
+                        $config1['max_size']             = '10000';
+                        $config1['max_width']            = '7000';
+                        $config1['max_height']           = '7000';
+                        $this->load->library('upload', $config1);
+                        $this->upload->initialize($config1);
+                        $this->upload->do_upload('foto_k');
+                        $hasil = $this->upload->data();
+                        $name_array[]=$hasil['file_name'];
+
                         $batasloop++;
+
+                        $config1['create_thumb']     = false;
+                        $config1['image_library']    = 'gd2';
+                        $config1['source_image']     = $this->upload->upload_path.$this->upload->file_name;
+                        $config1['maintain_ratio']   = true;
+                        $config1['width']            = '550';
+                        $config1['height']           = '550';
+                        $config1['quality']          = '100';
+                        $this->image_lib->initialize($config1);
+                        $this->image_lib->resize();
                     }
-                }
-            }//---./Batas proses mengupload foto ----
-            $userfile= implode(',', $name_array);
-
-            $img=$this->input->post('img');
-            $img = explode(",", $img);
-
-            for ($i=0; $i < count($img); $i++) { 
-                if($img[$i] != "empty.png"){
-                    $file = "gambar_proker/".$img[$i];
-                    unlink($file);
                 }
             }
 
+            $this->db->where('id_back',$id_proker);
+            $this->db->where('jenis','proker');
+            $foto = $this->db->get('table_foto')->result_array();
 
-            $data = array(
-                'nama_kegiatan'     => $this->input->post('nama_kegiatan'), 
-                'divisi'            => $this->input->post('divisi'),
-                'status'            => $this->input->post('status'),
-                'tujuan_kegiatan'   => $this->input->post('tujuan_kegiatan'),
-                'sasaran_kegiatan'  => $this->input->post('sasaran_kegiatan'),
-                'waktu'             => $this->input->post('waktu'),
-                'sumber_dana'       => $this->input->post('sumber_dana'),
-                'tgl_update'        => date('Y-m-d h:m:s'),
-                'foto'              => $userfile
-            );
-        }else{
-           $data = array(
-                'nama_kegiatan'     => $this->input->post('nama_kegiatan'), 
-                'divisi'            => $this->input->post('divisi'),
-                'status'            => $this->input->post('status'),
-                'tujuan_kegiatan'   => $this->input->post('tujuan_kegiatan'),
-                'sasaran_kegiatan'  => $this->input->post('sasaran_kegiatan'),
-                'waktu'             => $this->input->post('waktu'),
-                'sumber_dana'       => $this->input->post('sumber_dana'),
-                'tgl_update'        => date('Y-m-d h:m:s'),
-            ); 
+            //menghapus
+            for ($i=0; $i < count($foto); $i++) { 
+                unlink('image/gambar_proker/'.$foto[$i]['nama_foto']);
+            }
+            $this->db->where('id_back',$id_proker);
+            $this->db->where('jenis','proker');
+            $this->db->delete('table_foto');
+
+            for ($i=0; $i < count($name_array); $i++) { 
+                $data_gambar['nama_foto']   = $name_array[$i];
+                $data_gambar['jenis']       = 'proker';
+                $data_gambar['id_back']     = $id_proker;
+
+                $this->db->insert('table_foto',$data_gambar);
+            }
         }
         
-        $this->db->where('id_proker',$this->input->post('id'));
+
+        $data['nama_kegiatan']    = $this->input->post('nama_kegiatan'); 
+        $data['tujuan_kegiatan']  = $this->input->post('tujuan_kegiatan');
+        $data['sasaran_kegiatan'] = $this->input->post('sasaran_kegiatan');
+        $data['waktu_kegiatan']   = $this->input->post('waktu_kegiatan');
+        $data['sumber_dana']      = $this->input->post('sumber_dana');
+        $data['status_kegiatan']  = $this->input->post('status');
+        $data['divisi_kegiatan']  = $this->input->post('divisi');
+        $data['tgl_update']       = date('Y-m-d h:i:s');
+
+
+        $this->db->where('id_proker',$id_proker);
         $this->db->update('table_proker',$data);
-        
-        redirect('A_proker');
+
+        // pesan berhasil
+        $this->session->set_flashdata('pesan_sukses', 'Berhasil memperbaharui data !');
+        redirect('admin/proker');
     }
 
     public function delete_data_proker(){ //hapus data rilis
-        $val = json_decode(file_get_contents('php://input'));
+        $id_proker=$this->input->post('id');
         
-        $this->db->select('foto');
-        $this->db->where('id_proker',$val->id);
+        $this->db->where('id_proker',$id_proker);
         $data = $this->db->get('table_proker')->row_array();
 
-        $img = explode(",", $data['foto']);
+        $this->db->where('id_back',$id_proker);
+        $this->db->where('jenis','proker');
+        $foto = $this->db->get('table_foto')->result_array();
 
-        for ($i=0; $i < count($img); $i++) { 
-            if($img[$i] != "empty.png"){
-                $file = "gambar_proker/".$img[$i];
-                unlink($file);
-            }
-        }
+        unlink('image/gambar_proker/dp/'.$data['foto_dp_k']);
 
-        $this->db->where('id_proker', $val->id);
-        if($this->db->delete('table_proker')){
-            echo "Berhasil Menghapus Data";
-        }else{
-            echo "Gagal Menghapus Data";
+        for ($i=0; $i < count($foto); $i++) { 
+            unlink('image/gambar_proker/'.$foto[$i]['nama_foto']);
         }
+        $this->db->where('id_proker', $id_proker);
+        $this->db->delete('table_proker');
+
+        $this->db->where('id_back',$id_proker);
+        $this->db->where('jenis','proker');
+        $this->db->delete('table_foto');
     }
 
 

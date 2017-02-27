@@ -94,6 +94,7 @@
                                             <th>Nama Lengkap</th>
                                             <th>User Level</th>
                                             <th>Angkatan</th>
+                                            <th>Gender</th>
                                         </tr>
                                     </thead>
                                     <tbody id="adminLoop">

@@ -38,10 +38,6 @@ class A_proker extends CI_Controller{
         public function select_data_proker(){
             $this->M_proker->select_data_proker();
         }
-        public function select_data_proker_divisi(){
-            $this->M_proker->select_data_proker_divisi();
-        }
-
         public function insert_data_proker(){
             $this->M_proker->insert_data_proker();
         }

@@ -1,157 +1,91 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-9">
-        <h2>Data Anggota</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">Beranda</a>
-            </li>
-            <li>
-                Data Anggota
-            </li>
-            <li>
-                Data Table Anggota
-            </li>
-            <li class="active">
-                <strong>{{status}} </strong>
-            </li>
-        </ol>
-    </div>
-</div>
-<div class="wrapper wrapper-content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="tabs-container">
-                <ul class="nav nav-tabs">
-                    <li class="active" onclick="dataAnggota('anggota','#anggotaLoop')"><a data-toggle="tab" href="#tab-1"><i class="fa fa-users"></i> Anggota</a></li>
-                    <li class="" onclick="dataAnggota('pengurus','#pengurusLoop')"><a data-toggle="tab" href="#tab-2"><i class="fa fa-user"></i> Pengurus</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane active">
-                        <div class="panel-body">
-                            <a href="<?=base_url('admin/anggota/tambah')?>">
-                                <button class="btn btn-info btn-rounded" style="margin-bottom: 10px ">
-                                    <i class="fa fa-plus"></i> Tambah Data Anggota
-                                </button>
-                            </a>
-                            <div class="col-sm-3 pull-right">
-                                <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                    <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+           <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-9">
+                    <h2>Donatur</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="<?=base_url('admin')?>">Beranda</a>
+                        </li>
+                        <li>
+                            Data donatur
+                        </li>
+                        <li class="active">
+                            <strong>Data Tabel donatur </strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Table donatur</h5>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Foto</th>
-                                            <th>NIK</th>
-                                            <th>Nama Lengkap</th>
-                                            <th>Status</th>
-                                            <th>Angkatan</th>
-                                            <th>Gender</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="anggotaLoop">
-                                        
-                                    </tbody>
-                                </table>
+                            <div class="ibox-content">
+                                <a href="<?=base_url('admin/donatur/tambah')?>">
+                                    <button class="btn btn-info btn-rounded">
+                                        <i class="fa fa-plus"></i> Tambah donatur
+                                    </button>
+                                </a>
+                                <div class="col-sm-3 pull-right">
+                                    <div class="input-group"><input type="text" ng-model="pencarian" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Donatur </th>
+                                                <th>Jan</th>
+                                                <th>Feb</th>
+                                                <th>Mar</th>
+                                                <th>Apr</th>
+                                                <th>Mei</th>
+                                                <th>Jun</th>
+                                                <th>Jul</th>
+                                                <th>Agt</th>
+                                                <th>Sep</th>
+                                                <th>Okt</th>
+                                                <th>Nov</th>
+                                                <th>Des</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php for ($i=0; $i < count($data); $i++) { ?>
+                                            <tr>
+                                                <td><?=$i+1?></td>
+                                                <td><i class="fa <?=$data[$i]['jan']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['feb']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['mar']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['apr']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['mei']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['jun']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['jul']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['agt']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['sep']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['okt']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['nov']?>"></i></td>
+                                                <td><i class="fa <?=$data[$i]['des']?>"></i></td>
+                                                <td>
+                                                    <a href="<?=base_url().'admin/edit/'.$data[$i]['id_donatur']?>">
+                                                        <button class="btn btn-primary">Edit</button>
+                                                    </a>
+                                                    <a href="<?=base_url().'admin/hapus/'.$data[$i]['id_donatur']?>">
+                                                        <button class="btn btn-danger">Hapus</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="tab-2" class="tab-pane">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Foto</th>
-                                            <th>NIK</th>
-                                            <th>Nama Lengkap</th>
-                                            <th>Status</th>
-                                            <th>Angkatan</th>
-                                            <th>Gender</th>
-                                            <th>Ubah Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="pengurusLoop">
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    function dataAnggota(status,ids){
-        $(ids).html('');
-         $.ajax({
-            type:"POST",
-            url: "<?=base_url('A_anggota/select_data_anggota')?>",
-            data:"sts="+status,
-            success: function(hasil) {
-                var Janggota = $.parseJSON(hasil);
 
-                for (var i=0;i<Janggota.length;++i){
-                    if(ids == '#anggotaLoop'){
-                        $('#anggotaLoop').append('<tr><td>'+(i+1)+'</td><td><img width="150px" class="img-responsive" src="'+Janggota[i].foto+'"></td><td>'+Janggota[i].nik+'</td><td>'+Janggota[i].nama+'</td><td>'+Janggota[i].status+'</td><td>'+Janggota[i].angkatan+'</td><td>'+Janggota[i].jk+'</td><td><a href="'+Janggota[i].edit+'"><button class="btn btn-primary btn-rounded">Edit</button></a><button class="btn btn-danger btn-rounded" onclick="deleteData('+Janggota[i].id_anggota+')">Hapus</button><button class="btn btn-info btn-rounded" onclick=ubahData("pengurus","#anggotaLoop",'+Janggota[i].id_anggota+',"anggota")>Pengurus</button></td></tr>');
-                    }else if(ids == '#pengurusLoop'){
-                        $('#pengurusLoop').append('<tr><td>'+(i+1)+'</td><td><img width="150px" class="img-responsive" src="'+Janggota[i].foto+'"></td><td>'+Janggota[i].nik+'</td><td>'+Janggota[i].nama+'</td><td>'+Janggota[i].status+'</td><td>'+Janggota[i].angkatan+'</td><td>'+Janggota[i].jk+'</td><td><button class="btn btn-info btn-rounded" onclick=ubahData("anggota","#pengurusLoop",'+Janggota[i].id_anggota+',"pengurus")>Anggota</button></a></td></tr>');
-                    }
-                }
-            }
-        });
-    }
-    dataAnggota('anggota','#anggotaLoop');
-
-    function deleteData(id){
-         swal({
-                title: "Apakah anda ingin menghapus data ?",
-                text: "Data tidak dapat dikembalikan setelah terhapus !",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Ya, Hapus !",
-                closeOnConfirm: false
-            }, function () {
-                $.ajax({
-                    type:"POST",
-                    url:"<?=base_url()?>admin/anggota/delete",
-                    data:"id="+id,
-                    success:function(){
-                        dataAnggota('anggota','#anggotaLoop');
-                        swal("Berhasil!", "Data telah dihapus !", "success");
-                    },error:function(){
-                        alert('Gagal Menghapus Data');
-                    }
-                });
-            });
-    }
-    function ubahData(status,ids,id,fel){
-         swal({
-                title: "Apakah anda mengubah status ?",
-                text: "Data akan dipindahkan ke tabel "+status+" !",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Ya, Ubah !",
-                closeOnConfirm: false
-            }, function () {
-                $.ajax({
-                    type:"POST",
-                    url:"<?=base_url()?>admin/anggota/status",
-                    data:"sts="+status+"&id="+id,
-                    success:function(){
-                        dataAnggota(fel,ids);
-                        swal("Berhasil!", "Data telah dihapus !", "success");
-                    },error:function(){
-                        alert('Gagal Menghapus Data');
-                    }
-                });
-            });
-    }
-</script>
+            
+        

@@ -9,11 +9,21 @@ class M_konten extends CI_Model {
     }
 
     public function select_data_konten(){
+        
+        $mulai = $this->input->post('mulai');
+        if($mulai!=0){
+            $mulai=$mulai*10;
+        }
+        $this->db->select('id_konten,judul_konten,table_konten.status,viewers,table_konten.id_anggota,likers,viewers,tgl_rilis,nama');
         $this->db->join('table_anggota', 'table_anggota.id_anggota = table_konten.id_anggota');
         $this->db->order_by('id_konten', 'DESC');
+        $this->db->limit(10,$mulai);
         $data = $this->db->get('table_konten')->result();
 
         echo json_encode($data);
+    }
+    public function select_data_jumlah_konten(){
+        echo $this->db->get('table_konten')->num_rows();
     }
 
     public function select_data_edit_konten(){
@@ -73,7 +83,7 @@ class M_konten extends CI_Model {
             'status'        => "rilis",
             'tgl_rilis'     => date('Y-m-d h:i:s'),
             'tag'           => $this->input->post('tag'),
-            'id_user'       => $this->session->userdata('identitas'),
+            'id_anggota'       => $this->session->userdata('identitas'),
             'viewers'       => 0,
             'likers'        => 0,
         );
@@ -140,15 +150,15 @@ class M_konten extends CI_Model {
     }
 
     public function delete_data_konten(){ //hapus data rilis
+        $id=$this->input->post('id');
         $this->db->select('gambar');
-        $this->db->where('id_konten',$this->input->post('id_konten'));
+        $this->db->where('id_konten',$id);
         $data = $this->db->get('table_konten')->row_array();
-
         
         unlink("image/gambar_konten/".$data['gambar']);
         unlink("image/gambar_konten/thumb/".$data['gambar']);
 
-        $this->db->where('id_konten', $this->input->post('id_konten'));
+        $this->db->where('id_konten', $id);
         $this->db->delete('table_konten');
     }
 }

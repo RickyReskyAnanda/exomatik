@@ -62,7 +62,7 @@
                           <div class="post-image">
                             <div class="img-thumbnail">
                               <a href="<?=$populer[$i]['link']?>">
-                                <img src="<?=base_url()?>gambar_konten/thumb/<?=$populer[$i]['gambar']?>" alt="">
+                                <img src="<?=$populer[$i]['gambar']?>" class="img-responsive" style="width: 50px;" alt="">
                               </a>
                             </div>
                           </div>
@@ -83,7 +83,7 @@
                           <div class="post-image">
                             <div class="img-thumbnail">
                               <a href="<?=$terkomentari[$i]['link']?>">
-                                <img src="<?=base_url()?>gambar_konten/thumb/<?=$terkomentari[$i]['gambar']?>" alt="">
+                                <img src="<?=$terkomentari[$i]['gambar']?>" class="img-responsive" style="width: 50px;" alt="">
                               </a>
                             </div>
                           </div>

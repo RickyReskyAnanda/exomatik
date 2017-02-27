@@ -27,18 +27,12 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="<?=base_url()?>assets/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle img-responsive" style="width: 150px;" src="<?=base_url().'image/gambar_anggota/'.$this->session->userdata('foto');?>" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
-                        </ul>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?=$this->session->userdata('nama');?></strong>
+                             </span> <span class="text-muted text-xs block"><?=ucfirst($this->session->userdata('role'))?> </span> </a>
+                        
                     </div>
                     <div class="logo-element">
                         EXO

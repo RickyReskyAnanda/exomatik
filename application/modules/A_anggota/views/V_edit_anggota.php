@@ -47,6 +47,24 @@
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" name="email_user" placeholder="Email" class="form-control" value="<?=$data['email_anggota']?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">User Level</label>
+                                                <div class="col-sm-10">
+                                                    <select name="userlevel" class="form-control" required>
+                                                        <option value="blokir" <?php if($data['userlevel']=="blokir"){echo "selected";}?>>Blokir</option>
+                                                        <option value="user" <?php if($data['userlevel']=="user"){echo "selected";}?>>User</option>
+                                                        <option value="admin" <?php if($data['userlevel']=="admin"){echo "selected";}?>>Admin</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Jenis Kelamin</label>
                                                 <div class="col-sm-10">
                                                     <select name="jk" class="form-control">

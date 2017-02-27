@@ -64,7 +64,7 @@
                                     <div class="row" style="margin-bottom: 10px;">
                                         <div class="form-group"><label class="col-sm-2 control-label">Gambar DP</label>
                                             <div class="col-sm-6">
-                                                <input type="file" name="gambar_dp" class="form-control" required>
+                                                <input type="file" name="gambar_dp" class="form-control">
                                                 * input jika ingin mengganti gambar dp
                                             </div>
                                             <div class="col-sm-4">
@@ -75,7 +75,7 @@
                                     <div class="row" style="margin-bottom: 10px;">
                                         <div class="form-group"><label class="col-sm-2 control-label">Gambar Project</label>
                                             <div class="col-sm-10">
-                                                <input type="file" name="gambar[]" multiple class="form-control" required>
+                                                <input type="file" name="gambar[]" multiple class="form-control">
                                                 * input jika ingin mengganti gambar
                                             </div>
                                         </div>

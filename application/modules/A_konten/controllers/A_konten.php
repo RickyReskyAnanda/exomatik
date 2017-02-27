@@ -42,6 +42,9 @@ class A_konten extends CI_Controller{
         public function select_data_konten(){
             $this->M_konten->select_data_konten();
         }
+        public function select_data_jumlah_konten(){
+            $this->M_konten->select_data_jumlah_konten();
+        }
         public function insert_data_konten(){
             $this->M_konten->insert_data_konten();
         }

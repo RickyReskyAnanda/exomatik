@@ -1,5 +1,3 @@
-
-        <span ng-app="exoapp" ng-controller="kontenctrl">
            <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-9">
                     <h2>Data Konten</h2>
@@ -40,70 +38,124 @@
                                             <th>Tanggal Rilis </th>
                                             <th>Judul Konten</th>
                                             <th>Penulis</th>
+                                            <th>Status</th>
+                                            <th>Viewers</th>
+                                            <th>Likers</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr ng-repeat="val in kontenText | filter:pencarian">
-                                            <td>{{$index+1}}</td>
-                                            <td>{{val.tgl_rilis}}</td>
-                                            <td>{{val.judul_konten}}</td>
-                                            <td>{{val.nama_user}}</td>
-                                            <td>
-                                                <a href="<?=base_url()?>A_konten/edit_data_konten/{{val.id_konten}}">
-                                                    <button class="btn btn-primary btn-rounded">Edit</button>
-                                                </a>
-                                                <button class="btn btn-danger btn-rounded" ng-click="hapusdata(val.id_konten,$index)">Hapus</button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="kontenLoop">
                                     </tbody>
                                 </table>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-white" id="btn_awal" onclick="awal()"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></button>
+                                    <button class="btn btn-white " id="btn_sblm" onclick="sebelumnya()"><i class="fa fa-chevron-left"></i></button>
+                                    <button class="btn btn-white" id="btn_sljt" onclick="selanjutnya()"><i class="fa fa-chevron-right"></i></button>
+                                    <button type="button" class="btn btn-white" id="btn_akhir" onclick="akhir()"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i> </button>
+                                </div>
                             </div>
                     </div>
                 </div>
             </div>
-        </span>
 
-        <script type="text/javascript">
-            var app=angular.module('exoapp',[]);
-
-            app.controller('kontenctrl',function($scope,$http){
-
-                    $scope.jumlahText = {};
-                    $http.post("<?= base_url('A_dashboard/select_jumlah_widget');?>"   //jumlah berita
-                      ).success(function(data){
-                        $scope.jumlahText = data;
-                    });
-
-                    $scope.kontenText=[];
-                    $http.post("<?= base_url('A_konten/select_data_konten');?>"   //jumlah berita
-                      ).success(function(result){
-                        $scope.kontenText = result;
-                    });
-
-            /**
-              |-----------------------------------------------------------------------------------------------
-              |                               Hapus Data
-              |-----------------------------------------------------------------------------------------------
-              */
-                $scope.hapusdata = function(id,index){
-                    if (confirm("Apakah anda ingin menghapus ? ")){
-                        $http.post(
-                          "<?=base_url('A_konten/delete_data_konten')?>",
-                          {
-                            id:id
-                          }
-                        ).success(function(data){
-                            $scope.kontenText.splice(index,1);
-                            $scope.jumlahText.konten--;
-                          alert(data);
-                        }).error(function(){
-                          alert("Gagal menghapus data");
-                        });
+            <script type="text/javascript">
+                var paginasi=0;
+                var Jkonten=null;
+                var nomor = 0;
+                var jumlah=0;
+                function dataKonten(mulai){
+                    if(paginasi>0){
+                        nomor=paginasi*10;
+                    }else{
+                        nomor=0;
                     }
-                };
-            });
+                    $('#kontenLoop').html('');
+                     $.ajax({
+                        url: "<?=base_url('A_konten/select_data_konten')?>",
+                        dataType: "text",
+                        type:"POST",
+                        data:"mulai="+mulai,
+                        success: function(hasil) {
+                            Jkonten = $.parseJSON(hasil);
 
-        </script>
+                            for (var i=0;i<Jkonten.length;++i){
+                                $('#kontenLoop').append('<tr><td>'+(++nomor)+'</td><td>'+Jkonten[i].tgl_rilis+'</td><td>'+Jkonten[i].judul_konten+'</td><td>'+Jkonten[i].nama+'</td><td>'+Jkonten[i].status+'</td><td>'+Jkonten[i].viewers+'</td><td>'+Jkonten[i].likers+'</td><td><a href="<?=base_url()?>admin/konten/edit/'+Jkonten[i].id_konten+'"><button class="btn btn-primary btn-rounded">Edit</button></a><button class="btn btn-danger btn-rounded" onclick="deleteKonten('+Jkonten[i].id_konten+')">Hapus</button></td></tr>');
+                            }
+                            if(Jkonten.length<=9){
+                                $('#btn_sljt').addClass('disabled');
+                                $('#btn_akhir').addClass('disabled');   
+                            }
+                        }
+                    });
+                }
+                $.ajax({
+                    url: "<?=base_url('A_konten/select_data_jumlah_konten')?>",
+                    dataType: "text",
+                    success: function(hasil) {
+                        jumlah = hasil;
+                    }
+                });
 
-                
+                dataKonten(0);
+                $("#btn_awal").addClass('disabled');
+                $("#btn_sblm").addClass('disabled');
+                function awal(){
+                    paginasi=0;
+                    dataKonten(paginasi);
+                    $("#btn_awal").addClass('disabled');
+                    $("#btn_sblm").addClass('disabled');
+                    $ ('#btn_sljt').removeClass('disabled');
+                    $('#btn_akhir').removeClass('disabled');
+                }
+                function sebelumnya(){
+                    if(paginasi>0){
+                        paginasi--;
+                        dataKonten(paginasi);
+                        if(paginasi<1){
+                            $("#btn_awal").addClass('disabled');
+                            $("#btn_sblm").addClass('disabled');
+                        }
+                        $('#btn_sljt').removeClass('disabled');
+                        $('#btn_akhir').removeClass('disabled');
+                    }
+                } 
+                function selanjutnya(){
+                    paginasi++;
+                    dataKonten(paginasi);
+                    $('#btn_awal').removeClass('disabled');
+                    $('#btn_sblm').removeClass('disabled');
+                }
+                function akhir(){
+                    paginasi = parseInt(parseInt(jumlah)/10);
+                    dataKonten(paginasi);
+                    $('#btn_awal').removeClass('disabled');
+                    $('#btn_sblm').removeClass('disabled');
+                    $('#btn_sljt').addClass('disabled');
+                    $('#btn_akhir').addClass('disabled');   
+                }
+
+                function deleteKonten(id){
+                 swal({
+                        title: "Ingin menghapus konten ?",
+                        text: "Data tidak dapat dikembalikan setelah terhapus !",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Ya, Hapus !",
+                        closeOnConfirm: true,
+                    }, function () {
+                        $.ajax({
+                            type:"POST",
+                            url:"<?=base_url('A_konten/delete_data_konten')?>",
+                            data:"id="+id,
+                            success:function(){
+                                dataKonten(paginasi);
+                                swal("Berhasil!", "Data telah dihapus !", "success");
+                            },error:function(){
+                                swal("Gagal!", "Data gagal dihapus !", "danger");
+                            }
+                        });
+                    });
+                }
+            </script>
+        

@@ -32,22 +32,30 @@
                             </div>
                             <div>
                                 <div class="ibox-content">
-                                    <form action="<?=base_url('A_anggota/insert_data_anggota')?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?=base_url('A_donatur/insert_data_donatur')?>" method="post" enctype="multipart/form-data">
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Nomor Induk</label>
-                                                <div class="col-sm-10"><input type="text" name="nik" class="form-control" placeholder="Masukkan Nomor Induk Anggota" required></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Nama Lengkap</label>
-                                                <div class="col-sm-10"><input type="text" name="nama_lengkap" class="form-control" placeholder="Masukkan Nama Anggota" required></div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Nama Donatur</label>
+                                                <div class="col-sm-10"><input type="text" name="nama_donatur" class="form-control" placeholder="Masukkan Nama Donatur" required></div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Jenis Kelamin</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Tanggal lahir</label>
                                                 <div class="col-sm-10">
-                                                    <select name="jk" class="form-control">
+                                                    <input type="date" name="tgl_lahir" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Pekerjaan</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Gender</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" name="jk" required>
                                                         <option value="laki-laki">Laki-Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
@@ -55,41 +63,23 @@
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Tempat Lahir</label>
-                                                <div class="col-sm-10"><input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Daerah Lahir " required></div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Tanggal Lahir</label>
-                                                <div class="col-sm-10"><input type="date"  name="tgl_lahir" class="form-control" placeholder="Contoh 2016-12-31" required></div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Nomor HP</label>
-                                                <div class="col-sm-10"><input type="text" name="no_hp" class="form-control" placeholder="Masukkan Nomor Handphone " required></div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Angkatan</label>
                                                 <div class="col-sm-10">
-                                                    <input type="number" name="angkatan" class="form-control" required>
+                                                    <input type="number" name="no_hp" class="form-control" placeholder="Masukkan nomor hp" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Status Keanggotaan</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Alamat</label>
                                                 <div class="col-sm-10">
-                                                    <select name="status" class="form-control">
-                                                        <option value="anggota">Anggota</option>
-                                                        <option value="pengurus">Pengurus</option>
-                                                    </select>
+                                                    <textarea class="form-control" placeholder="Masukkan Alamat" name="alamat"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Foto Resmi</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Foto</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" name="foto" class="form-control">
+                                                    <input type="file" name="foto" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>

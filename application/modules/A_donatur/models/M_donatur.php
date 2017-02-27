@@ -1,86 +1,42 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_anggota extends CI_Model {
+class M_donatur extends CI_Model {
 
     public function __construct(){
         parent::__construct();
         $this->load->database();
     }
 
-    public function select_data_anggota(){
+    public function select_data_donatur(){
         $this->db->where('status',$this->input->post('sts'));
-        $data = $this->db->get('table_anggota')->result_array();
+        $data = $this->db->get('table_donatur')->result_array();
 
         for ($i=0; $i < count($data); $i++) { 
-            $data[$i]['foto'] = base_url()."image/gambar_anggota/".$data[$i]['foto'];
-            $data[$i]['edit'] = base_url()."admin/anggota/edit/".$data[$i]['id_anggota'];
+            $data[$i]['foto'] = base_url()."image/gambar_donatur/".$data[$i]['foto'];
+            $data[$i]['edit'] = base_url()."admin/donatur/edit/".$data[$i]['id_donatur'];
         }
         echo json_encode($data);
     }
 
-    public function status_data_anggota(){
-        $data['status'] = $this->input->post('sts');
-        $this->db->where('id_anggota',$this->input->post('id'));
-        $this->db->update('table_anggota',$data);
+    public function insert_data_donatur(){
+    	print_r($_POST);die;
+        $data=array();
 
-        if($data['status']=='anggota'){
-            $this->db->where('id_anggota',$this->input->post('id'));
-            $this->db->delete('table_struktur');
-        }
-    }
-    
-    public function select_edit_data_anggota(){
-    	$id = $this->uri->segment(4);
-
-    	$this->db->where('id_anggota',$id);
-    	return $this->db->get('table_anggota')->row_array();
+        $data['nama_donatur']   = $this->input->post('nama_donatur');
+        $data['tgl_lahir']      = $this->input->post('tgl_lahir');
+        $data['pekerjaan']      = $this->input->post('pekerjaan');
+        $data['jk']             = $this->input->post('jk');
+        $data['no_hp']          = $this->input->post('no_hp');
+        $data['alamat']         = $this->input->post('alamat');
     }
 
-    public function insert_data_anggota(){
-
+    public function update_data_donatur(){
     	$gambar = "";
         if($_FILES['foto']['name']){
-            $nmfile = "anggota_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $nmfile = "donatur_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
             $config['file_name']        = $nmfile; //nama yang terupload nantinya
-            $config['upload_path']      = 'image/gambar_anggota'; //path folder
-            $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-            $config['max_size']         = '10000'; //maksimum besar file 2M
-            $config['max_width']        = '5000'; //lebar maksimum 1288 px
-            $config['max_height']       = '3000'; //tinggi maksimu 768 px
-
-            $this->load->library('upload', $config);
-            $this->upload->do_upload('foto');
-            $data   = $this->upload->data();
-            $gambar = $data['file_name'];
-        }else{
-        	$gambar = "empty.png";
-        }
-
-    	$data = array(
-    		'nik' 			=> $this->input->post('nik'), 
-    		'nama' 			=> $this->input->post('nama_lengkap'),
-    		'jk' 			=> $this->input->post('jk'),
-    		'tempat_lahir' 	=> $this->input->post('tempat_lahir'),
-    		'tgl_lahir' 	=> $this->input->post('tgl_lahir'),
-    		'no_hp' 		=> $this->input->post('no_hp'),
-    		'angkatan' 		=> $this->input->post('angkatan'),
-    		'status' 		=> $this->input->post('status'),
-            'foto'          => $gambar,
-    		'konfirmasi'    => '0',
-    	);
-
-    	$this->db->insert('table_anggota',$data);
-
-    	redirect('A_anggota');
-    }
-
-    public function update_data_anggota(){
-    	$gambar = "";
-        if($_FILES['foto']['name']){
-            $nmfile = "anggota_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
-            $config['file_name']        = $nmfile; //nama yang terupload nantinya
-            $config['upload_path']      = 'image/gambar_anggota'; //path folder
+            $config['upload_path']      = 'image/gambar_donatur'; //path folder
             $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
             $config['max_size']         = '10000'; //maksimum besar file 2M
             $config['max_width']        = '5000'; //lebar maksimum 1288 px
@@ -94,7 +50,7 @@ class M_anggota extends CI_Model {
             $img=$this->input->post('img');
 
             if($img != "empty.png"){
-                $file = "image/gambar_anggota/".$img;
+                $file = "image/gambar_donatur/".$img;
                 unlink($file);
             }
 
@@ -124,27 +80,27 @@ class M_anggota extends CI_Model {
 
     	
 
-    	$this->db->where('id_anggota',$this->input->post('id_anggota'));
-    	$this->db->update('table_anggota',$data);
+    	$this->db->where('id_donatur',$this->input->post('id_donatur'));
+    	$this->db->update('table_donatur',$data);
 
-    	redirect('A_anggota');
+    	redirect('A_donatur');
     }
 
-    public function delete_data_anggota(){ //hapus data rilis
+    public function delete_data_donatur(){ //hapus data rilis
 
         $this->db->select('foto');
-        $this->db->where('id_anggota',$this->input->post('id'));
-        $data = $this->db->get('table_anggota')->row_array();
+        $this->db->where('id_donatur',$this->input->post('id'));
+        $data = $this->db->get('table_donatur')->row_array();
 
         if($data['foto'] != "empty.png"){
-                $file = "image/gambar_anggota/".$data['foto'];
+                $file = "image/gambar_donatur/".$data['foto'];
                 if(!unlink($file)){echo "tidak ada file";}
             }
 
-        $this->db->where('id_anggota', $this->input->post('id'));
-        $this->db->delete('table_anggota');
+        $this->db->where('id_donatur', $this->input->post('id'));
+        $this->db->delete('table_donatur');
         
-        $this->db->where('id_anggota',$this->input->post('id'));
+        $this->db->where('id_donatur',$this->input->post('id'));
         $this->db->delete('table_struktur');
     }
 

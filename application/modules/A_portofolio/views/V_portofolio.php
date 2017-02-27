@@ -28,7 +28,7 @@
                             </div>
                         </a>
                     </div>
-                    <?php for ($i=0; $i < count($data); $i++) { ?>
+                    <?php for ($i=0; $i < count($data); $i++) { if($i==3)break; ?>
                     <div class="col-md-3">
                         <div class="ibox">
                             <div class="ibox-content product-box">
@@ -48,12 +48,47 @@
                                     <div class="m-t text-righ">
 
                                         <a href="<?=$data[$i]['link']?>" class="btn btn-xs btn-primary">Edit <i class="fa fa-long-arrow-right"></i> </a>
+                                        <a href="<?=$data[$i]['delete']?>" class="btn btn-xs btn-danger">Hapus <i class="fa fa-long-arrow-right"></i> </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
+                </div>
+                <div class="row">
+                    <?php for ($i=3; $i < count($data); $i++) { ?>
+                    <div class="col-md-3">
+                        <div class="ibox">
+                            <div class="ibox-content product-box">
+
+                                    <img src="<?=$data[$i]['image']?>" class="img-responsive">
+                                
+                                <div class="product-desc">
+                                    
+                                    <small class="text-muted"><?=ucfirst($data[$i]['jenis_p'])?></small>
+                                    <a href="<?=$data[$i]['link']?>" class="product-name"> <?=ucfirst($data[$i]['nama_portofolio'])?></a>
+
+
+
+                                    <div class="small m-t-xs">
+                                        <?=ucfirst($data[$i]['deskripsi_singkat_p'])?>
+                                    </div>
+                                    <div class="m-t text-righ">
+
+                                        <a href="<?=$data[$i]['link']?>" class="btn btn-xs btn-primary">Edit <i class="fa fa-long-arrow-right"></i> </a>
+                                   
+
+                                        <a href="<?=$data[$i]['delete']?>" class="btn btn-xs btn-danger">Hapus <i class="fa fa-long-arrow-right"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if(($i+1)%4==0 && $i!=3){?>
+                    </div>
+                    <div class="row">
+                    <?php } }?>
                 </div>
             </div>
 

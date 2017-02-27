@@ -24,9 +24,9 @@
 						</div>
 						<div class="col-md-3">
 							<h4>MENU NAVBAR</h4>
-							<p style="font-size: 16px; font: Open Sans ">  Portofolia</p>
+							<p style="font-size: 16px; font: Open Sans ">  Portofolio</p>
 							<p style="font-size: 16px; font: Open Sans">  Tutorial</p>
-							<p style="font-size: 16px; font: Open Sans"> Download</p>
+							<p style="font-size: 16px; font: Open Sans"> Konten</p>
 						</div>
 					</div>
 				</div>
@@ -39,9 +39,9 @@
 							<div class="col-md-4">
 								<nav id="sub-menu">
 									<ul>
-										<li><a href="beranda.html">Beranda</a></li>
-										<li><a href="webdeveloper.html">Web Developer</a></li>
-										<li><a href="saran.html">Saran & MAsukan</a></li>
+										<li><a href="<?=base_url()?>">Beranda</a></li>
+										<li><a href="<?=base_url('developer')?>">Web Developer</a></li>
+										<li><a href="saran.html">Saran & Masukan</a></li>
 									</ul>
 								</nav>
 							</div>

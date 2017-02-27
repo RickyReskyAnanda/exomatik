@@ -85,6 +85,7 @@
 								</aside>
 							</div>
 						</div>
+						<?php if(count($terkait)>0){?>
 						<div class="row">
 							<div class="col-md-12 ">
 								<aside class="sidebar">
@@ -95,7 +96,7 @@
 												<img class="img-responsive" src="<?=$terkait[$i]['gambar_thumb'];?>" alt="Project Image">
 											</div>
 											<div class="col-md-9">
-												<h5 class="heading-primary mb-none"><?=$terkait[$i]['judul_tutorial']?></h5>
+												<a href="<?=$terkait[$i]['link']?>"><h5 class="heading-primary mb-none"><?=$terkait[$i]['judul_tutorial']?></h5></a>
 												<span>Oleh <?=$terkait[$i]['nama']?> </span>
 											</div>
 										</div>
@@ -103,6 +104,7 @@
 								</aside>
 							</div>
 						</div>
+						<?php } if(count($kategori)>0){?>
 						<div class="row">
 							<div class="col-md-12">
 								<aside class="sidebar" style=>
@@ -119,6 +121,7 @@
 								</aside>
 							</div>
 						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

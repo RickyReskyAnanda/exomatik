@@ -13,16 +13,18 @@ class M_login extends CI_Model {
         $keyword    = md5($this->input->POST('pass', TRUE));
         $data       = $this->db->query("SELECT * from table_anggota where email_anggota='$eml' and pass_anggota='$keyword' LIMIT 1");
 
-
         if ($data->num_rows() > 0) {
             $row = $data->row_array();
             if($row['userlevel']!='blokir'){
 
                 $newdata = array(
-                    'email'         => $row['email'],
-                    'identitas'     => $row['id_user'],
+                    'email'         => $row['email_anggota'],
+                    'identitas'     => $row['id_anggota'],
                     'role'          => $row['userlevel'],
                     'logged_in_y'   => "mskmi",
+                    'konfirmasi'    => $row['konfirmasi'],
+                    'nama'          => $row['nama'],
+                    'foto'          => $row['foto'],
 
                 );
                 $this->session->set_userdata($newdata);

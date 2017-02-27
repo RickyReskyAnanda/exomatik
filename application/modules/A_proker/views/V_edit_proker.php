@@ -33,17 +33,17 @@
                             <div>
                                 <div class="ibox-content">
                                     <form action="<?=base_url('A_proker/update_data_proker')?>" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="id" value="<?=$data['id_proker']?>">
-                                        <input type="hidden" name="img" value="<?=$data['foto']?>">
+                                        <input type="hidden" name="id_proker" value="<?=$data['id_proker']?>">
+                                        <input type="hidden" name="foto_dp_lama" value="<?=$data['foto_dp_k']?>">
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Nama Kegiatan</label>
-                                                <div class="col-sm-10"><input type="text" name="nama_kegiatan" class="form-control" placeholder="Masukkan Nama Kegiatan" value="<?=$data['nama_kegiatan']?>"></div>
+                                                <div class="col-sm-10"><input type="text" class="form-control" name="nama_kegiatan" value="<?=$data['nama_kegiatan']?>" placeholder="Masukkan Nama Kegiatan.." required></div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Tujuan Kegiatan</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" name="tujuan_kegiatan" placeholder="Tujuan Kegiatan" rows="5"><?=$data['tujuan_kegiatan']?></textarea>
+                                                    <textarea class="form-control" name="tujuan_kegiatan" placeholder="Tujuan Kegiatan" rows="5" required><?=$data['tujuan_kegiatan']?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -51,15 +51,15 @@
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Sasaran Kegiatan</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" name="sasaran_kegiatan" placeholder="Sasaran Kegiatan" rows="5"><?=$data['sasaran_kegiatan']?></textarea>
+                                                    <textarea class="form-control" name="sasaran_kegiatan" placeholder="Sasaran Kegiatan" rows="5" required><?=$data['sasaran_kegiatan']?></textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row" style="margin-bottom: 10px;">
-                                            <div class="form-group"><label class="col-sm-2 control-label">Waktu</label>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Waktu Kegiatan</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" name="waktu" placeholder="Waktu Pelaksanaan" rows="5"><?=$data['waktu']?></textarea>
+                                                    <textarea class="form-control" name="waktu_kegiatan" placeholder="Waktu Pelaksanaan" rows="5" required><?=$data['waktu_kegiatan']?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Sumber Dana</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" name="sumber_dana" placeholder="Sumber Dana" rows="5"><?=$data['sumber_dana']?></textarea>
+                                                    <textarea class="form-control" name="sumber_dana" placeholder="Sumber Dana" rows="5" required><?=$data['sumber_dana']?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,35 +75,56 @@
                                         <div class="row" style="margin-bottom: 10px;" >
                                             <div class="form-group"><label class="col-sm-2 control-label">Status</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" name="status">
-                                                        <option value="daftar" <?php if($data['status']=="daftar"){echo "selected";}?>>Daftar</option>
-                                                        <option value="terlaksana" <?php if($data['status']=="terlaksana"){echo "selected";}?>>Terlaksana</option>
+                                                    <select class="form-control" name="status" required>
+                                                        <option value="daftar" <?php if($data['status_kegiatan']=='daftar')echo 'selected';?>>Daftar</option>
+                                                        <option value="terlaksana" <?php if($data['status_kegiatan']=='terlaksana')echo 'selected';?>>Terlaksana</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 10px;" >
-                                            <div class="form-group"><label class="col-sm-2 control-label">Foto</label>
-                                                <div class="col-sm-10">
-                                                    <input type="file" class="form-control" name="userfile[]"  multiple>
-                                                    *input foto untuk menggantikan foto sebelumnya
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="form-group"><label class="col-sm-2 control-label">Divisi</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" name="divisi">
-                                                        <option value="kesekretariatan" <?php if($data['divisi']=="kesekretariatan"){echo "selected";}?>>Kesekretariatan</option>
-                                                        <option value="ki" <?php if($data['divisi']=="ki"){echo "selected";}?>>Kreatif & Inovatif</option>
-                                                        <option value="pendidikan" <?php if($data['divisi']=="pendidikan"){echo "selected";}?>>Pendidikan</option>
-                                                        <option value="humas" <?php if($data['divisi']=="humas"){echo "selected";}?>>Hubungan Masyarakat</option>
-                                                        <option value="keuangan" <?php if($data['divisi']=="keuangan"){echo "selected";}?>>Keuangan</option>
+                                                    <select class="form-control" name="divisi" required>
+                                                        <option value="kesekretariatan" <?php if($data['divisi_kegiatan']=='kesekretariatan')echo 'selected';?>>Kesekretariatan</option>
+                                                        <option value="ki" <?php if($data['divisi_kegiatan']=='ki')echo 'selected';?>>Kreatif & Inovatif</option>
+                                                        <option value="pendidikan" <?php if($data['divisi_kegiatan']=='pendidikan')echo 'selected';?>>Pendidikan</option>
+                                                        <option value="humas" <?php if($data['divisi_kegiatan']=='humas')echo 'selected';?>>Hubungan Masyarakat</option>
+                                                        <option value="keuangan" <?php if($data['divisi_kegiatan']=='keuangan')echo 'selected';?>>Keuangan</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        <div class="row" style="margin-bottom: 10px;" >
+                                            <div class="form-group"><label class="col-sm-2 control-label">Foto DP</label>
+                                                <div class="col-sm-6">
+                                                    <input type="file" class="form-control" name="foto_dp">
+                                                    * input jika ingin mengganti foto dp
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <img src="<?=$data['foto_dp']?>" class="img-responsive img-thumbnail">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;" >
+                                            <div class="form-group"><label class="col-sm-2 control-label">Foto Kegiatan Terlaksana</label>
+                                                <div class="col-sm-10">
+                                                    <input type="file" class="form-control" name="foto_k[]" multiple>
+                                                    * input jika ingin mengganti foto kegiatan
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;" >
+                                            <?php for($i=0;$i<count($data['gambar']);$i++){ ?>
+                                            <div class="col-md-3">
+                                                <img src="<?=$data['gambar'][$i]['nama_foto']?>" class="img-thumbnail img-responsive">
+                                            </div>
+                                        <?php if(($i+1)%4==0){?>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 10px;" >
+                                            <?php } }?>
+                                        </div>
+
                                         <div class="row">
                                             <div class="pull-right">
                                                 <button type="reset" class="btn btn-danger btn-rounded"> Reset </button>

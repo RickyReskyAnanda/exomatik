@@ -29,6 +29,8 @@ class M_konten extends CI_Model {
         $this->db->join('table_anggota', 'table_anggota.id_anggota = table_konten.id_anggota');
         $this->db->where('id_konten',$this->uri->segment(3));
         $data = $this->db->get('table_konten')->row_array();
+        $data['hari'] = date_format(date_create($data['tgl_rilis']), "d");
+        $data['bulan'] = date_format(date_create($data['tgl_rilis']), "M");
 
         return $data;
     }

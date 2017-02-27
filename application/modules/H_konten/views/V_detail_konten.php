@@ -27,20 +27,20 @@
                   <div class="post-image">
                     <div>
                       <div class="img-thumbnail">
-                        <img class="img-responsive" src="<?=base_url()?>gambar_konten/<?=$konten['gambar']?>" alt="">
+                        <img class="img-responsive" src="<?=base_url()?>image/gambar_konten/<?=$konten['gambar']?>" alt="">
                       </div>
                     </div>
                   </div>
                   <div class="post-date">
-                    <span class="day">10</span>
-                    <span class="month">Jan</span>
+                    <span class="day"><?=$konten['hari']?></span>
+                    <span class="month"><?=$konten['bulan']?></span>
                   </div>
                   <div class="post-content">
                     <h2><?=$konten['judul_konten']?></h2>
                     <div class="post-meta">
                       <span><i class="fa fa-user"></i> By <a href="#"><?=$konten['nama']?></a> </span>
                       <span><i class="fa fa-tag"></i> <?=$konten['tag']?></span>
-                      <span><i class="fa fa-comments"></i> <a href="#"><?=$konten['komentar']?> Comments</a></span>
+                      <span><i class="fa fa-comments"></i> <a href="#"><?=$konten['komentar']?> Komentar</a></span>
                     </div>
                     <p><?=$konten['isi_konten']?></p>
                     <span class="thumb-info-social-icons" style="border-top: 0px; margin-bottom: -30px">
@@ -48,7 +48,7 @@
                         <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
                         <a href="#" style="background-color: #c71603"><i class="fa fa-google-plus"></i><span>Twitter</span></a>
                   </span>
-                    <div class="post-block post-comments clearfix">
+                    <!-- <div class="post-block post-comments clearfix">
                       <h3 class="heading-primary"><i class="fa fa-comments"></i>Comments (3)</h3>
                       <ul class="comments">
                         <li>
@@ -175,7 +175,7 @@
                           </div>
                         </div>
                       </form>
-                    </div>
+                    </div> -->
                   </div>
                 </article>
               </div>
@@ -190,100 +190,44 @@
                   <div class="tab-content">
                     <div class="tab-pane active" id="popularPosts">
                       <ul class="simple-post-list">
+                        <?php for($i=0;$i<count($populer);$i++){ ?>
                         <li>
                           <div class="post-image">
                             <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-1.jpg" alt="">
+                              <a href="<?=$populer[$i]['link']?>">
+                                <img src="<?=$populer[$i]['gambar']?>" class="img-responsive" style="width:50px;" alt="Thumb">
                               </a>
                             </div>
                           </div>
                           <div class="post-info">
-                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                            <a href="<?=$populer[$i]['link']?>"><?=$populer[$i]['judul_konten']?></a>
                             <div class="post-meta">
-                               Jan 10, 2016
+                               <?=$populer[$i]['tgl_rilis']?>
                             </div>
                           </div>
                         </li>
-                        <li>
-                          <div class="post-image">
-                            <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-2.jpg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                          <div class="post-info">
-                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
-                            <div class="post-meta">
-                               Jan 10, 2016
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="post-image">
-                            <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-3.jpg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                          <div class="post-info">
-                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
-                            <div class="post-meta">
-                               Jan 10, 2016
-                            </div>
-                          </div>
-                        </li>
+                        <?php } ?>
                       </ul>
                     </div>
                     <div class="tab-pane" id="recentPosts">
                       <ul class="simple-post-list">
+                        <?php for($i=0;$i<count($terbaru);$i++){ ?>
                         <li>
                           <div class="post-image">
                             <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-2.jpg" alt="">
+                              <a href="<?=$terbaru[$i]['link']?>">
+                                <img src="<?=$terbaru[$i]['gambar']?>" class="img-responsive" style="width:50px;" alt="Thumb">
                               </a>
                             </div>
                           </div>
                           <div class="post-info">
-                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                            <a href="<?=$terbaru[$i]['link']?>"><?=$terbaru[$i]['judul_konten']?></a>
                             <div class="post-meta">
-                               Jan 10, 2016
+                               <?=$terbaru[$i]['tgl_rilis']?>
                             </div>
                           </div>
                         </li>
-                        <li>
-                          <div class="post-image">
-                            <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-3.jpg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                          <div class="post-info">
-                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
-                            <div class="post-meta">
-                               Jan 10, 2016
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="post-image">
-                            <div class="img-thumbnail">
-                              <a href="blog-post.html">
-                                <img src="../sets/img/blog/blog-thumb-1.jpg" alt="">
-                              </a>
-                            </div>
-                          </div>
-                          <div class="post-info">
-                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
-                            <div class="post-meta">
-                               Jan 10, 2016
-                            </div>
-                          </div>
-                        </li>
+                        <?php } ?>
                       </ul>
                     </div>
                   </div>
