@@ -32,6 +32,7 @@
                                         <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
                                     </div>
                                 </div>
+                                <h3> TABEL DONASI <?=date('Y')?></h3>
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -57,24 +58,15 @@
                                         <?php for ($i=0; $i < count($data); $i++) { ?>
                                             <tr>
                                                 <td><?=$i+1?></td>
-                                                <td><i class="fa <?=$data[$i]['jan']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['feb']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['mar']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['apr']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['mei']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['jun']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['jul']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['agt']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['sep']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['okt']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['nov']?>"></i></td>
-                                                <td><i class="fa <?=$data[$i]['des']?>"></i></td>
+                                                <td><?=$data[$i]['nama_donatur']?></td>
+                                                <?php for ($a=1; $a <= 12; $a++) { ?> 
+                                                    
+                                                <td><i class="fa <?=$data[$i]['hasil'][$a]?>"></i></td>
+                                                <?php } ?>
+                                                
                                                 <td>
-                                                    <a href="<?=base_url().'admin/edit/'.$data[$i]['id_donatur']?>">
-                                                        <button class="btn btn-primary">Edit</button>
-                                                    </a>
-                                                    <a href="<?=base_url().'admin/hapus/'.$data[$i]['id_donatur']?>">
-                                                        <button class="btn btn-danger">Hapus</button>
+                                                    <a href="<?=base_url().'admin/donatur/detail/'.$data[$i]['id_donatur']?>">
+                                                        <button class="btn btn-primary"><i class="fa fa-user"></i> Detail</button>
                                                     </a>
                                                 </td>
                                             </tr>

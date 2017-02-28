@@ -36,26 +36,7 @@ $route['donatur']					= "H_donatur";
 //--------developer----------
 $route['developer']					= "H_beranda/view_web_dev";
 
-
 $route['input/komentar']			= "H_beranda/insert_komentar";
-// $route['portfolio/:any']			= "H_homepage/jenis_portfolio";
-// $route['portfolio/:num/:any'] 		= "H_homepage/detail_portfolio";
-
-// $route['program-kerja']				= "H_homepage/program_kerja";
-// $route['program-kerja/:num/:any']	= "H_homepage/detail_program_kerja";
-
-// $route['download']					= "H_homepage/download";
-
-// $route['sejarah']					= "H_homepage/sejarah";
-// $route['visi-misi']					= "H_homepage/visi_misi";
-
-// $route['web-developer']				= "H_homepage/web_developer";
-
-// $route['tutorial']					= "H_homepage/tutorial";
-// $route['tutorial/:num/:any'] 		= "H_homepage/detail_tutorial";
-
-// $route['input-komentar']			= "H_homepage/input_komentar";
-
 
 /**
 |-----------------------------------------------------------------------------------
@@ -67,6 +48,7 @@ $route['admin']						= "A_dashboard";
 //===konten===
 $route['admin/donatur']				= "A_donatur";
 $route['admin/donatur/tambah']		= "A_donatur/tambah_data_donatur";
+$route['admin/donatur/detail/:num']		= "A_donatur/detail_data_donatur";
 //===konten===
 $route['admin/konten']				= "A_konten";
 $route['admin/konten/tambah']		= "A_konten/tambah_data_konten";

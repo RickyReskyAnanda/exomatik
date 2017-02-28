@@ -6,7 +6,7 @@
                     <h5>Anggota</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">2</h1>
+                    <h1 class="no-margins"><?=$widget['anggota']?></h1>
                     <small>Anggota Exomatik</small>
                 </div>
             </div>
@@ -17,9 +17,7 @@
                     <h5>Program Kerja</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">2</h1>
-                    <div class="stat-percent font-bold text-navy">{{rataproker}}% <i class="fa fa-level-up"></i></div>
-                    <small>Telah Terlaksana</small>
+                    <h1 class="no-margins"><?=$widget['proker']?></h1>
                 </div>
             </div>
         </div>
@@ -29,7 +27,7 @@
                     <h5>Portofolio</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">2</h1>
+                    <h1 class="no-margins"><?=$widget['portofolio']?></h1>
                     <small>Total Portofolio</small>
                 </div>
             </div>
@@ -40,8 +38,7 @@
                     <h5>Konten</h5>
                 </div>
                 <div class="ibox-content">
-                    <h1 class="no-margins">2</h1>
-                    <small>Total income</small>
+                    <h1 class="no-margins"><?=$widget['konten']?></h1>
                 </div>
             </div>
         </div>

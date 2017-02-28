@@ -22,15 +22,13 @@ class A_dashboard extends CI_Controller{
      */
 
     public function index(){
+        $data['widget']=$this->M_dashboard->select_jumlah_widget();
         $this->load->view('header');
-        $this->load->view('dashboard');
+        $this->load->view('dashboard',$data);
         $this->load->view('footer');
     }  
 
     //-------- CRUD DASHBOARD ------------
-        public function select_jumlah_widget(){
-            $this->M_dashboard->select_jumlah_widget();
-        }
         public function select_data_saran(){
             $this->M_dashboard->select_data_saran();
         }

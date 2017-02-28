@@ -50,7 +50,7 @@ class M_anggota extends CI_Model {
         $this->load->library('image_lib');
     	$gambar = "";
         if($_FILES['foto']['name']){
-            $nmfile = "anggota_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $nmfile = "anggota_".date("Ymdhis"); //nama file saya beri nama langsung dan diikuti fungsi time
             $config['file_name']        = $nmfile; //nama yang terupload nantinya
             $config['upload_path']      = 'image/gambar_anggota'; //path folder
             $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -100,7 +100,7 @@ class M_anggota extends CI_Model {
     public function update_data_anggota(){
     	$gambar = "";
         if($_FILES['foto']['name']){
-            $nmfile = "anggota_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $nmfile = "anggota_".date("Ymdhis"); //nama file saya beri nama langsung dan diikuti fungsi time
             $config['file_name']        = $nmfile; //nama yang terupload nantinya
             $config['upload_path']      = 'image/gambar_anggota'; //path folder
             $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan

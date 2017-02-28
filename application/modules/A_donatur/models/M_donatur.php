@@ -9,32 +9,51 @@ class M_donatur extends CI_Model {
     }
 
     public function select_data_donatur(){
-        $this->db->where('status',$this->input->post('sts'));
-        $data = $this->db->get('table_donatur')->result_array();
-
-        for ($i=0; $i < count($data); $i++) { 
-            $data[$i]['foto'] = base_url()."image/gambar_donatur/".$data[$i]['foto'];
-            $data[$i]['edit'] = base_url()."admin/donatur/edit/".$data[$i]['id_donatur'];
+        $donatur = $this->db->get('table_donatur')->result_array();
+        for ($i=0; $i < count($donatur); $i++) { 
+            $this->db->where('id_donatur',$donatur[$i]['id_donatur']);
+            $this->db->where('tahun',date('Y'));
+            $donatur[$i]['donasi'] = $this->db->get('table_donasi')->result_array();
+            if(count($donatur[$i]['donasi'])>0){
+                for ($a=0; $a < 12; $a++) {
+                    for ($b=0; $b < count($donatur[$i]['donasi']); $b++) { 
+                        if($donatur[$i]['donasi'][$b]['bulan']==$a+1){
+                            $donatur[$i]['hasil'][$a+1]='fa-check-square-o';
+                            break;
+                        }else{
+                            $donatur[$i]['hasil'][$a+1]='fa-minus-square-o';
+                        }
+                    } 
+                }
+            }elseif(count($donatur[$i]['donasi'])<1){
+                for ($x=1; $x <= 12; $x++) { 
+                    $donatur[$i]['hasil'][$x]='fa-minus-square-o';
+                }
+            }
+            
         }
-        echo json_encode($data);
+        // print_r($donatur);die;
+        return $donatur;
+    }
+
+    public function select_data_detail_donatur(){
+        $id=$this->uri->segment(4);
+
+        $this->db->where('id_donatur', $id);
+        $data =  $this->db->get('table_donatur')->row_array();
+
+        $data['foto'] = base_url().'image/gambar_donatur/'.$data['foto_donatur'];
+        $data['tgl_lahir_donatur'] = date_format(date_create($data['tgl_lahir_donatur']), "d M Y");
+
+        return $data;
     }
 
     public function insert_data_donatur(){
-    	print_r($_POST);die;
         $data=array();
-
-        $data['nama_donatur']   = $this->input->post('nama_donatur');
-        $data['tgl_lahir']      = $this->input->post('tgl_lahir');
-        $data['pekerjaan']      = $this->input->post('pekerjaan');
-        $data['jk']             = $this->input->post('jk');
-        $data['no_hp']          = $this->input->post('no_hp');
-        $data['alamat']         = $this->input->post('alamat');
-    }
-
-    public function update_data_donatur(){
-    	$gambar = "";
+        $gambar = "";
         if($_FILES['foto']['name']){
-            $nmfile = "donatur_".date("Ymdhms"); //nama file saya beri nama langsung dan diikuti fungsi time
+            $this->load->library('image_lib');
+            $nmfile = "donatur_".date("Ymdhis"); //nama file saya beri nama langsung dan diikuti fungsi time
             $config['file_name']        = $nmfile; //nama yang terupload nantinya
             $config['upload_path']      = 'image/gambar_donatur'; //path folder
             $config['allowed_types']    = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -44,64 +63,40 @@ class M_donatur extends CI_Model {
 
             $this->load->library('upload', $config);
             $this->upload->do_upload('foto');
-            $data   = $this->upload->data();
-            $gambar = $data['file_name'];
+            $val   = $this->upload->data();
+            $data['foto_donatur'] = $val['file_name'];
+        
 
-            $img=$this->input->post('img');
-
-            if($img != "empty.png"){
-                $file = "image/gambar_donatur/".$img;
-                unlink($file);
-            }
-
-            $data = array(
-	    		'nik' 			=> $this->input->post('nik'), 
-	    		'nama' 			=> $this->input->post('nama_lengkap'),
-	    		'jk' 			=> $this->input->post('jk'),
-	    		'tempat_lahir' 	=> $this->input->post('tempat_lahir'),
-	    		'tgl_lahir' 	=> $this->input->post('tgl_lahir'),
-	    		'no_hp' 		=> $this->input->post('no_hp'),
-	    		'angkatan' 		=> $this->input->post('angkatan'),
-	    		'status' 		=> $this->input->post('status'),
-	    		'foto' 			=> $gambar
-	    	);
-        }else{
-        	$data = array(
-	    		'nik' 			=> $this->input->post('nik'), 
-	    		'nama' 			=> $this->input->post('nama_lengkap'),
-	    		'jk' 			=> $this->input->post('jk'),
-	    		'tempat_lahir' 	=> $this->input->post('tempat_lahir'),
-	    		'tgl_lahir' 	=> $this->input->post('tgl_lahir'),
-	    		'no_hp' 		=> $this->input->post('no_hp'),
-	    		'angkatan' 		=> $this->input->post('angkatan'),
-	    		'status' 		=> $this->input->post('status')
-	    	);
+            $config1['create_thumb']     = false;
+            $config1['image_library']    = 'gd2';
+            $config1['source_image']     = $this->upload->upload_path.$this->upload->file_name;
+            $config1['maintain_ratio']   = true;
+            $config1['width']            = '250';
+            $config1['height']           = '250';
+            $config1['quality']          = '90';
+            $this->image_lib->initialize($config1);
+            $this->image_lib->resize();
         }
 
-    	
-
-    	$this->db->where('id_donatur',$this->input->post('id_donatur'));
-    	$this->db->update('table_donatur',$data);
-
-    	redirect('A_donatur');
+        $data['nama_donatur']           = $this->input->post('nama_donatur');
+        $data['tgl_lahir_donatur']      = $this->input->post('tgl_lahir');
+        $data['pekerjaan_donatur']      = $this->input->post('pekerjaan');
+        $data['jk_donatur']             = $this->input->post('jk');
+        $data['no_hp_donatur']          = $this->input->post('no_hp');
+        $data['alamat_donatur']         = $this->input->post('alamat');
+        $data['nominal_donatur']        = $this->input->post('nominal');
+        $this->db->insert('table_donatur',$data);
+        redirect('admin/donatur');
     }
 
-    public function delete_data_donatur(){ //hapus data rilis
+    public function insert_data_donasi(){
+        $data['id_donatur']     = $this->input->post('id_donatur');
+        $data['tanggal']        = $this->input->post('tanggal');
+        $data['bulan']          = $this->input->post('bulan');
+        $data['tahun']          = $this->input->post('tahun');
 
-        $this->db->select('foto');
-        $this->db->where('id_donatur',$this->input->post('id'));
-        $data = $this->db->get('table_donatur')->row_array();
-
-        if($data['foto'] != "empty.png"){
-                $file = "image/gambar_donatur/".$data['foto'];
-                if(!unlink($file)){echo "tidak ada file";}
-            }
-
-        $this->db->where('id_donatur', $this->input->post('id'));
-        $this->db->delete('table_donatur');
-        
-        $this->db->where('id_donatur',$this->input->post('id'));
-        $this->db->delete('table_struktur');
+        $this->db->insert('table_donasi',$data);
+        redirect('admin/donatur/detail/'.$data['id_donatur']);
     }
 
 }
