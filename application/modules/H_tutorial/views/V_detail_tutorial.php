@@ -4,10 +4,9 @@
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="breadcrumb">
-								<li><a href="tutorial.html">Home</a></li>
-								<li><a href="tutorial-kategori.html">Kategori</a></li>
-								<li><a href="tutorial-kategori-destopprogramming.html">Destop Programming</a></li>
-								<li class="active">Tutorial</li>
+								<li><a href="<?=base_url()?>">Home</a></li>
+								<li><a href="<?=base_url('tutorial')?>">Tutorial</a></li>
+								<li class="active"><?=$data['judul_tutorial']?></li>
 							</ul>
 						</div>
 					</div>
@@ -25,26 +24,27 @@
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-12">
+							<article>
 								<div class="post-content">
 									<h2><a href=""><?=$data['judul_tutorial']?></a></h2>
-										<div class="post-meta">
-											<span><i class="fa fa-user"></i> By <a href="#"><?=$data['nama']?></a> </span>
-											<span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
-											<span><i class="fa fa-eye"></i> <a href="#"><?=$data['viewers_tutorial']?></a> </span>
-											<span><i class="fa fa-thumbs-up"></i> <a href="#"><?=$data['likers_tutorial']?> </a></span>
-										</div>
-										<img class="img-responsive img-thumbnail" src="<?=base_url()?>image/gambar_tutorial/<?=$data['gambar_tutorial']?>" style=" margin-bottom:20px;margin-top: 5px"/>
+										
+									<div class="post-meta">
+										<span><i class="fa fa-user"></i> By <a href="#"><?=$data['nama']?></a> </span>
+										<span><i class="fa fa-eye"></i> <a href="#"><?=$data['viewers_tutorial']?></a> </span>
+										<span><i class="fa fa-thumbs-up"></i> <a href="#"><?=$data['likers_tutorial']?> </a></span>
+									</div>
+									<div class="addthis_inline_share_toolbox"></div>
+									<img class="img-responsive" src="<?=base_url()?>image/gambar_tutorial/<?=$data['gambar_tutorial']?>" />
 
-											<?=$data['isi_tutorial']?>
-									<span class="thumb-info-social-icons" style="border-top: 0px">
-										<a target="_blank" href="#" style="background-color: #0a628e"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-										<a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-										<a href="#" style="background-color: #c71603"><i class="fa fa-google-plus"></i><span>Twitter</span></a>
-									</span>
+										<p><?=$data['isi_tutorial']?></p>
+									<div class="addthis_inline_share_toolbox"></div>
 								</div>
 								<div class="divider divider-style-2 divider-icon-sm taller">
 									<i class="fa fa-chevron-down"></i>
 								</div>
+							</article>
+
+
 							</div>
 						</div>
 						<div class="row">
@@ -67,6 +67,7 @@
 							</div>
 							</div>
 						</div>
+						<div class="fb-comments" data-href="<?=base_url().'tutorial/'.$this->uri->segment(2).'/'.$this->uri->segment(3)?>" data-width="700" data-numposts="20"></div>
 					</div>
 					<div class="col-md-4">
 						<div class="row">

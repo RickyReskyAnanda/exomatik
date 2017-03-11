@@ -356,50 +356,7 @@
 							
 						</div>
 					</div>
-					<!-- <div class="row center">
-						<div class="owl-carousel owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-options="{&quot;items&quot;: 6, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 3000}">
-							<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1950px, 0px, 0px); transition: 0.25s; width: 3900px;"><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
-							</div></div><div class="owl-item" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-1.png" alt="">
-							</div></div><div class="owl-item" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
-							</div></div><div class="owl-item" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
-							</div></div><div class="owl-item" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
-							</div></div><div class="owl-item active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
-							</div></div><div class="owl-item active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
-							</div></div><div class="owl-item active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
-							</div></div><div class="owl-item active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
-							</div></div><div class="owl-item cloned active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-1.png" alt="">
-							</div></div><div class="owl-item cloned active" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-2.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-3.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-4.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-5.png" alt="">
-							</div></div><div class="owl-item cloned" style="width: 195px;"><div>
-								<img class="img-responsive" src="img/logos/logo-6.png" alt="">
-							</div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"></div><div class="owl-next"></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
-					</div> -->
+					
 				<!-- batas portofolio -->
 				<section class="section section-default section-with-divider">
 					<div class="divider divider-solid divider-style-4">

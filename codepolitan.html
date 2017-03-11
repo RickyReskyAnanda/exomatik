@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Soeleman" />
+	<title>Web Static dengan Firebase Hosting - CodePolitan.com</title>
+	
+	<!-- FAVICON -->
+	<link rel="apple-touch-icon" sizes="57x57" href="https://www.codepolitan.com/assets/img/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://www.codepolitan.com/assets/img/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://www.codepolitan.com/assets/img/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://www.codepolitan.com/assets/img/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://www.codepolitan.com/assets/img/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://www.codepolitan.com/assets/img/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://www.codepolitan.com/assets/img/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://www.codepolitan.com/assets/img/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.codepolitan.com/assets/img/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="https://www.codepolitan.com/assets/img/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.codepolitan.com/assets/img/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://www.codepolitan.com/assets/img/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.codepolitan.com/assets/img/icon/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="https://www.codepolitan.com/assets/img/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+	<!-- Yoast -->
+	<link rel="canonical" href="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" />
+	<meta property="og:locale" content="id_ID" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Web Static dengan Firebase Hosting - CodePolitan.com" />
+	<meta property="og:description" content="Pada masa yang lampau ketika internet masih baru untuk umum, mahal dan lambat, ada Geocities yang memberikan kesempatan bagi amatir membuat Static Web Page dengan Web hosting service gratis.
+Dan..." />
+	<meta property="og:url" content="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" />
+	<meta property="og:site_name" content="CodePolitan.com" />
+	<meta property="article:publisher" content="https://www.facebook.com/codepolitan" />
+	
+						<meta property="article:tag" content="css" />
+			
+
+					<meta property="article:tag" content="google" />
+			
+
+					<meta property="article:tag" content="nodejs" />
+			
+
+					<meta property="article:tag" content="javascript" />
+			
+
+					<meta property="article:tag" content="database" />
+			
+
+					<meta property="article:tag" content="html" />
+			
+
+					<meta property="article:tag" content="web" />
+			
+
+					<meta property="article:tag" content="firebase" />
+			
+
+					<meta property="article:tag" content="static-webpage" />
+			
+
+				
+			<meta property="article:section" content="Tutorial" />
+		
+	<meta property="og:image" content="https://www.codepolitan.com/./uploads/image/source/13629/codepolitan_firebase_banner_700_350-image(700x350-crop).png" />
+	<meta property="og:image:width" content="700" />
+	<meta property="og:image:height" content="350" />
+	<!-- / Yoast SEO plugin. -->
+	
+	<link rel="alternate" type="application/rss+xml" title="Web Static dengan Firebase Hosting - CodePolitan.com" href="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00/feed/" />
+	<meta property="og:title" content="Web Static dengan Firebase Hosting - CodePolitan.com"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:site_name" content="CodePolitan.com"/>
+	<meta property="og:description" content="Pada masa yang lampau ketika internet masih baru untuk umum, mahal dan lambat, ada Geocities yang memberikan kesempatan bagi amatir membuat Static Web Page dengan Web hosting service gratis.
+Dan..." />
+	<meta name="description" content="Pada masa yang lampau ketika internet masih baru untuk umum, mahal dan lambat, ada Geocities yang memberikan kesempatan bagi amatir membuat Static Web Page dengan Web hosting service gratis.
+Dan..." />
+	<meta property="description" content="Pada masa yang lampau ketika internet masih baru untuk umum, mahal dan lambat, ada Geocities yang memberikan kesempatan bagi amatir membuat Static Web Page dengan Web hosting service gratis.
+Dan..." />
+	<meta property="language" content="Indonesia" />
+	<meta property="revisit-after" content="7" />
+	<meta property="webcrawlers" content="all" />
+	<meta property="rating" content="general" />
+	<meta property="spiders" content="all" />
+	<meta property="robots" content="all" />
+	
+	<!-- STYLESHEET -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,300,500,700,100|Lora:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://www.codepolitan.com/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" type='text/css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css' type='text/css' media='all' />
+	<link href="https://www.codepolitan.com/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+	<link href="https://www.codepolitan.com/assets/vendor/cp-tutspaging/tutspaging.css" rel="stylesheet" type='text/css'>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+	<link href="https://www.codepolitan.com/assets/css/mainstyle.min.css"rel="stylesheet" type='text/css'>
+	<link href="https://www.codepolitan.com/assets/css/mainstyle.custom.css"rel="stylesheet" type='text/css'>
+
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-51093490-1', 'codepolitan.com');
+	ga('send', 'pageview');
+	</script>
+	
+	<!-- start Mixpanel -->
+	<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+	0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+	for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+	mixpanel.init("608746391f30c018d759b8c2c1ecb097");</script>
+	<!-- end Mixpanel -->
+	
+	<link rel="manifest" href="/manifest.json">
+  	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  	<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "a2540447-5236-4ac5-b5b3-b2b8d027e0c9",
+      autoRegister: false,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
+  	</script>
+
+  	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+	fbq('init', '597841967035840');
+	fbq('track', "PageView");</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=597841967035840&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-cp">
+	<!--
+	<div id="head-alert" style="padding:5px;background:#e88b8b;color:#FFF;font-size:5px:" class="text-center">
+		<b>Pemberitahuan</b>, Jam 2 siang kami akan menonaktifkan Codepolitan. Bagi teman-teman yang sedang menulis silahkan save draft terlebih dahulu. &nbsp;&nbsp;<a href="#" id="btn-close-head-alert" class="btn-xs btn-danger">Close</a>
+	</div> -->
+	<div class="container-fluid">
+		
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="https://www.codepolitan.com" title="CodePolitan"><img src="https://www.codepolitan.com/assets/img/codepolitan_logo.png" class="logo-img" alt="CodePolitan"></a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li ><a href="https://www.codepolitan.com/articles">ARTICLES</a></li>
+				<li ><a href="https://www.codepolitan.com/learn">LEARN</a></li>
+				<li ><a href="https://www.codepolitan.com/upcoming-event">EVENT</a></li>
+				<!--<li ><a href="https://www.codepolitan.com/jobs">JOBS</a></li>-->
+				<li ><a href="https://www.codepolitan.com/course">BOOTCAMP</a></li>
+				<li ><a href="https://www.codepolitan.com/statistics">STATS</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+									<li class="nav-btn"><a href="https://www.codepolitan.com/users/login?callback=https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00">LOGIN</a></li>
+					<li class="nav-btn nav-signup"><a href="https://www.codepolitan.com/users/register" class="record-data" data-action="register-account" data-position="general-navbar">SIGN UP</a></li>
+								</ul>
+		</div>
+	</div>
+</nav>
+<!-- END: NAVBAR -->
+
+	<!-- MAIN WRAPPER -->
+	<div class="cp-wrapper margin-top-wrapper">
+
+		<!-- SECTION UPDATES -->
+		<section class="content-wrapper">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-8">
+						
+						
+						<article class="main-content margin-bottom tutspaging">
+							<ol class="breadcrumb cp-breadcrumb">
+								<li><a href="https://www.codepolitan.com/articles">Articles</a></li>
+								<li><a href="https://www.codepolitan.com/category/tutorial">Tutorial</a></li>
+								<li class="active">Web Static dengan Firebase Hosting</li>
+							</ol>
+
+							<div class="content-head">
+								<div class="content-author">
+									<div class="media">
+										<div class="media-left">
+											<div class="content-avatar">
+												<a href="https://www.codepolitan.com/coder/soeleman"><img src="https://www.codepolitan.com/./uploads/profile/mini_580d1f0b83b95.png" class="img-avatar"></a>
+											</div>
+										</div>
+										<div class="media-body">
+											<div class="content-name"><span class="content-authorname "><a href="https://www.codepolitan.com/coder/soeleman">Soeleman</a></span></div>
+											<div class="content-position">&nbsp;&nbsp;&nbsp;</div>
+											<div class="content-date">Mar 2, 2017</div>
+										</div>
+									</div>
+								</div>
+								<h1>Web Static dengan Firebase Hosting</h1>
+							</div>
+
+							<img src="https://www.codepolitan.com/./uploads/image/source/13629/codepolitan_firebase_banner_700_350-image(700x350-crop).png" class="full-width">
+							
+							<div class="content-body">
+								
+								<div class="step-contents tab-content">
+									<div class="tab-pane step active">
+										<div id="main_content_post">
+											<p>Pada masa yang lampau ketika <em>internet</em> masih baru untuk umum, mahal dan lambat, ada <a href="https://en.wikipedia.org/wiki/Yahoo!_GeoCities" title="Wikipedia: Yahoo! GeoCities">Geocities</a> yang memberikan kesempatan bagi amatir membuat <a href="https://en.wikipedia.org/wiki/Static_web_page" title="Wikipedia: Static web page">Static Web Page</a> dengan <a href="https://en.wikipedia.org/wiki/Web_hosting_service" title="Wikipedia: Web hosting service">Web hosting service</a> gratis.
+Dan sekarang yang terjadi adalah kebalikkannya, banyak pilihan yang menawarkan jasanya. Salah satunya adalah <a href="https://firebase.google.com/" title="Google Firebase">Firebase</a>.</p>
+<p><a href="https://firebase.google.com/" title="Google Firebase">Firebase Hosting</a> menawarkan <em>hosting</em> untuk <a href="https://en.wikipedia.org/wiki/Static_web_page" title="Wikipedia: Static web page">Static Web Page</a> dalam platformnya. <em>Service</em> ini ada karena <a href="https://firebase.google.com/" title="Google Firebase">Firebase</a> memerlukannya bagi dukungan <em>service</em> lainnya. Jadi mari kita gunakan ini untuk membuat <a href="https://en.wikipedia.org/wiki/Static_web_page" title="Wikipedia: Static web page">Static Web Page</a> dan bisa menggunakan <em>domain</em> kita sendiri.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/website.png" alt="alt text" title="Firebase Website" /></p>
+<h3>Firebase CLI</h3>
+<p>Memulainya kita ada bantuan yang <a href="https://firebase.google.com/" title="Google Firebase">Firebase</a> sediakan untuk ini. Kita perlu <a href="https://nodejs.org/" title="Node.js Website">Node.js</a> dengan <a href="https://en.wikipedia.org/wiki/Npm_(software)" title="Wikipedia: NPM">NPM</a>. Dan kita pasang menggunakan perintah <code>npm install -g firebase-tools</code>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/npm-firebase-tools.png" alt="alt text" title="NPM Firebase-Tools" /></p>
+<p>Saat ini versinya seperti pada gambar dibawah.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-version.png" alt="alt text" title="Firebase Version" /></p>
+<h3>Firebase Login</h3>
+<p>Kita perlu <em>login</em> ke <a href="https://www.google.com" title="Google">Google</a> lewat perintah <code>firebase Login</code>. Ia menggunakan <em>login</em> kita yang ada di-<em>browser chrome</em>, jadi sebaiknya <em>login</em> juga disana. Ini dilakukan sekali saja, karena <em>token auth</em> biasanya disimpan.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-login.png" alt="alt text" title="Firebase Login" /></p>
+<h3>Firebase Init</h3>
+<p>Untuk memulainya kita buat dan masuk ke <em>folder</em> tempat kita akan menaruh <em>file</em> <a href="https://en.wikipedia.org/wiki/Website" title="Wikipedia: Website">website</a>-nya. Dari situ kita jalankan perintah <code>firebase init</code>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init.png" alt="alt text" title="Firebase Init" /></p>
+<p>Setelah pilihan untuk melanjutkan, kita akan memilih <code>Hosting: Configure and deploy Firebase Hosting sites</code>. Karena kita memang menggunakan ini untuk <em>hosting</em>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-hosting.png" alt="alt text" title="Firebase Hosting" /></p>
+<p>Karena kita memulai tanpa membuat projek dahulu di-<a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a> maka kita pilih <code>Create a new project</code>. Kalau kita sudah membuat project di-<a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a> maka projek itu akan muncul disini.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-project.png" alt="alt text" title="Firebase Project" /></p>
+<p>Pilihan ini kita cukup melewatkan saja dengan menekan tombol <em>enter</em>. Yang terjadi <a href="https://firebase.google.com/" title="Google Firebase">Firebase</a> akan membuatkan kita file <code>database.rules.json</code>, ini bisa dikonfigurasi kemudian hari.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-db.png" alt="alt text" title="Firebase Database" /></p>
+<p>Selanjutnya kita akan ditanyakan <em>folder</em> mana yang akan digunakan untuk <em>file</em> kita. Secara <em>default</em> nama <em>folder</em>-nya <code>public</code>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-setup-folder.png" alt="alt text" title="Firebase Folder" /></p>
+<p>Karena di tulisan ini kita tidak membuat <em>web</em> dengan <a href="https://en.wikipedia.org/wiki/JavaScript" title="Wikipedia: JavaScript">javascript framework</a> maka kita pilih <code>N</code>. Konfigurasi ini bisa di atur secara manual, seperti halnya konfigurasi untuk <em>web-server rewrite</em>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-setup-spa.png" alt="alt text" title="Firebase SPA" /></p>
+<p>Selesai sudah proses ini. Langkah selanjutnya kita perlu ke <a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a>-nya.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-setup-done.png" alt="alt text" title="Firebase Init Done" /></p>
+<h3>Console Firebase</h3>
+<p>Tampaknya <code>firebase-tools</code> belum bisa membuatkan project di-<a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a>. Jadi kita perlu ke sana. Dan membuat project baru.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/console-new-project.png" alt="alt text" title="Firebase Console New Project" /></p>
+<p>Untuk tulisan ini kita buat projek dengan nama <code>CodePolitan</code> dinegara <code>Indonesia</code>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/console-new-project-cp.png" alt="alt text" title="Firebase Console Project Name" /></p>
+<p>Kalau kita pilih menu <em>hosting</em> maka kita akan masuk ke <em>dashboard</em>, terlihat seperti dibawah. Dari sini kita tidak perlu melakukan apa-apa lagi disini.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/cp-dashboard.png" alt="alt text" title="Firebase Dashboard" /></p>
+<h3>Firebase Use</h3>
+<p>Projeknya sudah siap. Sekarang saatnya kita akan menyambungkan dengan yang kita sudah <em>init</em> tadi. Gunakan perintah <code>firebase use --add</code>, maka akan muncul projek yang kita buat tadi di-<a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a> dalam hal ini <code>codepolitan-50731</code>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-use.png" alt="alt text" title="Firebase Use --Add" /></p>
+<p>Ada pertanyaan soal <em>alias</em>, cukup kita masukkan <code>codepolitan</code> biar sederhana.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-use-alias.png" alt="alt text" title="Firebase Use Alias" /></p>
+<p>Setelah itu projek kita diselaraskan dan kita konfigurasi selesai.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-use-done.png" alt="alt text" title="Firebase Use Done" /></p>
+<h3>Firebase Deploy</h3>
+<p>Pada saat kita menginisiasi <em>folder</em> tadi. Proses tersebut akan membuat beberapa <em>file</em>. Ini termasuk <em>file</em> <a href="https://en.wikipedia.org/wiki/HTML" title="Wikipedia: HyperText Markup Language (HTML)">HTML</a> dalam <em>folder public</em> dan beberapa <a href="https://en.wikipedia.org/wiki/JSON" title="Wikipedia: JSON">JSON</a> <em>file</em> (ini tempat konfigurasinya).</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-explorer.png" alt="alt text" title="Firebase Explore" /></p>
+<p>Sekarang bukan jaman pakai <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol" title="Wikipedia: File Transfer Protocol (FTP)">FTP</a> lagi, jadi kita akan gunakan perintah <code>firebase deploy</code> untuk me-copy <em>file</em> di komputer kita ke <em>server</em>. Selesai itu kita akan melihat nama <em>sub-domain</em> dari <a href="https://en.wikipedia.org/wiki/Website" title="Wikipedia: Website">website</a> kita itu.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-deploy.png" alt="alt text" title="Firebase Deploy" /></p>
+<p>Dan bila kita kembali ke-<a href="https://firebase.google.com/" title="Google Firebase">Firebase Console</a>, kita akan melihat <em>Deployment history</em> yang berisi catatan pen-<em>deploy</em>-an kita.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/cp-dashboard-deploy.png" alt="alt text" title="Firebase Dashboard Deploy" /></p>
+<p>Kalau kita ke alamat <code>codepolitan-50731.firebaseapp.com</code> kita melihat seperti pada gambar. Dan tandanya kita sudah berhasil.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/cp-web.png" alt="alt text" title="Deploy Web" /></p>
+<p>Lalu bagaimana kita me-<em>update</em>-nya. Pastinya kita lakukan itu dahulu di komputer kita. Seperti contoh kita sekarang masukkan <em>file</em> tambahan seperti <em>file</em> <a href="https://en.wikipedia.org/wiki/JavaScript" title="Wikipedia: JavaScript">javascript</a>, <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="Wikipedia: Cascading Style Sheets (CSS)">CSS</a>, <em>image</em> dan lainnya kedalam <em>folder public</em>.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-init-explorer-new.png" alt="alt text" title="Firebase Explore Again" /></p>
+<p>Dari situ kita cukup gunakan perintah <code>firebase deploy</code> lagi. Maka maka kita ia akan mengsinkronisasikan dengan yang ada di-<em>server</em>. Mudah bukan?</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/firebase-deploy-again.png" alt="alt text" title="Firebase Deploy Again" /></p>
+<p>Kembali ke alamat <code>codepolitan-50731.firebaseapp.com</code> kita lagi untuk mengecek apakah <em>deploy</em>-nya sudah berhasil atau tidak.</p>
+<p><img src="https://dede.gitlab.io/a/i/p/firebase-hosting/cp-web-new.png" alt="alt text" title="New Deploy Web" /></p>
+<h3>Penutup</h3>
+<p><a href="https://firebase.google.com/" title="Google Firebase">Firebase Hosting</a> menyediakan fasilitas ini sebagai bagian dari ekosistim platform <em>cloud</em> mereka. <em>Service</em> ini akan memudahkan <em>developer</em> untuk menggunakan <em>service</em> lainnya, walaupun harus mengikuti tata cara yang sudah ditentukan. Membuat <a href="https://en.wikipedia.org/wiki/Website" title="Wikipedia: Website">website</a> amatiran saja bisalah gunakan ini sebagai alternatif.</p>
+<h3>Referensi</h3>
+<ul>
+<li><a href="https://firebase.google.com/" title="Google Firebase">Firebase</a></li>
+<li><a href="https://nodejs.org/" title="Node.js Website">Node.js</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Npm_(software)" title="Wikipedia: NPM">NPM</a></li>
+</ul>
+<blockquote><p><strong>Perhatian!</strong> Code yang ditampilkan dalam tulisan ini merupakan ilustrasi dari yang ingin dipaparkan dan bukan <em><strong>production ready code</strong></em>. Sudah banyak kejadian karena asal meng-<em><strong>copy-and-paste</strong></em> tanpa mengerti code yang diambil itu ke dalam <em><strong>production</strong></em>. Selain itu perlu ada tambahan code dan test sebelum siap untuk digunakan secara utuh.</p>
+</blockquote>
+
+										</div>
+									</div>
+								</div>
+								
+								<ul id="step-pagination" class="nav nav-pills">
+									<li id="pagination-loading">
+										<img style="margin:0;" src="http://i.imgur.com/695GlT0.gif">
+									</li>
+								</ul>
+
+																	<!-- TAG -->
+									<div class="content-tag" style="margin-top:20px;">
+										<ul>
+																							<li><a href="https://www.codepolitan.com/tag/css">css</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/google">google</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/nodejs">nodejs</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/javascript">javascript</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/database">database</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/html">html</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/web">web</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/firebase">firebase</a></li>
+																							<li><a href="https://www.codepolitan.com/tag/static-webpage">static-webpage</a></li>
+																					</ul>
+									</div>
+									<!-- END: TAG -->
+								
+								<div class="margin-sm-top"><small>Dilihat 27 kali</small></div>
+							</div>
+
+							<div class="thanks-bottom-wrapper">
+								<h3>Is this helpful?</h3>
+							
+								<div class="respect-wrapper">
+																			<button type="button" class="btn btn-cp btn-thanks record-data margin-md-right" post-id="16516" data-action="thanks-article-bottom" data-position="article-detail" data-id="16516">YES, THANKS</button>
+									
+									<a href="#" class="btn-see-thanks">&nbsp;&nbsp;Thanked by <span id="thank_number_bottom">1</span> peoples</a>
+								</div>
+							</div>
+
+							<div class="socialshare-bottom-wrapper">
+								<div class="row">
+									<div class="col-md-6">
+										<h3>Share This Post</h3>
+									</div>
+									<div class="col-md-6">
+										<div class="share-icon-wrapper">
+											<a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="facebook" class="btn-share social-facebook"><i class="fa fa-facebook-official"></i></a>
+											<a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="twitter" class="btn-share social-twitter"><i class="fa fa-twitter"></i></a>
+											<a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="googleplus" class="btn-share social-google-plus"><i class="fa fa-google-plus"></i></a>
+											<a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="linkedin" class="btn-share social-linkedin"><i class="fa fa-linkedin-square"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+
+						
+						<!-- ARTIKEL TERKAIT -->
+						<div class="content-loop">
+							<div class="row">
+																										<div class="col-md-6">
+										<div class="post-item small-post small-margin">
+											<div class="post-thumb">
+												<a href="https://www.codepolitan.com/instalasi-cms-popoji" title="Instalasi CMS Popoji" class="record-data" data-action="related-article" data-position="article-detail">
+													<img src="/./wp-content/uploads/2015/12/popoji_logo-image(250x150-crop).jpg" class="thumb-img" alt="Instalasi CMS Popoji">
+												</a>
+											</div>
+											<div class="post-body">
+												<div class="post-category"><a href="https://www.codepolitan.com/category/tutorial">Tutorial</a></div>
+												<h3 class="post-title" style="font-size:16px;">
+													<a href="https://www.codepolitan.com/instalasi-cms-popoji" title="Instalasi CMS Popoji" class="record-data" data-action="related-article" data-position="article-detail" data-id="https://www.codepolitan.com/instalasi-cms-popoji">
+													Instalasi CMS Popoji
+													</a>
+												</h3>
+												<div class="post-author"><a href="https://www.codepolitan.com/coder/radan">radan</a></div>
+											</div>
+										</div>
+									</div>
+																		<div class="col-md-6">
+										<div class="post-item small-post small-margin">
+											<div class="post-thumb">
+												<a href="https://www.codepolitan.com/cara-konek-database-mysql-jsqlbeans" title="Cara Konek ke Database MySQL di JSQLBeans" class="record-data" data-action="related-article" data-position="article-detail">
+													<img src="/./wp-content/uploads/2016/07/Selection_003-image(250x150-crop).png" class="thumb-img" alt="Cara Konek ke Database MySQL di JSQLBeans">
+												</a>
+											</div>
+											<div class="post-body">
+												<div class="post-category"><a href="https://www.codepolitan.com/category/tutorial">Tutorial</a></div>
+												<h3 class="post-title" style="font-size:16px;">
+													<a href="https://www.codepolitan.com/cara-konek-database-mysql-jsqlbeans" title="Cara Konek ke Database MySQL di JSQLBeans" class="record-data" data-action="related-article" data-position="article-detail" data-id="https://www.codepolitan.com/cara-konek-database-mysql-jsqlbeans">
+													Cara Konek ke Database MySQL di JSQLBeans
+													</a>
+												</h3>
+												<div class="post-author"><a href="https://www.codepolitan.com/coder/ridwan">Ridwan Fajar</a></div>
+											</div>
+										</div>
+									</div>
+																								</div>
+						</div>
+						<!-- END: ARTIKEL TERKAIT -->
+
+
+						<!-- COMMENT AREA -->
+						<div id="disqus_thread"></div>
+						<script>
+
+						/**
+						*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+						*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+						/*
+						var disqus_config = function () {
+						this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+						this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+						};
+						*/
+						(function() { // DON'T EDIT BELOW THIS LINE
+						var d = document, s = d.createElement('script');
+						s.src = '//codepolitan.disqus.com/embed.js';
+						s.setAttribute('data-timestamp', +new Date());
+						(d.head || d.body).appendChild(s);
+						})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
+						<!-- END: COMMENT AREA -->
+
+
+					</div>
+					
+					<div class="col-md-4">
+
+						<!-- SIDEBAR -->
+						<div class="sidebar-social-share">
+							<h3>Share This Post</h3>
+
+							<div class="share-icon-wrapper">
+								<ul>
+									<li><a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="facebook" class="btn-share social-facebook"><i class="fa fa-facebook-official"></i></a></li>
+									<li><a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="twitter" class="btn-share social-twitter"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="googleplus" class="btn-share social-google-plus"><i class="fa fa-google-plus"></i></a></li>
+									<li><a href="#" text="Web Static dengan Firebase Hosting" url="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" social="linkedin" class="btn-share social-linkedin"><i class="fa fa-linkedin-square"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="sidebar-respect">
+							<h3>Is this helpful?</h3>
+							
+							<div class="respect-wrapper">
+																	<button type="button" class="btn btn-cp btn-thanks record-data" post-id="16516" data-action="thanks-article-sidebar" data-position="article-detail" data-id="16516">YES, THANKS</button>
+								
+								<a href="#" class="btn-see-thanks"><p>Thanked by <span id="thank_number_sidebar">1</span> peoples</p></a>
+							</div>
+						</div>
+						
+						<div class="sidebar-recommended-post">
+							<h3>Other Articles by Soeleman</h3>
+
+							<div class="sidebar-body">
+								<ul>
+																		<li><a href="https://www.codepolitan.com/web-static-dengan-firebase-hosting-58b36787c3f00" class="record-data" data-action="other-user-article" data-position="article-detail">Web Static dengan Firebase Hosting</a></li>
+																		<li><a href="https://www.codepolitan.com/mysql-lag-dan-lead-function-58b0479fcd1ae" class="record-data" data-action="other-user-article" data-position="article-detail">LAG dan LEAD Function di MySQL</a></li>
+																		<li><a href="https://www.codepolitan.com/t-sql-lag-dan-lead-function-58b046a47f134" class="record-data" data-action="other-user-article" data-position="article-detail">LAG dan LEAD Function di T-SQL</a></li>
+																		<li><a href="https://www.codepolitan.com/acat-software-membantu-penderita-amyotrophic-lateral-sclerosis-58b572d911cbd" class="record-data" data-action="other-user-article" data-position="article-detail">ACAT, Software untuk Membantu Penderita Amyotrophic Lateral Sclerosis</a></li>
+																		<li><a href="https://www.codepolitan.com/qr-code-dengan-zxingnet-58a9bb66912ae" class="record-data" data-action="other-user-article" data-position="article-detail">QR Code dengan ZXing.Net</a></li>
+																	</ul>
+							</div>
+						</div>
+
+						<div class="sidebar-recommended-post">
+							<h3>Recommended Articles</h3>
+
+							<div class="sidebar-body">
+								<ul>
+																		<li><a href="https://www.codepolitan.com/kumpulan-channel-telegram-untuk-update-informasi-seputar-teknologi-5891ae23ada77" class="record-data" data-action="recommended-article" data-position="article-detail">Kumpulan Channel Telegram untuk Update Informasi Seputar Teknologi</a></li>
+																		<li><a href="https://www.codepolitan.com/scale-startup-alilounge-bandung" class="record-data" data-action="recommended-article" data-position="article-detail">How To Scale Your Startup with AliLounge Bandung</a></li>
+																		<li><a href="https://www.codepolitan.com/semarak-awal-tahun-bersama-techno-corner-ugm-2016" class="record-data" data-action="recommended-article" data-position="article-detail">Semarak Awal Tahun Bersama Techno Corner UGM 2016</a></li>
+																		<li><a href="https://www.codepolitan.com/flask-sse-ekstensi-flask-microframework-untuk-membuat-web-push-notification" class="record-data" data-action="recommended-article" data-position="article-detail">Flask-SSE, Ekstensi Flask Microframework untuk Membuat Web Push Notification</a></li>
+																		<li><a href="https://www.codepolitan.com/antara-haskell-dan-simon-peyton-jones" class="record-data" data-action="recommended-article" data-position="article-detail">Antara Haskell dan Simon Peyton Jones</a></li>
+																	</ul>
+							</div>
+						</div>
+
+
+						<div class="sidebar-banner">
+							<a href="https://www.codepolitan.com/interactive-coding/php" class="record-data" target="_blank" data-action="goto-interactive-coding-php" data-position="article-detail"><img src="https://www.codepolitan.com/assets/img/learn_php_now.jpg" class="full-width"></a>
+						</dov>
+						<!-- END: SIDEBAR -->
+
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<!-- END: SECTION UPDATES -->
+
+	</div>
+	<!-- END: MAIN WRAPPER -->
+	
+	<div id="thanks" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        	<h4 class="modal-title">People who give thanks</h4>
+	      		</div>
+			   	<div class="modal-body">
+			        <div class="people"></div>
+			   	</div>
+	    	</div>
+	  	</div>
+	</div>
+	
+	<input type="hidden" id="post_id" value="16516">
+	<input type="hidden" id="base_url" value="https://www.codepolitan.com">
+
+<!-- FOOTER -->
+	<footer class="cp-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="footer-copyright">
+						Copyright &copy; 2016 <a href="https://www.codepolitan.com">CodePolitan</a>. All rights reserved.
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="footer-menu">
+						<ul>
+							<li><a href="https://www.codepolitan.com/about" class="record-data" data-action="view-about" data-position="general-footer">About</a></li>
+							<li><a href="https://www.codepolitan.com/how-to-start" class="record-data" data-action="view-term" data-position="general-footer">Term & Condition</a></li>
+							<li><a href="https://www.codepolitan.com/publikasi-event" class="record-data" data-action="view-media-partner" data-position="general-footer">Media Partner</a></li>
+							<li><a href="https://www.codepolitan.com/contact" class="record-data" data-action="view-contact" data-position="general-footer">Contact Us</a></li>
+							<li><a href="http://www.karyalokal.com/" target="_blank" class="record-data" data-action="go-karyalokal" data-position="general-footer">KaryaLokal</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- END: FOOTER -->
+	
+	<!-- Bridge -->
+	<input type="hidden" id="base_url" value="https://www.codepolitan.com">
+	
+	<!-- Modal -->
+		
+	
+	
+	<script src="https://www.codepolitan.com/assets/vendor/jquery/jquery-3.1.0.min.js"></script>
+	<script src="https://www.codepolitan.com/assets/vendor/jquery/jquery-migrate-1.4.1.min.js"></script>
+	<script src="https://www.codepolitan.com/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	<script src="https://www.codepolitan.com/assets/vendor/cp-tutspaging/tutspaging.js"></script>
+	<script id="dsq-count-scr" src="//codepolitan.disqus.com/count.js" async></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+	<!-- JAVASCRIPT -->
+	<!-- Feedbacklite -->
+	<script type="text/javascript">
+	var h = document.getElementsByTagName('head')[0];
+	(function(){
+	var fc = document.createElement('link'); fc.type = 'text/css'; fc.rel = 'stylesheet';
+	fc.href = 'https://product.feedbacklite.com/feedbacklite.css'; h.appendChild(fc);
+	})();
+	var fbl = {'campaign':{'id':1932, 'type':2, 'size':2, 'position':5, 'tab':4, 'control':1}};
+	(function(){
+	var fj = document.createElement('script'); fj.type = 'text/javascript';
+	fj.async = true; fj.src = 'https://product.feedbacklite.com/feedbacklite.js'; h.appendChild(fj);
+	})();
+	</script>
+	<!-- end Feedbacklite -->
+
+	<script src="https://www.codepolitan.com/assets/js/mainscript.js"></script>
+	<!-- END: JAVASCRIPT -->
+
+</body>
+</html>
+<script>
+/**
+ * Show article thanks.
+ */
+var post_id = $('#post_id').val();
+var base_url = $('#base_url').val();
+
+$('.btn-see-thanks').click(function(){
+	$('#thanks').modal();
+	$('.people').html('Wait..');
+
+	$.ajax({
+		type: "GET",
+		url: base_url + '/feedback-to/thank-by/' + post_id,
+		success: function(data)
+		{
+			$('.people').html('');
+			
+			if (data.status == 'success')
+			{
+				jQuery.each( data.people, function( i, val ) {
+					$('.people').append( '<a href="'+ base_url +'/coder/' + data.people[i].user_login + '">' + data.people[i].display_name + '</a><br/>');
+				});
+			}
+			else
+			{
+				$('.people').html('Not yet');
+			}
+		},
+		error: function(data){
+			sweetAlert("Oops...", "Something wrong.", "error");
+		}
+	});
+});
+</script>

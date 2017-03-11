@@ -10,6 +10,7 @@ class M_anggota extends CI_Model {
 
     public function select_data_anggota(){
         $this->db->where('status',$this->input->post('sts'));
+        $this->db->order_by('angkatan', 'desc');
         $data = $this->db->get('table_anggota')->result_array();
 
         for ($i=0; $i < count($data); $i++) { 
@@ -94,7 +95,7 @@ class M_anggota extends CI_Model {
 
     	$this->db->insert('table_anggota',$data);
 
-    	// redirect('admin/anggota');
+    	redirect('admin/anggota');
     }
 
     public function update_data_anggota(){

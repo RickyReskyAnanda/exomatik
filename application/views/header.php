@@ -42,6 +42,9 @@
                 <li class="<?php if($aktif=='dashboard')echo 'active';?>">
                     <a href="<?=base_url('admin')?>"><i class="fa fa-th-large"></i> <span class="nav-label">Beranda</span></a>
                 </li>
+                <li class="<?php if($aktif=='pendaftaran')echo 'active';?>">
+                    <a href="<?=base_url('admin/pendaftaran')?>"><i class="fa fa-users"></i> <span class="nav-label">Pendaftaran</span>  </a>
+                </li>
                 <li class="<?php if($aktif=='konten')echo 'active';?>">
                     <a href="<?=base_url('admin/konten')?>"><i class="fa fa-diamond"></i> <span class="nav-label">Konten</span></a>
                 </li>

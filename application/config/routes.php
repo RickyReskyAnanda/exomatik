@@ -38,11 +38,18 @@ $route['developer']					= "H_beranda/view_web_dev";
 
 $route['input/komentar']			= "H_beranda/insert_komentar";
 
+$route['pendaftaran']				= "H_pendaftaran";
+$route['pendaftaran/detail/:num']	= "H_pendaftaran/detail_pendaftaran";
+$route['pendaftaran/edit/:num']		= "H_pendaftaran/edit_pendaftaran";
+
 /**
 |-----------------------------------------------------------------------------------
 |				DASHBOARD
 |---------------------------------------------------------------------------------
 */
+$route['admin/pendaftaran']				= "A_pendaftaran";
+// $route['admin/pendaftaran/delete']			= "A_pendaftaran/delete_data_pendaftaran";
+
 $route['akses/masuk']				= "A_login";
 $route['admin']						= "A_dashboard";
 //===konten===

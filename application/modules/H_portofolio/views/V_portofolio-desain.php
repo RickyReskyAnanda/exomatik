@@ -43,11 +43,7 @@
 						<span class="thumb-info-caption-text">Keterangan : </span>
 						<?=$data['penjelasan_p']?>
 					</span>
-					<span class="thumb-info-social-icons" style="border-top: 0px">
-						<a target="_blank" href="#" style="background-color: #0a628e"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-						<a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-						<a href="#" style="background-color: #c71603"><i class="fa fa-google-plus"></i><span>Twitter</span></a>
-					</span>
+					<div class="addthis_inline_share_toolbox"></div>
 				</div>
 				<div class="col-md-4">
 					<aside class="sidebar">
@@ -91,6 +87,7 @@
 					<?php } ?>
 				</ul>
 			</div>
+            <div class="fb-comments" data-href="<?=base_url().'portofolio/'.$this->uri->segment(2).'/'.$this->uri->segment(3)?>" data-width="700" data-numposts="20"></div>
 		</div>
 	<div>
 			<!-- batas sejarah -->	

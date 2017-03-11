@@ -79,5 +79,6 @@
 		<script src="<?=base_url()?>sets/js/custom.js"></script>
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url()?>sets/js/theme.init.js"></script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58b639aca65e5395"></script>
 	</body>
 </html>

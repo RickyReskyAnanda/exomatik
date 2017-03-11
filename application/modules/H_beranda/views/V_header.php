@@ -6,20 +6,48 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>Exomatik.Com</title>	
+		<title><?=ucfirst($seo['title_h'])?></title>	
 
-		<meta name="keywords" content="HTML5 Template" />
-		<meta name="description" content="Porto - Responsive HTML5 Template">
-		<meta name="author" content="okler.net">
+		<meta name="keywords" content="program" />
+		<meta name="description" content="<?=ucfirst($seo['title_h']);?>">
+		<meta name="author" content="Ricky">
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="<?=base_url()?>sets/img/exo/Logo.png" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="<?=base_url()?>sets/img/apple-touch-icon.png">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">
+		<!-- Yoast -->
+		<meta property="og:locale" content="id_ID" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="<?=ucfirst($seo['title_h'])?>" />
+		
+		<meta property="og:url" content="<?=$seo['link_h']?>" />
+		<meta property="article:publisher" content="https://www.facebook.com/exomatik.com" />
+		
+		<meta property="article:tag" content="article" /> <!-- bisa di looping -->
+
+		<meta property="article:section" content="Tutorial" />
+			
+		<meta property="og:image" content="<?=$seo['gambar_thumb_h']?>" />
+		<meta property="og:image:width" content="800" />
+		<meta property="og:image:height" content="600" />
+		<!-- / Yoast SEO plugin. -->
+		<meta property="og:title" content="<?=ucfirst($seo['title_h'])?>"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:site_name" content="exomatik.com"/>
+		<meta property="og:description" content="<?=$seo['penjelasan_h']?>" />
+		<meta name="description" content="<?=$seo['penjelasan_h']?>" />
+		<meta property="language" content="Indonesia" />
+		<meta property="revisit-after" content="7" />
+		<meta property="webcrawlers" content="all" />
+		<meta property="rating" content="general" />
+		<meta property="spiders" content="all" />
+		<meta property="robots" content="all" />
 
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<!-- Web Fonts  -->
+		<link rel="shortcut icon" href="<?=base_url()?>sets/img/exo/Logo.png" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="<?=base_url()?>sets/img/apple-touch-icon.png">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
@@ -55,6 +83,14 @@
 
 	</head>
 	<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.8&appId=1901340246745838";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 		<div class="body">
 			<header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
 				<div class="header-body" style="top: -57px;">
